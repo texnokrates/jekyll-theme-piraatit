@@ -1,0 +1,56 @@
+
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+title: Pirátská strana | Šablona stránek
+email: to@pirati.cz
+description: > # this means to ignore newlines until "baseurl:"
+  Zde doplně popis webu
+url: "https://pirati.cz" # the base hostname & protocol for your site
+
+# Build settings
+markdown: kramdown
+
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+paginate_path: "/aktuality/:num/"
+paginate: 11
+
+exclude:
+  - readme.md
+  - Gemfile
+  - Gemfile.lock
+
+sass:
+    style: compressed
+
+permalink: /aktuality/:title.html
+collections:
+  people:
+    output: true
+    permalink: /lide/:path/
+  program:
+    output: true
+    permalink: /program/:path/
+
+defaults:   # defaults values for collection scope
+  -
+    scope:
+      path: "_people"
+    values:
+      layout: "page"
+      rbar: "foto"
+  -
+    scope:
+      path: "_program"
+    values:
+      layout: "page"
+      rbar: "volby-2018"
+
+emptyArray: []
