@@ -28,8 +28,7 @@
   }
 
   .top-bar-title img {
-    max-width: 40px;
-    margin-left: 10px;
+    width: 100px;
   }
 
   @include breakpoint(large) {
