@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "jekyll-theme-pirati"
-  spec.version       = "0.3.0"
+  spec.version       = "1.0.0"
   spec.authors       = ["Jitka Novotná"]
   spec.email         = ["jitka@ucw.cz"]
 
