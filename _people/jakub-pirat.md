@@ -5,7 +5,8 @@ fullname: Bc. Jakub Pirát  	# jméno s tituly etc.
 category:  clenove
 img: people/jakub-pirat.jpg   # 165 x 220
 description: mistr světa ve skoku pro něco
-mail:
+mail: 
+  - jakub.pirat@pirati.cz
 profiles:
   facebook: https://www.facebook.com/uzivatel.na.fb  # pokud nema, staci smazat tuto radku
   googleplus: https://plus.google.com/+uzivatel.na.googleplus
