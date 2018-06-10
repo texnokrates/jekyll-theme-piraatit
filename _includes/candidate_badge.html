@@ -1,0 +1,29 @@
+<div class="c-program-candidate-badge {% if include.leader %}c-program-candidate-badge--leader{% endif %}">
+    <div class="c-program-candidate-badge__body">
+        <div class="c-program-candidate-badge__avatar">
+            <a href="{{ include.candidate.url | relative_url }}">
+                <span class="c-program-candidate-badge__rank"><span>{{ include.candidate.cityCandidatePosition }}.</span></span>
+    
+    {% if include.candidate.img %}
+        <div class="o-media__image o-media__image--lgspace">
+          <object data= "{{ include.candidate.img | prepend: '/assets/img/' | relative_url }}" type="image/jpg">
+            <div class="o-media__image o-media__image--lgspace">
+              <img src="{{ '/assets/img/people/ppp.jpg' | relative_url }}" alt="{{item.title}}"> 
+            </div>
+          </object>
+        </div>
+    {% else %}
+        <div class="o-media__image o-media__image--lgspace">
+          <img src="{{ '/assets/img/people/ppp.jpg' | relative_url }}" alt="{{item.title}}"> 
+        </div>
+    {% endif %}
+
+            </a>
+        </div>
+        <div class="c-program-candidate-badge__description">
+            <h4 class="c-program-candidate-badge__name"><a href="{{ include.candidate.url | relative_url }}">{{ include.candidate.fullname }}</a></h4>
+            <strong class="c-program-candidate-badge__profession">{{ include.candidate.profession }}</strong>
+            <p class="c-program-candidate-badge__bio">{{ include.candidate.candidateDescription }}</p>
+        </div>
+    </div>
+</div>
