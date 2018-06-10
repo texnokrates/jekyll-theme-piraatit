@@ -19,6 +19,10 @@ $program-item-ns: '';
     margin-top: 1.5rem;
 }
 
+.#{$program-item-ns}c-program-intro {
+    padding: 1.25rem;
+}
+
 .#{$program-item-ns}c-program-items {
     display: flex;
     flex-wrap: wrap;
