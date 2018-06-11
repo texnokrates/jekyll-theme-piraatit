@@ -14,6 +14,9 @@
     {% elsif page.rbar contains 'toc' %}
       {% include right-bar/bar_toc.html %}
     {% endif %}
+    {% if page.rbar contains 'garant' %}
+      {% include right-bar/bar_garant.html %}
+    {% endif %}
     {% if page.rbar contains 'program' %}
       {% include right-bar/bar_program.html %}
     {% endif %}
