@@ -36,23 +36,20 @@
           <div class="top-bar-left top-bar-footer-group">
             <ul class="dropdown menu" data-dropdown-menu="">
            
-              <li {% if page.url contains 'aktuality' %} class="is-active"{% endif %}>
-                <a href="{{'/aktuality/' | relative_url }}">Aktuality</a>
-              </li>
-           
+              {% for item in site.data.menu %}
               <li{% if page.url contains 'o-nas' or page.url contains 'lide' or page.url contains 'regiony'%} class="is-active"{% endif %}>
-                <a href="{{ '/lide/' | relative_url }}">O nás</a>
+                <a href="{{ item.link | relative_url }}"> {{ item.name }} </a>
+                {% if item.submenu %}
                 <ul class="menu vertical">
+                  {% for subitem in item.submenu %}
                   <li{% if page.url contains 'lide'%} class="is-active"{% endif %}>
-                    <a href="{{ '/lide/' | relative_url }}">Naši lidé</a>
+                      <a href="{{ subitem.lik | relative_url }}"> {{ subitem.name }} </a>
                   </li>
+                  {% endfor %}
                 </ul>
+                {% endif %}
               </li>
-           
-              <li{% if page.url contains 'program' %} class="is-active"{% endif %}>
-                <a href="{{ '/program/' | relative_url }}">Program</a>
-              </li>
-
+              {% endfor %}
 
             </ul>
           </div>
