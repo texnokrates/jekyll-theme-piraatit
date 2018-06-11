@@ -9,7 +9,10 @@
   <body>
 
     {% include header.html %}
+    
+    {% if site.data.menu %}
     {% include menu.html %}
+    {% endif %}
 
     <div class="page-content">
       <div class="wrapper">
