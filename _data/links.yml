@@ -3,6 +3,7 @@ group:
   short_name: "Název skupiny"
   local_contact_uid: "jakub.pirat"  # uid mistniho kontaktu definovane v _people
   github_repository: "https://github.com/pirati-web/example.pirati.cz/"
+  github_branch: "master"
   facebook_page: "https://www.facebook.com/ceska.piratska.strana/"
   twitter: "https://twitter.com/piratskastrana"
   instagram: "https://www.instagram.com/pirati.cz/"
