@@ -5,5 +5,5 @@
   submenu:
       - link: "/lide"
         name: "Naši lidé"
-- link: "/program"
-  name: "Program"
+- link: "/komunalni-volby"
+  name: "Komunální volby"
