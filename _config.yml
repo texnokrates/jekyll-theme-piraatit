@@ -37,7 +37,7 @@ collections:
     permalink: /lide/:path/
   program:
     output: true
-    permalink: /program/:path/
+    permalink: /komunalni-volby/:path/
 
 defaults:   # defaults values for collection scope
   -
