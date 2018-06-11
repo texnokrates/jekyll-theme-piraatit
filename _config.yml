@@ -51,6 +51,7 @@ defaults:   # defaults values for collection scope
       path: "_program"
     values:
       layout: "page"
-      rbar: "volby-2018"
+      class: "c-pragram-page"
+      rbar: "program"
 
 emptyArray: []
