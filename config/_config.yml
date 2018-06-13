@@ -26,9 +26,24 @@ exclude:
   - readme.md
   - Gemfile
   - Gemfile.lock
+  - node_modules
+  - package.json
+  - package-lock.json
+  - vendor
+  - assets/js
+  - config
 
 sass:
-    style: compressed
+  style: compressed
+  load_paths:
+    - _sass
+    - node_modules
+
+js_base_url: '/assets/js/'
+
+# Make sure webpack-generated assets are not purged by Jekyll
+keep_files:
+  - assets/js
 
 permalink: /aktuality/:title.html
 collections:

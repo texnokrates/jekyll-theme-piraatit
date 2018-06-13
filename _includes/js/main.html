@@ -11,8 +11,13 @@ var page_leader = "{{page.leader}}";
 var page_contact ="{{page.contact | first}}";
 var page_tags = {% if page.tags %}{{page.tags | split: ' '}}{% else %}[]{%endif%};
 </script>
-<script src="{{'assets/js/common-libs.min.js' | relative_url}}"></script>
-<script src="{{'assets/js/custom.min.js' | relative_url}}"></script>
+{% if jekyll.environment == 'production' %}
+  <script src="/assets/vendor.main.{{ site.data.webpack.hash }}.js"></script>
+  <script src="/assets/main.{{ site.data.webpack.hash }}.js"></script>
+{% else %}
+  <script src="{{ site.js_base_url }}vendor.main.js"></script>
+  <script src="{{ site.js_base_url }}main.js"></script>
+{% endif %}
 <!-- Piwik -->
 <noscript><p><img src="//piwik.pirati.cz/piwik.php?idsite=3&rec=1" style="border:0;" alt="" /></p></noscript>
 <!-- End Piwik Code -->
