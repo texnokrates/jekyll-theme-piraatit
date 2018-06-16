@@ -1,4 +1,4 @@
-_data/webpack.yml
+_data/webpackManifest.json
 _site/
 
 .sass-cache/
