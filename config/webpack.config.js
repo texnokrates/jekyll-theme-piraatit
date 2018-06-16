@@ -8,9 +8,10 @@ const webpack = require('webpack');
 const path = require('path');
 const fs = require('fs');
 
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const autoprefixer = require('autoprefixer');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 const rootPath = '..';
 const assetsSrcPath = path.join(__dirname, 'assets');
@@ -28,9 +29,35 @@ class ExportWebpackHashPlugin {
   }
 
   apply(compiler) {
+    const isExtension = (filename, ext) => filename.endsWith('.' + ext);
+    const isJS = (filename) => isExtension(filename, 'js');
+    const isCSS = (filename) => isExtension(filename, 'css');
+    const isOther = (filename) => ! isJS(filename) && ! isCSS(filename);
+
     compiler.hooks.done.tap('ExportWebpackHashPlugin', (stats) => {
-      const content = `hash: "${stats.hash}"`;
-      fs.writeFileSync(this.options.filepath, content);
+      const output = stats.compilation.chunks.reduce((acc, current) => {
+        const jsFiles = current.files.filter(isJS);
+        const cssFiles = current.files.filter(isCSS);
+        const otherFiles = current.files.filter(isOther);
+        return {
+          js: [...acc.js, ...jsFiles],
+          css: [...acc.css, ...cssFiles],
+          other: [...acc.other, ...otherFiles]
+        }
+      }, {
+        js: [],
+        css: [],
+        other: []
+      });
+
+      fs.writeFileSync(this.options.filepath, JSON.stringify({
+        hash: stats.hash,
+        manifest: {
+          js: output.js,
+          css: output.css,
+          other: output.other
+        }
+      }));
       console.log(`Webpack hash written to ${this.options.filepath}`);
     });
   }
@@ -45,17 +72,6 @@ const getPlugins = (isProduction) => {
   const plugins = [
     new webpack.LoaderOptionsPlugin({
       options: {
-        postcss: [
-          /**
-           * Automatically adds vendor prefixes to resulting CSS file.
-           */
-          autoprefixer({
-            browsers: [
-              'last 3 version',
-              'ie >= 10',
-            ],
-          }),
-        ],
         context: paths.src,
       },
       minimize: isProduction ? true : false,
@@ -69,13 +85,15 @@ const getPlugins = (isProduction) => {
       jQuery: 'jquery',
       'window.jQuery': 'jquery',
     }),
+
+    new VueLoaderPlugin(),
     /**
      * Creates CSS bundle out of SASS files.
      */
-    // new ExtractTextPlugin({
-    //   filename: isProduction ? 'assets/main.[hash].css' : 'main.[hash].css',
-    //   allChunks: ! isProduction,
-    // }),
+    new MiniCssExtractPlugin({
+      filename: isProduction ? 'assets/js/main.[hash].css' : 'js/main.css',
+      chunkFilename: "[id].css"
+    }),
 
   ];
 
@@ -84,7 +102,7 @@ const getPlugins = (isProduction) => {
      * Write Webpack build hash to a _data/webpack.yml file.
      */
     plugins.push(new ExportWebpackHashPlugin({
-      filepath: path.resolve(path.join(paths.src, '_data', 'webpack.yml')),
+      filepath: path.resolve(path.join(paths.src, '_data', 'webpackManifest.json')),
     }));
   } else  {
     plugins.push(new webpack.HotModuleReplacementPlugin());
@@ -100,40 +118,60 @@ const getPlugins = (isProduction) => {
 const getRules = (isProduction) => {
   return [
     {
-      test: /\.(js|jsx)$/,
+      test: /\.vue$/,
+      loader: 'vue-loader',
+    },
+    {
+      test: /\.js$/,
       exclude: [/node_modules/],
       use: [
         'babel-loader',
       ],
     },
     {
-      test: /\.(png|gif|jpg)$/,
-      include: paths.images,
-      use: 'url-loader?limit=20480&name=assets/[name]-[hash].[ext]',
+      test: /\.scss$/,
+      use: [
+        ...(isProduction ? [MiniCssExtractPlugin.loader]: ['vue-style-loader']),
+        {
+          loader: 'css-loader',
+          options: {
+            autoprefixer: false,
+            sourceMap: true,
+            importLoaders: 1
+          }
+        },
+        {
+          loader: 'postcss-loader',
+          options: {
+            sourceMap: isProduction,
+            ident: 'postcss',
+            plugins: () => [
+              autoprefixer({
+                browsers: [
+                  'last 3 version',
+                  'ie >= 10',
+                ],
+              })
+            ]
+          }
+        },
+        {
+          loader: 'sass-loader',
+          options: {
+            sourceMap: isProduction,
+            includePaths: [
+              path.resolve(paths.src, '_sass'),
+              path.resolve(paths.src, 'node_modules'),
+            ]
+          }
+        },
+      ]
     },
     {
-      test: /\.woff2?(\?v=\d+\.\d+\.\d+)?$/,
-      include: paths.fonts,
-      loader: 'url-loader',
-      options: {
-        limit: 50000,
-        mimetype: 'application/font-woff',
-        name: './assets/fonts/[name].[ext]',
-        publicPath: '../',
-      }
+      test: /\.(png|gif|jpg)$/,
+      include: paths.images,
+      use: 'url-loader?limit=20480&name=assets/js/[name]-[hash].[ext]',
     },
-    // {
-    //   test: /\.scss$/,
-    //   use: ExtractTextPlugin.extract({
-    //     fallback: 'style-loader',
-    //     use: [
-    //       { loader: 'css-loader', options: { autoprefixer: false, sourceMap: true, importLoaders: 1 } },
-    //       { loader: 'postcss-loader', options: { sourceMap: isProduction, plugins: () => []} },
-    //       { loader: 'resolve-url-loader' },
-    //       { loader: 'sass-loader', options: { sourceMap: isProduction } },
-    //     ]
-    //   }),
-    // }
   ];
 }
 
@@ -164,6 +202,7 @@ module.exports = (env = {}, argv) => {
      * to fetch it again when only our JS changes.
      */
     optimization: {
+      minimize: isProduction,
       splitChunks: {
           cacheGroups: {
               commons: {

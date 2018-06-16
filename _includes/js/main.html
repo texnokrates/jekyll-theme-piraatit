@@ -12,8 +12,14 @@ var page_contact ="{{page.contact | first}}";
 var page_tags = {% if page.tags %}{{page.tags | split: ' '}}{% else %}[]{%endif%};
 </script>
 {% if jekyll.environment == 'production' %}
-  <script src="{{ 'assets/vendor.main.{{ site.data.webpack.hash }}.js' | relative_url }}"></script>
-  <script src="{{ 'assets/main.{{ site.data.webpack.hash }}.js' | relative_url }}"></script>
+  <!-- Stylesheets for JS files -->
+  {% for file in site.data.webpackManifest.manifest.css %}
+    <link rel="stylesheet" href="{{ file | relative_url }}">
+  {% endfor %}
+  <!-- JS files -->
+  {% for file in site.data.webpackManifest.manifest.js %}
+    <script src="{{ file | relative_url }}"></script>
+  {% endfor %}
 {% else %}
   <script src="{{ site.js_base_url }}vendor.main.js"></script>
   <script src="{{ site.js_base_url }}main.js"></script>
