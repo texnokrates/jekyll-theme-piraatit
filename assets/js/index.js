@@ -42,7 +42,7 @@ function renderVueAppElement(el) {
 }
 
 function init(event) {
-  // Initialize Foundation
+  // Initialize Foundation, jQuery is exposed automatically from webpack.
   $(document).foundation();
 
   // Initialize Vue.js apps.

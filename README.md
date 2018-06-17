@@ -5,7 +5,6 @@ Základní theme pirátu, jsou tu věci které by měli být společné pro vět
 To experiment with this code, add some sample content and run `bundle exec jekyll serve` – this directory is setup just like a Jekyll site!
 
 
-
 ## Installation
 
 Add this line to your Jekyll site's `Gemfile`:
@@ -42,9 +41,20 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/jitka/
 
 ## Development
 
-To set up your environment to develop this theme, run `bundle install`.
+This theme requires following prerequisites installed:
 
-Your theme is setup just like a normal Jekyll site! To test your theme, run `bundle exec jekyll serve` and open your browser at `http://localhost:4000`. This starts a Jekyll server using your theme. Add pages, documents, data, etc. like normal to test your theme's contents. As you make modifications to your theme and to your content, your site will regenerate and you should see the changes in the browser after a refresh, just like normal.
+* Ruby (best installed using [rbenv](https://github.com/rbenv/rbenv))
+* Bundler (run `gem install bundler` once ruby is installed)
+* Node.js along with NPM (best installed using [nvm](https://github.com/creationix/nvm))
+
+To set up your environment to develop this theme, run:
+
+```
+ bundle install
+ npm install
+ ```
+
+Your theme is setup just like a normal Jekyll site! To test your theme, run `npm start` and open your browser at `http://localhost:4000`. This starts a Jekyll server using your theme. Add pages, documents, data, etc. like normal to test your theme's contents. As you make modifications to your theme and to your content, your site will regenerate and you should see the changes in the browser after a refresh, just like normal.
 
 When your theme is released, only the files in `_layouts`, `_includes`, `_sass` and `assets` tracked with Git will be bundled.
 To add a custom directory to your theme-gem, please edit the regexp in `jekyll-theme-pirati.gemspec` accordingly.
