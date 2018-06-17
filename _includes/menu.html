@@ -19,7 +19,7 @@
 
       <div id="responsive-menu" class="c-responsive-menu">
         <ul class="c-responsive-menu__items" data-dropdown-menu="">
-          {% for item in site.data.menu %}
+          {% for item in site.data.menu.main %}
           <li class="c-responsive-menu__item {% if page.url contains item.match %}c-responsive-menu__item--active{% endif %}">
             <a href="{{ item.link | relative_url }}">{{ item.name }}</a>
 
