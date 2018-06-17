@@ -9,39 +9,22 @@ layout: default
         <main class="o-section-block">
           <div class="c-BasicPage">
             <div class="c-BasicPage-content">
+              
               {% assign team = site.people | where_exp:"item","item.categories contains 'pms'" | sort:"ordpms" %}
-              {% if team.size > 0 %}
-              <ul class="c-simple-accordion" data-accordion="" data-options="allowAllClosed: true">
-                <li class="c-simple-accordion-item is-active" data-accordion-item="">
-                  <a href="#pms" class="c-simple-accordion-title">Místní předsednictvo</a>
-                  <div id="pms" class="c-simple-accordion-content" data-tab-content="">
-                    {% include people/list-2col.html param=team %}
-                  </div>
-                </li>
-              </ul>
-              {% endif %}
+              {% assign team_name = "Místní předsednitvo" %}
+              {% assign team_shortcut = "pms" %}
+              {% include people/list-group.html param=team %}
+              
               {% assign team = site.people | where_exp:"item","item.categories contains 'clenove'" %}
-              {% if team.size > 0 %}
-              <ul class="c-simple-accordion" data-accordion="" data-options="allowAllClosed: true">
-                <li class="c-simple-accordion-item is-active" data-accordion-item="">
-                  <a href="#clenove" class="c-simple-accordion-title">Členové</a>
-                  <div id="clenove" class="c-simple-accordion-content" data-tab-content="">
-                    {% include people/list-2col.html param=team %}
-                  </div>
-                </li>
-              </ul>
-              {% endif %}
+              {% assign team_name = "Členové" %}
+              {% assign team_shortcut = "clenove" %}
+              {% include people/list-group.html param=team param=team_name param=team_hortcut %}
+              
               {% assign team = site.people | where_exp:"item","item.categories contains 'priznivci'" %}
-              {% if team.size > 0 %}
-              <ul class="c-simple-accordion" data-accordion="" data-options="allowAllClosed: true">
-                <li class="c-simple-accordion-item is-active" data-accordion-item="">
-                  <a href="#clenove" class="c-simple-accordion-title">Aktivní příznivci</a>
-                  <div id="clenove" class="c-simple-accordion-content" data-tab-content="">
-                    {% include people/list-2col.html param=team %}
-                  </div>
-                </li>
-              </ul>
-              {% endif %}
+              {% assign team_name = "Aktivní příznivci" %}
+              {% assign team_shortcut = "priznivci" %}
+              {% include people/list-group.html param=team param=team_name param=team_hortcut %}
+              
             </div>
           </div>
         </main>
