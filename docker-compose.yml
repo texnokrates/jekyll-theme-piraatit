@@ -1,0 +1,20 @@
+version: '3'
+volumes:
+  node_modules:
+  bundle:
+  package-lock.json:
+services:
+  site:
+    command: >
+      bash -c "bundler install && npm install && npm start"
+    # image: jekyll/jekyll:latest
+    build: .
+    volumes:
+      - .:/srv/jekyll
+      - node_modules:/srv/jekyll/node_modules
+      - package-lock.json:/srv/jekyll/package-lock.json
+      - bundle:/usr/local/bundle
+    ports:
+      - 4000:4000
+      - 3000:3000
+      - 35729:35729
