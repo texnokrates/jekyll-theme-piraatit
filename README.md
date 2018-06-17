@@ -44,15 +44,27 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/jitka/
 This theme requires following prerequisites installed:
 
 * Ruby (best installed using [rbenv](https://github.com/rbenv/rbenv))
-* Bundler (run `gem install bundler` once ruby is installed)
+* Bundler
 * Node.js along with NPM (best installed using [nvm](https://github.com/creationix/nvm))
 
-To set up your environment to develop this theme, run:
+Once you have all the requirements installed, clone the repository and run
+following *within the repository directory*:
+
+```
+rbenv install # Install Ruby
+gem install bundler
+nvm use
+```
+
+This will install required Ruby & Node.js versions. To set up your environment
+to develop this theme, run:
 
 ```
  bundle install
  npm install
  ```
+
+ This will install theme Ruby gems and all build dependencies for the theme.
 
 Your theme is setup just like a normal Jekyll site! To test your theme, run `npm start` and open your browser at `http://localhost:4000`. This starts a Jekyll server using your theme. Add pages, documents, data, etc. like normal to test your theme's contents. As you make modifications to your theme and to your content, your site will regenerate and you should see the changes in the browser after a refresh, just like normal.
 
