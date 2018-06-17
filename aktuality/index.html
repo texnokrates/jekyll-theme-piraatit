@@ -13,6 +13,5 @@ title: Aktuality
 </div>
 
 {% assign posts = paginator.posts %}
-{% include article-list/list-3col.html param='posts' %}
-
-{% include article-list/pagination.html %}
+{% include articles/list_3col.html posts=posts %}
+{% include articles/pagination.html paginator=paginator %}
