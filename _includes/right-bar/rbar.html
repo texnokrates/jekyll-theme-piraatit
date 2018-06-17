@@ -20,7 +20,7 @@
     {% if page.rbar contains 'program' %}
       {% include right-bar/bar_program.html %}
     {% endif %}
-    {% if page.rbar contains 'cal' %}
+    {% if page.rbar contains 'cal' and site.calendar %}
       {% include right-bar/bar_cal.html %}
     {% endif %}
     {% if page.rbar contains 'people' %}
@@ -29,10 +29,10 @@
     {% if page.rbar contains 'video' %}
       {% include right-bar/bar_video.html %}
     {% endif %}
-    {% if page.rbar contains 'fb' %}
+    {% if page.rbar contains 'fb' and site.facebook.profilePage %}
       {% include right-bar/bar_fb.html %}
     {% endif %}
-    {% if page.rbar contains 'tw' %}
+    {% if page.rbar contains 'tw' and site.twitter.profile %}
       {% include right-bar/bar_tw.html %}
     {% endif %}
     {% if page.rbar contains 'otevrenost' %}
