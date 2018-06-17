@@ -48,6 +48,7 @@ keep_files:
   - assets/js
 
 permalink: /aktuality/:title.html
+
 collections:
   people:
     output: true
@@ -85,6 +86,11 @@ organization:
   residenceImg: miscellaneous/cpice.jpg
   mapLink: https://mapy.cz/zakladni?base=ophoto&q=Radou%C5%A1ova%2014,%20Chrudim
   redmineLink: https://redmine.pirati.cz/projects
+
+homepageTeaser:
+  display: true
+  link: /komunalni-volby/
+  title: Komunální volby 2018
 
 calendar:
   title: Celostátní kalendář
