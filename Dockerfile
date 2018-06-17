@@ -6,6 +6,8 @@ RUN apk --no-cache add \
     imagemagick \
     curl
 
+RUN npx npm@5.6 i -g npm@5.8.0
+
 CMD ["jekyll", "--help"]
 
 ENTRYPOINT ["/usr/jekyll/bin/entrypoint"]
