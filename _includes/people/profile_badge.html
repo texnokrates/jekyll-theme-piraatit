@@ -8,7 +8,7 @@
 {% endif %}
 <div class="o-media o-media-list">
     <div class="o-media__image o-media__image--lgspace {% if include.imgStyle == 'round' %}o-media__image--round{% endif %}">
-        <a href="{{ url }}"><img src="{{ include.item.img | prepend: 'assets/img/' | relative_url }}" alt="{{ label }}"></a>
+        <a href="{{ url }}"><img src="{{ include.item.img | prepend: 'assets/img/' | relative_url }}" alt="{{ label }}" {% if include.imgSize != 'big' %}style="width: 100px"{% endif %}></a>
     </div>
     <div class="o-media__body">
         <div class="o-media__body-inner {% if include.style == 'card' %}o-media__body-inner--padded{% endif %}">

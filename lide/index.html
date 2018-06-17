@@ -15,7 +15,7 @@ layout: default
                 <li class="c-simple-accordion-item is-active" data-accordion-item="">
                   <a href="#pms" class="c-simple-accordion-title">Místní předsednictvo</a>
                   <div id="pms" class="c-simple-accordion-content" data-tab-content="">
-                    {% include people/list-2col.html param=team %}
+                    {% include people/list_2col.html items=team %}
                   </div>
                 </li>
               </ul>
@@ -26,7 +26,7 @@ layout: default
                 <li class="c-simple-accordion-item is-active" data-accordion-item="">
                   <a href="#clenove" class="c-simple-accordion-title">Členové</a>
                   <div id="clenove" class="c-simple-accordion-content" data-tab-content="">
-                    {% include people/list-2col.html param=team %}
+                    {% include people/list_2col.html items=team %}
                   </div>
                 </li>
               </ul>
@@ -37,7 +37,7 @@ layout: default
                 <li class="c-simple-accordion-item is-active" data-accordion-item="">
                   <a href="#clenove" class="c-simple-accordion-title">Aktivní příznivci</a>
                   <div id="clenove" class="c-simple-accordion-content" data-tab-content="">
-                    {% include people/list-2col.html param=team %}
+                    {% include people/list_2col.html items=team %}
                   </div>
                 </li>
               </ul>
