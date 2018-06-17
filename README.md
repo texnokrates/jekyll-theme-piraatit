@@ -51,17 +51,17 @@ Once you have all the requirements installed, clone the repository and run
 following *within the repository directory*:
 
 ```
-rbenv install # Install Ruby
-gem install bundler
-nvm use
+rbenv install         # Installs Ruby
+gem install bundler   # Installs bundler
+nvm use               # Installs Node.js runtime and NPM
 ```
 
 This will install required Ruby & Node.js versions. To set up your environment
 to develop this theme, run:
 
 ```
- bundle install
- npm install
+ bundle install       # Installs Ruby gems
+ npm install          # Installs build and frontend dependecies
  ```
 
  This will install theme Ruby gems and all build dependencies for the theme.
