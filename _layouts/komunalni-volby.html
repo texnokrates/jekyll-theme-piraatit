@@ -38,7 +38,7 @@ layout: page
                 <h3 class="o-section__heading o-section__heading--small">Program</h3>
             </div>
             <div class="c-program-items">
-                {% assign programCategories = site.program | sort:"order" %}
+                {% assign programCategories = site.program | where_exp:"item","item.categories contains page.category" | sort:"order" %}
                 {% for category in programCategories %}
                 <div class="c-program-items__item">
                     <div class="c-program-items__item-wrap">
