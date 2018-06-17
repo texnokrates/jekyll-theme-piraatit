@@ -1,9 +1,6 @@
 # jekyll-theme-pirati
 
-Základní theme pirátu, jsou tu věci které by měli být společné pro většinu webů.
-
-To experiment with this code, add some sample content and run `bundle exec jekyll serve` – this directory is setup just like a Jekyll site!
-
+Theme of Czech Pirate Party
 
 ## Installation
 
@@ -29,11 +26,7 @@ Or install it yourself as:
 
 ## Usage
 
-Horní řádek se mění v `_data/top-menu.yml`.
-Menu pod ním je v `_includes/header`.
-Obrázek v hlavičce stránky se mění tak že do assets/header/ vložíte vlastní background.jpg
-
-Čtěte dokumentaci jekyll a kopirujte z pirátskych webů.
+For usege see readme of  https://github.com/pirati-web/example.pirati.cz
 
 ## Contributing
 
