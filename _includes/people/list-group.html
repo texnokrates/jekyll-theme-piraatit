@@ -1,0 +1,12 @@
+{% if team.size > 0 %}
+<ul class="c-simple-accordion" data-accordion="" data-options="allowAllClosed: true">
+<li class="c-simple-accordion-item is-active" data-accordion-item="">
+    <a href="#{{team_shortcut}}" class="c-simple-accordion-title">
+      {{ team_name }}
+  </a>
+  <div id="{{team_shortcut}}" class="c-simple-accordion-content" data-tab-content="">
+    {% include people/list-2col.html param=team %}
+  </div>
+</li>
+</ul>
+{% endif %}

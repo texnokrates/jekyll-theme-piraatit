@@ -9,6 +9,7 @@ layout: default
         <main class="o-section-block">
           <div class="c-BasicPage">
             <div class="c-BasicPage-content">
+              
               {% assign team = site.people | where_exp:"item","item.categories contains 'pms'" | sort:"ordpms" %}
               {% assign team_name = "Místní předsednitvo" %}
               {% assign team_shortcut = "pms" %}

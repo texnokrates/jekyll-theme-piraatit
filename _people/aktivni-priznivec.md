@@ -1,17 +1,14 @@
 ---
-uid: jakub.pirat
-name:     Jakub Pirát  	# běžně používáné jméno
-fullname: Bc. Jakub Pirát  	# jméno s tituly etc.
+uid: aktivni.priznivec
+name:     Aktivní Příznivec  	# běžně používáné jméno
+fullname: PhDr. Jakub Pirát  	# jméno s tituly etc.
 category: 
-  - clenove
-  - kandidat-obec
-description: mistr světa ve skoku pro něco # zobrazuje se v lide
-profession: knihovník
+  - priznivci
+description: kandidát do senátu # zobrazuje se v lide
+profession: zametač
 img: people/ppp.jpg # zakomentuj radek dokud není fotka
-candidateDescription: expert na skoky # zobrazuje se v komunalni-volby
 mail: 
-  - jakub.pirat@pirati.cz
-cityCandidatePosition: 2
+  - aktivni.priznivec@pirati.cz
 profiles:
   facebook: https://www.facebook.com/uzivatel.na.fb  # pokud nema, staci smazat tuto radku
   googleplus: https://plus.google.com/+uzivatel.na.googleplus
