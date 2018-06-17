@@ -1,6 +1,15 @@
+_data/webpackManifest.json
 _site/
+
 .sass-cache/
 .jekyll-cache/
 .jekyll-metadata
+.bundle/
+vendor/
+
 jekyll-theme-pirati*gem
+
+node_modules
+
+*DS_Store
 *.swp

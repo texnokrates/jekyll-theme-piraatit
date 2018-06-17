@@ -1,7 +1,7 @@
 <div class="c-top-bar">
   <div class="row">
     <div class="c-top-bar-inner u-cf">
-      
+
       {% if page.url != '/' %}
       <div class="top-bar-title">
         <a href="{{ '/' | relative_url }}">
@@ -10,7 +10,10 @@
       </div>
       {% endif %}
 
-      <ul class="c-top-bar-searchbar c-top-bar-searchbar--asTitle menu">
+      <div class="__vue-root" data-app="SiteSearch"></div>
+
+
+      <!-- <ul class="c-top-bar-searchbar c-top-bar-searchbar--asTitle menu">
         <li>
           <input type="search" id="search" placeholder="Hledaný výraz">
         </li>
@@ -19,8 +22,8 @@
             <i class="fa fa-search" aria-hidden="true"></i>
           </button>
         </li>
-      </ul>
-      
+      </ul> -->
+
       <div class="menu-toggle-container hide-for-large">
         <span data-responsive-toggle="responsive-menu" id="menuTogge" data-hide-for="large">
           <button class="" type="button" data-toggle="">
@@ -35,7 +38,7 @@
         <div class="responsive-menu-inner">
           <div class="top-bar-left top-bar-footer-group">
             <ul class="dropdown menu" data-dropdown-menu="">
-           
+
               {% for item in site.data.menu %}
               <li{% if page.url contains 'o-nas' or page.url contains 'lide' or page.url contains 'regiony'%} class="is-active"{% endif %}>
                 <a href="{{ item.link | relative_url }}"> {{ item.name }} </a>
@@ -55,9 +58,9 @@
           </div>
         </div>
       </div>
-   
-    
-    
+
+
+
     </div>
   </div>
 </div>
