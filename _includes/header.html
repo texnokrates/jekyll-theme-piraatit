@@ -48,14 +48,14 @@
         <div class="c-header-bar-divider"></div>
 
         <ul class="c-header-bar-items c-header-bar-items--bigLh">
-        {% for item in site.data.menu.top %}
+          {% for item in site.data.menu.top %}
           <li class="c-header-bar__item">
             <a href="{{ item.url }}" rel="noopener noreferrer" target="_blank">
               <i class="{{ item.icon }}" aria-hidden="true"></i>
               <span class="c-header-bar__itemDescription">{{ item.link }}</span>
             </a>
           </li>
-        {% endfor %}
+          {% endfor %}
         </ul>
       </div>
     </div>

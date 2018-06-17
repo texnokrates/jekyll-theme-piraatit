@@ -10,16 +10,44 @@ top:
     icon: "fa fa-newspaper-o"
 
 main:
-  - link: "/aktuality"
-    name: "Aktuality"
+  - link: /aktuality/
+    name: Aktuality
     match: aktuality
-  - link: "/lide"
-    name: "O nás"
+  - link: /lide/
+    name: O nás
     match: lide
     submenu:
-        - link: "/lide"
-          name: "Naši lidé"
+        - link: /lide
+          name: Naši lidé
           match: lide
-  - link: "/komunalni-volby"
-    name: "Komunální volby"
+  - link: /komunalni-volby/
+    name: Komunální volby
     match: komunalni-volby
+  - link: /kontakt/
+    name: Kontakt
+    match: kontakt
+
+bottom:
+  - class: small-6 medium-4
+    title: Připoj se
+    links:
+      - link: /pripoj-se/
+        name: Dej nám vědět
+  - class: small-6 medium-4
+    title: Makáme
+    links:
+      - link: /lide/
+        name: Lidé
+      - link: /komunalni-volby/
+        name: Volby
+      - link: /aktuality/
+        name: Aktuality
+  - class: small-6 medium-4
+    title: Otevřenost
+    links:
+      - link: https://ucet.pirati.cz
+        name: Transparentní účet
+      - link: https://smlouvy.pirati.cz
+        name: Registr smluv
+      - link: https://wiki.pirati.cz/fo/otevrene_ucetnictvi
+        name: Otevřené účetnictví
