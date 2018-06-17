@@ -1,16 +1,3 @@
-<script>
-/* Global variables from jekyll */
-var api_people = "{{'api/people.json' | relative_url}}";
-var api_search = "{{'api/search.json' | relative_url}}";
-var api_tags = "{{'api/tags.json' | relative_url}}";
-var api_regions = "{{'api/regions.json' | relative_url}}";
-var snippet_profile = "{{'assets/snippet/profile.html' | relative_url}}";
-var page_url = "{{page.url}}";
-var page_garant = "{{page.garant}}";
-var page_leader = "{{page.leader}}";
-var page_contact ="{{page.contact | first}}";
-var page_tags = {% if page.tags %}{{page.tags | split: ' '}}{% else %}[]{%endif%};
-</script>
 {% if jekyll.environment == 'production' %}
   <!-- Stylesheets for JS files -->
   {% for file in site.data.webpackManifest.manifest.css %}
@@ -24,6 +11,65 @@ var page_tags = {% if page.tags %}{{page.tags | split: ' '}}{% else %}[]{%endif%
   <script src="{{ site.js_base_url }}vendor.main.js"></script>
   <script src="{{ site.js_base_url }}main.js"></script>
 {% endif %}
+
+{% if site.facebook.loadSDK %}
+<script>
+  /* Facebook */
+  window.fbAsyncInit = function() {
+      FB.init({
+      appId      : '{{ site.facebook.appId }}',
+      xfbml      : true,
+      version    : 'v2.5'
+      });
+  };
+
+  (function(d, s, id){
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {return;}
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+{% endif %}
+
+{% if site.twitter.loadSDK %}
+<script>
+  /* Twitter */
+  window.twttr = (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+      t._e = [];
+      t.ready = function(f) {
+      t._e.push(f);
+      };
+      return t;
+  }(document, "script", "twitter-wjs"));
+</script>
+{% endif %}
+
+{% if site.piwik.loadSDK %}
+<script>
+  var _paq = _paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//piwik.pirati.cz/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', '{{ site.piwik.siteId }}']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+
+</script>
 <!-- Piwik -->
-<noscript><p><img src="//piwik.pirati.cz/piwik.php?idsite=3&rec=1" style="border:0;" alt="" /></p></noscript>
+<noscript><p><img src="//piwik.pirati.cz/piwik.php?idsite={{ site.piwik.siteId }}&rec=1" style="border:0;" alt="" /></p></noscript>
 <!-- End Piwik Code -->
+{% endif %}
+

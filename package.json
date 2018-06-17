@@ -11,7 +11,7 @@
     "build": "npm run clean && npm run webpack && npm run jekyll",
     "build:stage": "npm run clean && npm run webpack && npm run jekyll:stage",
     "jekyll": "cross-env JEKYLL_ENV=production bundle exec jekyll build --config config/_config.yml",
-    "jekyll:dev": "cross-env JEKYLL_ENV=development bundle exec jekyll serve --config config/_config.yml,config/_config.dev.yml --watch -H 0.0.0.0 -P 4000",
+    "jekyll:dev": "cross-env JEKYLL_ENV=development bundle exec jekyll serve --config config/_config.yml,config/_config.dev.yml --watch --livereload -H 0.0.0.0 -P 4000",
     "webpack": "cross-env webpack --mode production --progress --config config/webpack.config.js",
     "webpack:dev": "cross-env webpack-dev-server --config config/webpack.config.js --colors --mode development"
   },

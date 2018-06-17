@@ -1,16 +1,19 @@
 <template>
-  <v-autocomplete
-    class="autocomplete"
-    v-model="item"
-    :input-attrs="{'class': 'autocomplete__input'}"
-    :items="items"
-    :get-label="getLabel"
-    :component-item="itemTemplate"
-    :auto-select-one-item="false"
-    :wait="0"
-    :min-len="0"
-    @item-selected="onItemSelected"
-    @update-items="onUpdateItems"></v-autocomplete>
+  <div class="c-search">
+    <v-autocomplete
+      class="autocomplete"
+      v-model="item"
+      :input-attrs="{class: 'autocomplete__input c-search__input', placeholder: 'Hledaný výraz'}"
+      :items="items"
+      :get-label="getLabel"
+      :component-item="itemTemplate"
+      :auto-select-one-item="false"
+      :wait="0"
+      :min-len="0"
+      @item-selected="onItemSelected"
+      @update-items="onUpdateItems"></v-autocomplete>
+    <button type="button" class="c-search__confirm"><i class="fa fa-search" aria-hidden="true"></i></button>
+  </div>
 </template>
 
 <script>
@@ -52,15 +55,11 @@ export default {
     position: relative;
   }
 
-  .v-autocomplete,
-  .v-autocomplete-input-group {
-    display: inline-block;
-  }
-
   .v-autocomplete-list {
     position: absolute;
     z-index: 9999;
     width: 100%;
+    top: 40px;
     min-width: 400px;
     text-align: left;
     max-height: 300px;
