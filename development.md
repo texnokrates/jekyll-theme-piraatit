@@ -14,7 +14,7 @@ This theme requires following prerequisites installed:
       - [Ubuntu 18.04](#ubuntu-1804)
       - [Fedora 28](#fedora-28)
     - [Install rbenv and nvm](#install-rbenv-and-nvm)
-      - [Install application](#install-application)
+    - [Install application](#install-application)
   - [Starting the app](#starting-the-app)
 
 ## Installing on Linux
@@ -63,7 +63,7 @@ Next, install nvm to manage Node.js versions:
 
 ```
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
-source ~/.profile
+exec $SHELL
 ```
 
 ### Install application
