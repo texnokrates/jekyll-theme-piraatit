@@ -90,7 +90,7 @@
   // Highlight active item in the menu.
   .c-responsive-menu__item--active a,
   .c-responsive-menu__item a:hover, {
-    color: map-get($foundation-palette, warning);
+    color: $primary-color;
   }
 
   // On mobile view, display a divider between items.
@@ -131,7 +131,7 @@
   // Highlights underline block when item is active.
   .c-responsive-menu__item a:hover:after,
   .c-responsive-menu__item--active a:after {
-    background: map-get($foundation-palette, warning);
+    background: $primary-color;
   }
 
   // Display '/' divider between menu items on desktop view.
@@ -229,7 +229,7 @@
     display: block;
     height: 5px;
     margin-top: -3px;
-    background: $light-gray;
+    background: $primary-color;
     position: relative;
     z-index: 9;
   }

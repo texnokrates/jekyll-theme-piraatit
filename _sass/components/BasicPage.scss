@@ -9,7 +9,7 @@
 .c-BasicPage__title {
   font-size: 2.55rem;
   padding-bottom: 0.7em;
-  color: $primary-color;
+  color: $black;
 
   @include breakpoint(640px down) {
     padding-top: 0.7em;
@@ -345,17 +345,16 @@
     font-size: 0.75rem;
     vertical-align: middle;
     padding-top: 6px;
-    color: #2785ce;
+    color: $primary-color;
     position: absolute;
 	  left: -30px;
   }
 
   h2 {
-    font-family: "Open Sans",Helvetica,Roboto,Arial,sans-serif;
-    font-size: 1.7rem;
+    font-family: $header-font-family-sub;
     line-height: 1.45;
-    color: #343434;
     margin-bottom: 0.85em;
+
     a {
       text-decoration: underline;
       color: inherit;
@@ -367,16 +366,11 @@
   }
 
   h3 {
-    font-family: "Open Sans",Helvetica,Roboto,Arial,sans-serif;
-    font-weight: bold;
     margin-bottom: 0.8em;
-    font-size: 1.3rem;
   }
 
   h4 {
-    font-family: "Open Sans",Helvetica,Roboto,Arial,sans-serif;
     margin-bottom: .25em;
-    font-size: 1.2rem;
   }
 
   a {
@@ -417,7 +411,7 @@
   }
 
   table .cell-description {
-    color: #878787;
+    font-weight: bold;
     min-width: 200px;
 
     .cell-icon {
@@ -435,22 +429,6 @@
       @include breakpoint(medium down) {
         margin-top: 0.2rem;
         font-size: 0.8rem;
-      }
-    }
-  }
-
-  .c-BasicPage__title {
-    font-size: 2.55rem;
-    padding-bottom: 0.7em;
-    color: $primary-color;
-    margin-bottom: 0.35em;
-    line-height: inherit;
-
-    @include breakpoint(640px down) {
-      padding-top: 0.7em;
-
-      br {
-        display: none;
       }
     }
   }

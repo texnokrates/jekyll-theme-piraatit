@@ -1,12 +1,12 @@
 $cb-ns: '';
 
 .#{$cb-ns}c-contact-bar {
-  background: #343434;
+  background: $primary-color;
 }
 
 .#{$cb-ns}c-contact-bar .#{$cb-ns}c-contact-bar-header {
   float: left;
-  background: #343434;
+  background: $primary-color;
 
   @include breakpoint(medium down) {
     float: none;
