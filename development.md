@@ -40,17 +40,22 @@ bash install_nvm.sh
 source ~/.profile
 ```
 
-Next, clone the `jekyll-theme-pirati` repository:
+Once you have both Ruby and Node.js the installed, clone the `jekyll-theme-pirati` repository:
 
 ```
 git clone https://github.com/pirati-web/jekyll-theme-pirati.git
 ```
 
-Once you have both Ruby and Node.js the installed, clone the repository and run
-following *within the repository directory*:
+Switch to the cloned repository:
 
 ```
 cd jekyll-theme-pirati
+```
+
+Then, install Ruby gems and Node packages using followinf from *within the
+repository directory*:
+
+```
 rbenv install         # Installs Ruby version required by jekyll-theme-pirati
 nvm install           # Installs Node.js runtime and NPM version required by jekyll-theme-pirati
 
@@ -64,3 +69,14 @@ Finally, start the application:
 ```
 npm start
 ```
+
+Testing site will be available at `http://localhost:4000`.
+
+This starts a Jekyll server using your theme. Add pages, documents, data, etc.
+like normal to test your theme's contents. As you make modifications to your
+theme and to your content, your site will regenerate and you should see the
+changes in the browser after a refresh, just like normal.
+
+When the theme is released, only the files in `_layouts`, `_includes`, `_sass`
+and `assets` tracked with Git will be bundled. To add a custom directory to your
+theme-gem, please edit the regexp in `jekyll-theme-pirati.gemspec` accordingly.
