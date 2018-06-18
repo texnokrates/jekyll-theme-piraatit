@@ -5,14 +5,41 @@ This theme requires following prerequisites installed:
 * Ruby (best installed using [rbenv](https://github.com/rbenv/rbenv))
 * Node.js along with NPM (best installed using [nvm](https://github.com/creationix/nvm))
 
-## Ubuntu 18.04
+## Table of contents
+
+- [Development](#development)
+  - [Table of contents](#table-of-contents)
+  - [Installing on Linux](#installing-on-linux)
+    - [Install build dependencies](#install-build-dependencies)
+      - [Ubuntu 18.04](#ubuntu-1804)
+      - [Fedora 28](#fedora-28)
+    - [Install rbenv and nvm](#install-rbenv-and-nvm)
+      - [Install application](#install-application)
+  - [Starting the app](#starting-the-app)
+
+## Installing on Linux
+
+The process is practically the same on any Linux. Only difference is build dependencies.
+
+### Install build dependencies
 
 First, install required development dependencies:
+
+#### Ubuntu 18.04
+
 
 ```
 sudo apt-get update
 sudo apt-get install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev software-properties-common libffi-dev
 ```
+
+#### Fedora 28
+
+```
+sudo dnf install git-core zlib zlib-devel gcc-c++ patch readline readline-devel libyaml-devel libffi-devel openssl-devel make bzip2 autoconf automake libtool bison curl
+```
+
+### Install rbenv and nvm
 
 Next, install Ruby using rbenv:
 
@@ -29,16 +56,17 @@ exec $SHELL
 
 rbenv install 2.5.1
 rbenv global 2.5.1
-ruby -v
+ruby -v # Verify ruby@2.5.1 is installed
 ```
 
-Next, install Node.js runtime using nvm:
+Next, install nvm to manage Node.js versions:
 
 ```
-curl -sL https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh -o install_nvm.sh
-bash install_nvm.sh
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 source ~/.profile
 ```
+
+#### Install application
 
 Once you have both Ruby and Node.js the installed, clone the `jekyll-theme-pirati` repository:
 
@@ -64,7 +92,9 @@ bundle install       # Installs Ruby gems
 npm install          # Installs build and frontend dependecies
 ```
 
-Finally, start the application:
+## Starting the app
+
+Start the application using:
 
 ```
 npm start
