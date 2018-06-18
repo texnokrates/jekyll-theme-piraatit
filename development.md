@@ -16,6 +16,8 @@ This theme requires following prerequisites installed:
     - [Install rbenv and nvm](#install-rbenv-and-nvm)
     - [Install application](#install-application)
   - [Starting the app](#starting-the-app)
+  - [Using Docker](#using-docker)
+  - [Conventions](#conventions)
 
 ## Installing on Linux
 
@@ -111,12 +113,43 @@ When the theme is released, only the files in `_layouts`, `_includes`, `_sass`
 and `assets` tracked with Git will be bundled. To add a custom directory to your
 theme-gem, please edit the regexp in `jekyll-theme-pirati.gemspec` accordingly.
 
-## Convenctions
+## Using Docker
+
+This theme has built-in Docker support. For many users, it's the easiest option
+to get things up and running.
+
+First, make sure you have Docker along with `docker-comopose` installed. To do
+so, please follow a guide according to you OS of choice:
+
+* [Windows](https://docs.docker.com/docker-for-windows/install/)
+* [macOS](https://docs.docker.com/docker-for-mac/install/)
+* [Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
+* [Fedora](https://docs.docker.com/install/linux/docker-ce/fedora/)
+
+`docker-compose` can be installed by following
+[official resources](https://docs.docker.com/compose/install/).
+
+
+**Note for Fedora**: It's better to run docker-compose without `sudo`. Please
+follow [this guide](https://bluntinstrumentsoftesting.com/2016/12/03/run-docker-without-sudo-in-fedora-25/)
+to allow running without it.
+
+Once you have Docker deamon running, just navigate to a cloned repository and
+run:
+
+```
+docker-compose up
+```
+
+First boot might take some time, but you should be presented with a running
+app after a while.
+
+## Conventions
 
 Use English for everything except parts of url and example texts.
 
-* filenames: `jakub-pirat.md` `komunalni-volby/index.md`
-* url: `komunalni-volby`
-* variables: `citiCandidatePosition`
+* filenames are written in *kebab-case*: `jakub-pirat.md` `komunalni-volby/index.md`
+* URLs are written in *kebab-case*: `komunalni-volby`
+* variables are written in *lowerCamelCase*: `citiCandidatePosition`
 * uid: `jakub.pirat`
 
