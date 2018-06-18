@@ -9,9 +9,7 @@
 <div class="o-media o-media-list">
     <div class="o-media__image o-media__image--lgspace {% if include.imgStyle == 'round' %}o-media__image--round{% endif %}">
         {% if include.imgSize != 'big' %}
-            <a href="{{ url }}">{% asset '{{ include.item.img }}' magick:resize='100x100^' magick:gravity='center' magick:crop='100x100+0+0' alt='{{ label }}' %}</a>
         {% else %}
-            <a href="{{ url }}">{% asset '{{ include.item.img }}' magick:resize='165x165^' magick:gravity='center' magick:crop='165x165+0+0' alt='{{ label }}' %}</a>
         {% endif %}
     </div>
     <div class="o-media__body">
