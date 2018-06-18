@@ -13,7 +13,7 @@ layout: default
               {% assign team = site.people | where_exp:"item","item.categories contains 'pms'" | sort:"ordpms" %}
               {% assign team_name = "Místní předsednitvo" %}
               {% assign team_shortcut = "pms" %}
-              {% include people/list_group.html team=team %}
+              {% include people/list_group.html param=team param=team_name team=team_shortcut %}
 
               {% assign team = site.people | where_exp:"item","item.categories contains 'clenove'" %}
               {% assign team_name = "Členové" %}
