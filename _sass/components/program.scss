@@ -78,6 +78,10 @@ $program-item-ns: '';
     flex-wrap: wrap;
 }
 
+.#{$program-item-ns}c-program-candidates__others {
+  width: 100%;
+}
+
 .#{$program-item-ns}c-program-candidates__row {
     display: flex;
     flex-direction: row;
@@ -193,6 +197,6 @@ $program-item-ns: '';
     @include candidate-landscape();
 }
 
-.#{$program-item-ns}c-program-candidate-badge.c-program-candidate-badge--leader + .#{$program-item-ns}c-program-candidates__row {
+.#{$program-item-ns}c-program-candidate-badge.c-program-candidate-badge--leader + .#{$program-item-ns}c-program-candidates__others {
     margin-top: 1.5rem;
 }

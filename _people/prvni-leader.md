@@ -2,14 +2,14 @@
 uid: prvni.leader
 name:     První Leader  	# běžně používáné jméno
 fullname: Bc. První Leader  	# jméno s tituly etc.
-category: 
+category:
   - clenove
   - kandidat-obec
 description: mistr světa ve skoku pro něco # zobrazuje se v lide
 profession: knihovník
 img: people/ppp.jpg # zakomentuj radek dokud není fotka
 candidateDescription: expert na skoky # zobrazuje se v komunalni-volby
-mail: 
+mail:
   - prvni.leader@pirati.cz
 cityCandidatePosition: 1
 profiles:
