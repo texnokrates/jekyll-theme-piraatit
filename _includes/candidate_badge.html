@@ -1,23 +1,14 @@
-<div class="c-program-candidate-badge {% if include.leader %}c-program-candidate-badge--leader{% endif %}">
+<div class="c-program-candidate-badge{% if include.leader %} c-program-candidate-badge--leader{% endif %}">
     <div class="c-program-candidate-badge__body">
         <div class="c-program-candidate-badge__avatar">
             <a href="{{ include.candidate.url | relative_url }}">
                 <span class="c-program-candidate-badge__rank"><span>{{ include.candidate.cityCandidatePosition }}.</span></span>
-    
-    {% if include.candidate.img %}
-        <div class="o-media__image o-media__image--lgspace">
-          <object data= "{{ include.candidate.img | prepend: '/assets/img/' | relative_url }}" type="image/jpg">
-            <div class="o-media__image o-media__image--lgspace">
-              <img src="{{ '/assets/img/people/ppp.jpg' | relative_url }}" alt="{{item.title}}"> 
-            </div>
-          </object>
-        </div>
-    {% else %}
-        <div class="o-media__image o-media__image--lgspace">
-          <img src="{{ '/assets/img/people/ppp.jpg' | relative_url }}" alt="{{item.title}}"> 
-        </div>
-    {% endif %}
 
+                {% if include.candidate.img %}
+                <img src="{{ include.candidate.img | prepend: '/assets/img/' | relative_url }}" alt="{{ include.candidate.fullname }}" class="c-program-candidate-badge__avatar-image">
+                {% else %}
+                  <img src="{{ '/assets/img/people/ppp.jpg' | relative_url }}" alt="{{item.title}}">
+                {% endif %}
             </a>
         </div>
         <div class="c-program-candidate-badge__description">

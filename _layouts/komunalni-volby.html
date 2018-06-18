@@ -20,12 +20,14 @@ layout: page
 
                 {% include candidate_badge.html candidate=leader_candidate leader=true %}
 
-                {% for candidate in other_candidates %}
-                    {% assign loopindex = forloop.index | modulo: 3 %}
-                    {% if loopindex == 1 %}<div class="c-program-candidates__row">{% endif %}
-                        {% include candidate_badge.html candidate=candidate leader=false %}
-                    {% if loopindex == 0 or forloop.last %}</div>{% endif %}
-                {% endfor %}
+                <div class="c-program-candidates__others">
+                  {% for candidate in other_candidates %}
+                      {% assign loopindex = forloop.index | modulo: 3 %}
+                      {% if loopindex == 1 %}<div class="c-program-candidates__row">{% endif %}
+                          {% include candidate_badge.html candidate=candidate leader=false %}
+                      {% if loopindex == 0 or forloop.last %}</div>{% endif %}
+                  {% endfor %}
+                </div>
             </div>
 
             {% if page.note %}

@@ -2,7 +2,7 @@
 uid: jakub.pirat
 name:     Jakub Pirát  	# běžně používáné jméno
 fullname: Bc. Jakub Pirát  	# jméno s tituly etc.
-category: 
+category:
   - clenove
   - kandidat-obec
   - kontaktni_osoba
@@ -10,7 +10,7 @@ description: mistr světa ve skoku pro něco # zobrazuje se v lide
 profession: knihovník
 img: people/ppp.jpg # zakomentuj radek dokud není fotka
 candidateDescription: expert na skoky # zobrazuje se v komunalni-volby
-mail: 
+mail:
   - jakub.pirat@pirati.cz
 cityCandidatePosition: 2
 profiles:
