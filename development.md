@@ -110,3 +110,13 @@ changes in the browser after a refresh, just like normal.
 When the theme is released, only the files in `_layouts`, `_includes`, `_sass`
 and `assets` tracked with Git will be bundled. To add a custom directory to your
 theme-gem, please edit the regexp in `jekyll-theme-pirati.gemspec` accordingly.
+
+## Convenctions
+
+Use English for everything except parts of url and example texts.
+
+* filenames: `jakub-pirat.md` `komunalni-volby/index.md`
+* url: `komunalni-volby`
+* variables: `citiCandidatePosition`
+* uid: `jakub.pirat`
+
