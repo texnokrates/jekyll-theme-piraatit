@@ -34,7 +34,8 @@ title: Kontaktní informace
     </div>
     <hr>
     <div class="row o-section-block o-section-block--divided">
-      <div class="medium-12 large-6 columns">
+
+        <div class="medium-12 large-6 columns">
         <section class="o-section o-section--spaceBot">
           <div class="o-section-inner">
             <div class="o-section-block">
@@ -47,6 +48,8 @@ title: Kontaktní informace
           </div>
         </section>
       </div>
+
+      {% if page.residence %}
       <div class="medium-12 large-6 columns">
         <div class="o-section o-section--spaceBot">
           <div class="o-section-inner">
@@ -56,6 +59,8 @@ title: Kontaktní informace
           </div>
         </div>
       </div>
+      {% endif %}
+
     </div>
   </div>
 </div>
