@@ -26,7 +26,7 @@ Or install it yourself as:
 
 ## Usage
 
-For usege see readme of  https://github.com/pirati-web/example.pirati.cz
+For usage see readme of  https://github.com/pirati-web/example.pirati.cz
 
 ## Contributing
 
