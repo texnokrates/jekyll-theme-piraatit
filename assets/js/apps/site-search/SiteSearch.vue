@@ -53,6 +53,7 @@ export default {
 
   .v-autocomplete {
     position: relative;
+    width: 100%;
   }
 
   .v-autocomplete-list {

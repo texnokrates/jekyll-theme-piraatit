@@ -1,5 +1,6 @@
 ---
 title: Životní prostředí
+uid: zivotni-prostredi
 category: praha2018
 approved: https://forum.pirati.cz/viewtopic.php?f=349&t=41532
 garant: jakub.pirait
