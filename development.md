@@ -14,10 +14,11 @@ This theme requires following prerequisites installed:
       - [Ubuntu 18.04](#ubuntu-1804)
       - [Fedora 28](#fedora-28)
     - [Install rbenv and nvm](#install-rbenv-and-nvm)
-    - [Install application](#install-application)
-  - [Starting the app](#starting-the-app)
+    - [Installation](#installation)
+  - [Launching the app](#launching-the-app)
   - [Using Docker](#using-docker)
   - [Conventions](#conventions)
+  - [Getting help](#getting-help)
 
 ## Installing on Linux
 
@@ -68,7 +69,7 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | 
 exec $SHELL
 ```
 
-### Install application
+### Installation
 
 Once you have both Ruby and Node.js the installed, clone the `jekyll-theme-pirati` repository:
 
@@ -94,7 +95,7 @@ bundle install       # Installs Ruby gems
 npm install          # Installs build and frontend dependecies
 ```
 
-## Starting the app
+## Launching the app
 
 Start the application using:
 
@@ -153,3 +154,10 @@ Use English for everything except parts of url and example texts.
 * variables are written in *lowerCamelCase*: `citiCandidatePosition`
 * uid: `jakub.pirat`
 
+## Getting help
+
+In case you're stuck and helpless, try reaching us out on:
+
+* [Pirate Party chat](https://chat.pirati.cz/channel/tech-weby): in case you're
+  a Pirate Party member with access, this will be your best bet
+* [Issues page](https://github.com/pirati-web/jekyll-theme-pirati/issues): add new issue if you think you've found a bug
