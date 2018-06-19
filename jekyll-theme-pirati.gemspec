@@ -6,11 +6,11 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Jitka Novotná"]
   spec.email         = ["jitka@ucw.cz"]
 
-  spec.summary       = %q{Basic thene for Czech pirate party}
+  spec.summary       = %q{Basic theme for Czech pirate party}
   spec.homepage      = "http://www.pirati.cz"
   spec.license       = "MIT"
 
-  spec.files         = `git ls-files -z`.split("\x0").select { |f| f.match(%r{^(assets|_data|_layouts|_includes|_sass|LICENSE|README)}i) }
+  spec.files         = Dir['**/*'].keep_if { |file| File.file?(file) }
 
   spec.add_runtime_dependency "jekyll", "~> 3.6"
 
