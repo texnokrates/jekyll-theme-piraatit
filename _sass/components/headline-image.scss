@@ -1,0 +1,44 @@
+/**
+ * This component implements a headline image. that fills whole page width
+ * with a stretched image. Over that the image in normal dimensions is shown.
+ */
+
+.c-headline-image {
+  position: relative;
+  min-height: 420px;
+  background: $secondary-color;
+
+  @include breakpoint(medium down) {
+    min-height: 250px;
+  }
+
+  @include breakpoint(mobile down) {
+    min-height: auto;
+    min-height: fit-content;
+  }
+}
+
+.c-headline-image__background {
+  margin: 0;
+  cursor: pointer;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  img {
+    min-width: 100%;
+    min-height: 100%;
+    position: absolute;
+    top: -100%;
+    right: -100%;
+    bottom: -100%;
+    left: -100%;
+    margin: auto;
+    opacity: 0.1;
+    user-select: none;
+    cursor: default;
+  }
+}

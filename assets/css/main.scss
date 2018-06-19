@@ -15,10 +15,11 @@
 @import 'utilities/utilities';
 
 // Import Components
+@import 'components/typography';
+
 @import 'components/program';
 @import 'components/BlogPosting';
 @import 'components/Person';
-@import 'components/BasicPage';
 @import 'components/footer';
 @import 'components/vertical-navigation';
 @import 'components/icon';
@@ -29,6 +30,8 @@
 @import 'components/top-sub-nav';
 @import 'components/widget-accordion';
 @import 'components/content-card';
+@import 'components/metadata-block';
+@import 'components/headline-image';
 @import 'components/card';
 @import 'components/tag';
 @import 'components/widget-share-box';
@@ -39,6 +42,7 @@
 @import 'components/hero';
 @import 'components/blockquote';
 @import 'components/cta-button';
+@import 'components/content-block';
 
 // Import Objects
 @import 'objects/section';

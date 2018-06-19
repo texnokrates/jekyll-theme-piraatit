@@ -1,0 +1,43 @@
+@mixin emphasizedAnchor {
+  text-decoration: underline;
+
+  &:hover {
+    background-color: $primary-color;
+    color: $secondary-color;
+  }
+}
+
+@mixin headlineAnchor {
+  text-decoration: underline;
+}
+
+// Special page title header
+.c-page-title {
+  font-size: 2.55rem;
+  margin-bottom: 0.85em;
+
+  @include breakpoint(640px down) {
+    padding-top: 0.7em;
+  }
+}
+
+// Page header section with provided whitespace for clean separation from the content
+.c-page-header {
+  padding-bottom: 2rem;
+}
+
+// The block will have larger text for better readability. Often used with
+// conjuction to .c-content-block
+.c-emphasized-text {
+  font-size: 1.15rem;
+}
+
+.c-emphasized-anchor {
+  @include emphasizedAnchor();
+}
+
+.c-headline-anchor {
+  @include headlineAnchor();
+}
+
+

@@ -109,11 +109,8 @@ $bp-ns: '';
   position: absolute;
   left: 0;
   bottom: 0;
-  text-decoration: underline;
 
-  &:hover {
-    text-decoration: none;
-  }
+  @include emphasizedAnchor();
 
   @include breakpoint(medium down) {
     bottom: 8px;
@@ -122,6 +119,11 @@ $bp-ns: '';
   @include breakpoint(mobile down) {
     bottom: 2px;
   }
+}
+
+.c-BlogPosting__title a,
+.c-BlogPosting-excerpt__title a {
+  @include headlineAnchor();
 }
 
 .#{$bp-ns}c-BlogPosting-excerpt-nextBox {

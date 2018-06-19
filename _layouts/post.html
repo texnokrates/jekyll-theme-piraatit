@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<article itemtype="http://schema.org/BlogPosting" class="c-BasicPage" itemscope="">
+<article itemtype="http://schema.org/BlogPosting" itemscope="">
   <div class="row">
     <div class="medium-12 columns">
       <div class="o-section o-section--noSpaceBottom">
@@ -12,34 +12,35 @@ layout: default
               <div class="medium-12 columns">
                 <!-- Article -->
                 <link itemprop="mainEntityOfPage" href="{{ page.url | absolute_url }}">
-                <header class="c-BasicPage-header">
-                  <h1 itemprop="headline" class="c-BasicPage__title"> {{ page.title }} </h1>
-                  <div class="c-BasicPage__meta">
-                    <span itemprop="description" class="c-BasicPage__datePublished">
-                      <i class="fa fa-calendar-o" aria-hidden="true"></i> {{ page.date | date: "%d. %m. %Y" }}
-                      <meta itemprop="datePublished" content="{{page.date | date_to_xmlschema }}">
-                      <meta itemprop="dateModified" content=""> </span>
-                    <br class="hide-for-medium">
-                    <!-- Authors -->
-                    <span itemprop="author" itemtype="http://schema.org/Person" class="c-BasicPage__authors" itemscope="">
-                      <i class="fa fa-user" aria-hidden="true"></i>
-                      <span itemprop="name" class="c-BlogPosting-excerpt__author">
-                          {% if page.authorId %}
-                            {% assign author = site.people | where_exp:"item","item.uid contains page.authorId" | first %}
-                            <a href={{author.url}}>
-                                {{author.name}}
-                            </a>
-                          {% else %}
-                            {{ page.author }}
-                          {% endif %}
+                <header class="c-page-header">
+                  <h1 itemprop="headline" class="c-page-title"> {{ page.title }} </h1>
+                  <div class="c-metadata-block">
+                    <div class="c-metadata-block-section">
+                      <span itemprop="description" class="c-metadata-block-section__item">
+                        <i class="fa fa-calendar-o" aria-hidden="true"></i> {{ page.date | date: "%d. %m. %Y" }}
+                        <meta itemprop="datePublished" content="{{page.date | date_to_xmlschema }}">
+                        <meta itemprop="dateModified" content="">
                       </span>
-                    </span>
+                      <!-- Authors -->
+                      <span itemprop="author" itemtype="http://schema.org/Person" class="c-metadata-block-section__item" itemscope="">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        <span itemprop="name" class="c-BlogPosting-excerpt__author">
+                            {% if page.authorId %}
+                              {% assign author = site.people | where_exp:"item","item.uid contains page.authorId" | first %}
+                              <a href={{author.url}}>
+                                  {{author.name}}
+                              </a>
+                            {% else %}
+                              {{ page.author }}
+                            {% endif %}
+                        </span>
+                      </span>
+                    </div>
                     {% if page.tags %}
-                    <div class="c-BasicPage-tags">
-                      <span class="c-BasicPage-tags__headline">Tagy</span>
+                    <div class="c-metadata-block-section">
                       <ul class="c-tag-list">
                         {% for tag in page.tags %}
-                        <li>
+                        <li class="c-tag-list__item">
                           <a href="{{ tag | prepend: '/tags/#' | relative_url }}" class="c-tag">{{ tag }}</a>
                         </li>
                         {% endfor %}
@@ -55,20 +56,11 @@ layout: default
       </div>
     </div>
   </div>
+
   {% if page.image %}
-  <div class="o-section-block o-section-block-fill">
-    <div class="c-BasicPage-headline-img">
-      <div class="c-BasicPage-headline-bg">
-        <img src="{{ page.image | relative_url }}" alt="{{page.title}}"> </div>
-      <div class="row small-collapse medium-uncollapse">
-        <div class="small-12 columns">
-          <div class="o-section-inner--medium">
-            <img src="{{ page.image | relative_url }}" alt="{{page.title}}"> </div>
-        </div>
-      </div>
-    </div>
-  </div>
+    {% include headline-image.html image=page.image title=page.title %}
   {% endif %}
+
   <div class="row o-section-block">
     <div class="small-12 columns">
       <div class="o-section o-section--noSpaceBottom">
@@ -76,7 +68,7 @@ layout: default
           <div class="o-section-block o-section-block--fill">
             <div class="o-section-inner">
               <div class="medium-12 large-8 columns">
-                <div itemprop="description" class="c-BasicPage-content">
+                <div itemprop="description" class="c-content-block c-emphasized-text">
                   {{ content }}
                 </div>
               </div>

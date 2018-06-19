@@ -48,8 +48,12 @@
   }
 
   .o-media__headline {
-      font-size: 1.4rem;
-      color: $primary-color;
+    font-size: 1.4rem;
+    color: $primary-color;
+  }
+
+  .o-media__headline-link {
+    text-decoration: underline;
   }
 }
 

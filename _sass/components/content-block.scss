@@ -1,0 +1,11 @@
+/**
+ * Represents a content block with default visual style. This comes handy when
+ * we cannot attach proper classes, like when HTML is automatically created
+ * from Markdown writeup.
+ */
+
+.c-content-block {
+  a {
+    @include emphasizedAnchor();
+  }
+}

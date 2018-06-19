@@ -12,7 +12,7 @@ layout: default
       <div class="o-section-inner">
         <main class="o-section-block">
           <!-- Article -->
-          <article itemtype="http://schema.org/BlogPosting" class="c-BasicPage" itemscope="">
+          <article itemtype="http://schema.org/BlogPosting" itemscope="">
             <link itemprop="mainEntityOfPage" href="http://insertshownpagelinkhere.com">
             {% if page['nadřízený tým'] %}
 
@@ -25,7 +25,7 @@ layout: default
             </ul>
 
             {% endif %}
-            <h1 itemprop="headline" class="c-BasicPage__title">
+            <h1 itemprop="headline" class="c-page-title">
                 {{page.name | capitalize }}
             </h1>
             <div itemprop="description" class="c-BasicPage-content">

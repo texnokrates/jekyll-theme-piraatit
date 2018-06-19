@@ -60,9 +60,10 @@ $program-item-ns: '';
 
     .#{$program-item-ns}c-program-items__item-title {
         color: $primary-color;
-        text-decoration: underline;
         font-weight: 600;
         font-size: 1.5rem;
+
+        @include headlineAnchor();
     }
 
     a:not(.button) {
@@ -107,6 +108,8 @@ $program-item-ns: '';
         .#{$program-item-ns}c-program-candidate-badge__name {
             font-size: 1.5rem;
             font-weight: 600;
+
+            @include headlineAnchor();
 
             @include breakpoint(medium down) {
                 font-size: 1.25rem;
