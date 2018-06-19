@@ -2,13 +2,9 @@
     <div class="c-program-candidate-badge__body">
         <div class="c-program-candidate-badge__avatar">
             <a href="{{ include.candidate.url | relative_url }}">
-                <span class="c-program-candidate-badge__rank"><span>{{ include.candidate.cityCandidatePosition }}.</span></span>
-
-                {% if include.candidate.img %}
-                <img src="{{ include.candidate.img | prepend: '/assets/img/' | relative_url }}" alt="{{ include.candidate.fullname }}" class="c-program-candidate-badge__avatar-image">
-                {% else %}
-                  <img src="{{ '/assets/img/people/ppp.jpg' | relative_url }}" alt="{{item.title}}">
-                {% endif %}
+              <span class="c-program-candidate-badge__rank"><span>{{ include.candidate.cityCandidatePosition }}.</span></span>
+              {% capture img %}{% if include.candidate.img %}{{ include.candidate.img }}{% else %}people/unknown-pirate.svg{% endif %}{% endcapture %}
+              <img src="{{ img | prepend: '/assets/img/' | relative_url }}" alt="{{ include.candidate.fullname }}" class="c-program-candidate-badge__avatar-image">
             </a>
         </div>
         <div class="c-program-candidate-badge__description">
