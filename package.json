@@ -1,6 +1,6 @@
 {
   "name": "jekyll-theme-pirati",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Basic theme for Czech pirate party",
   "main": "index.js",
   "scripts": {
@@ -27,8 +27,14 @@
   ],
   "author": "Česká Pirátská Strana",
   "contributors": [
-    {"name": "Jitka Novotná", "email": "jitka@ucw.cz"},
-    {"name": "Filip Vařecha", "email": "filip.varecha@pirati.cz"}
+    {
+      "name": "Jitka Novotná",
+      "email": "jitka@ucw.cz"
+    },
+    {
+      "name": "Filip Vařecha",
+      "email": "filip.varecha@pirati.cz"
+    }
   ],
   "license": "MIT",
   "bugs": {
