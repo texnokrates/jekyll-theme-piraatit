@@ -160,7 +160,7 @@ Use English for everything except parts of url and example texts.
 First, make sure you have [Gulp CLI](https://www.npmjs.com/package/gulp-cli)
 installed. If not, run `npm install -g gulp-cli`.
 
-To release a new Gem version, run `npm run version [new version]` and `npm run publish`.
+To release a new Gem version, run `npm version [new version]` and `npm run publish`.
 
 Make sure you also push the created tag to GitHub: `git push --tags`.
 
