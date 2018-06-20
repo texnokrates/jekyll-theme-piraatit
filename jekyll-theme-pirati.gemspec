@@ -1,14 +1,20 @@
 # coding: utf-8
 
-Gem::Specification.new do |spec|
-  spec.name          = "jekyll-theme-pirati"
-  spec.version       = "2.0.0"
-  spec.authors       = ["Jitka Novotná"]
-  spec.email         = ["jitka@ucw.cz"]
+require 'json'
 
-  spec.summary       = %q{Basic theme for Czech pirate party}
-  spec.homepage      = "http://www.pirati.cz"
-  spec.license       = "MIT"
+# Dont panic that this path seems to be wrong! The path to package.json
+# will get autoupdated when building the gem.
+packageFile = JSON.parse(File.read('./package.json'))
+
+Gem::Specification.new do |spec|
+  spec.name          = packageFile['name']
+  spec.version       = packageFile['version']
+  spec.authors       = packageFile['contributors'].map { |c| c['name'] }
+  spec.email         = packageFile['contributors'].map { |c| c['email'] }
+
+  spec.summary       = packageFile['description']
+  spec.homepage      = packageFile['homepage']
+  spec.license       = packageFile['license']
 
   spec.files         = Dir['**/*'].keep_if { |file| File.file?(file) }
 

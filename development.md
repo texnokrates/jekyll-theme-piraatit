@@ -18,6 +18,7 @@ This theme requires following prerequisites installed:
   - [Launching the app](#launching-the-app)
   - [Using Docker](#using-docker)
   - [Conventions](#conventions)
+  - [Creating new releases and publishing them](#creating-new-releases-and-publishing-them)
   - [Getting help](#getting-help)
 
 ## Installing on Linux
@@ -153,6 +154,35 @@ Use English for everything except parts of url and example texts.
 * URLs are written in *kebab-case*: `komunalni-volby`
 * variables are written in *lowerCamelCase*: `citiCandidatePosition`
 * uid: `jakub.pirat`
+
+## Creating new releases and publishing them
+
+First, make sure you have [Gulp CLI](https://www.npmjs.com/package/gulp-cli)
+installed. If not, run `npm install -g gulp-cli`.
+
+To release a new Gem version, run `npm run version [new version]` and `npm run publish`.
+
+Make sure you also push the created tag to GitHub: `git push --tags`.
+
+To be able to finish the process, you will need to have proper rights to push the
+Gem in the end. If you see something like:
+
+```
+Enter your RubyGems.org credentials.
+Don't have an account yet? Create one at https://rubygems.org/sign_up
+
+HTTP Basic: Access denied.
+```
+
+... you probably do not have the RubyGems access yet.
+
+The `npm run publish` command will do all the heavy lifting behind the scenes.
+See [gulpfile.js](gulpfile.js) for the detailed run down of the process.
+
+**Notes:**
+
+  - Always use `npm run publish` and nothing else.
+  - Do not modify `pacakge.json` version directly, use `npm version [new version]` for this task.
 
 ## Getting help
 

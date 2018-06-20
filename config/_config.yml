@@ -28,6 +28,7 @@ exclude:
   - README.md
   - Gemfile
   - Gemfile.lock
+  - jekyll-theme-pirati.gemspec
   - node_modules
   - package.json
   - package-lock.json
