@@ -13,9 +13,7 @@
     </div>
     <div class="o-media__body">
         <div class="o-media__body-inner {% if include.style == 'card' %}o-media__body-inner--padded{% endif %}">
-            <h2 class="o-media__headline">
-              <a href="{{ url }}" class="o-media__headline-link">{{ label }}</a>
-            </h2>
+            <h2><a href="{{ url }}" class="o-media__headline-link c-headline-anchor">{{ label }}</a></h2>
             {% unless include.showDescription == false %}
             <p>
                 {% if include.description %}

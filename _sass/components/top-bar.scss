@@ -1,7 +1,7 @@
 .c-search {
   display: flex;
   align-items: center;
-  border-bottom: 1px $medium-gray solid;
+  border-bottom: 1px $primary-color solid;
 }
 
   .c-search__input {
@@ -47,6 +47,7 @@
     left: 0;
     z-index: 10;
     background: $light-gray;
+    border-bottom: 3px $primary-color solid;
 
     width: calc(100% + 2.5rem);
     margin-left: -1.25rem;
@@ -71,6 +72,10 @@
     @include breakpoint(medium down) {
       display: block;
     }
+
+    @include breakpoint(small down) {
+      text-align: center;
+    }
   }
 
   .c-responsive-menu__item a {
@@ -79,8 +84,8 @@
     color: map-get($foundation-palette, dark);
     text-transform: uppercase;
     font-size: 1.15rem;
-    transition: color 0.2s;
-    padding: 0.7rem 1.25rem;
+    margin: 0.7rem 1.25rem;
+    padding: 0 .25em;
 
     @include breakpoint(medium down) {
       padding: 1rem 1.8rem;
@@ -93,45 +98,10 @@
     color: $primary-color;
   }
 
-  // On mobile view, display a divider between items.
-  .c-responsive-menu__item:not(:first-child) a {
-    @include breakpoint(medium down) {
-      &:before {
-        content: '';
-        box-sizing: border-box;
-        width: calc(100% - 3.6rem);
-        height: 1px;
-        display: inline-block;
-        position: absolute;
-        top: 0;
-        left: 1.8rem;
-        transform: none;
-        background: #d3d3d3;
-      }
-    }
-  }
-
-  // On desktop view, display 'underline' block under the menu link.
-  .c-responsive-menu__item a {
-    @include breakpoint(large) {
-      &:after {
-        content: '';
-        display: block;
-        position: absolute;
-        bottom: 0;
-        left: 1rem;
-        right: 1rem;
-        height: 4px;
-        background: transparent;
-        transition: background 0.2s;
-      }
-    }
-  }
-
-  // Highlights underline block when item is active.
-  .c-responsive-menu__item a:hover:after,
-  .c-responsive-menu__item--active a:after {
+  .c-responsive-menu__item a:hover,
+  .c-responsive-menu__item--active a {
     background: $primary-color;
+    color: $secondary-color;
   }
 
   // Display '/' divider between menu items on desktop view.
@@ -142,9 +112,8 @@
         width: 12px;
         display: inline-block;
         position: absolute;
-        top: 0.25rem;
-        left: 0;
-        transform: translateX(-50%);
+        top: -7px;
+        left: -27px;
         font-size: 1.7rem;
         color: $medium-gray;
         border: 0px solid transparent;

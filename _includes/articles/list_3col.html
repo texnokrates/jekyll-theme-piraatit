@@ -1,22 +1,11 @@
-{% assign close = close | minus: 2 | modulo: 3 %}
-
-{% for article in include.posts offset: 0 %}
-  {% assign x = forloop.index | modulo: 3 %}
-  {% if x == 1 %}
-    <div class="row o-section o-section-block--divided-small o-section-block--divided-small--border--tight o-section--noSpaceBottom-medium">
-      <div class="medium-12 large-12 columns">
-        <div class="o-section-inner">
-          <div class="row">
-  {% endif %}
-            {% include articles/standard_article.html article=article %}
-  {% if x == 0 %}
-          </div><!-- .row -->
-        </div><!-- .o-section-inner -->
-      </div><!-- .columns -->
-    </div><!-- .row -->
-  {% endif %}
-{% endfor %}
-
-{% if close != 0 %}
-  </div></div></div></div>
-{% endif %}
+<div class="o-section o-section--noSpaceBottom o-section--bigger">
+  <div class="o-section-inner">
+    <div class="row">
+      {% for article in include.posts %}
+        <div class="medium-6 large-4 columns">
+          {% include articles/vertical_article.html article=article %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

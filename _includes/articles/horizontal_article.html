@@ -1,0 +1,47 @@
+<article itemtype="http://schema.org/BlogPosting" class="c-article-listing" itemscope="">
+  <link itemprop="mainEntityOfPage" href="{{ include.article.url | absolute_url }}">
+
+  <div class="c-article-listing__row">
+    <div class="c-article-listing__photobox">
+      <!-- BlogPosting image -->
+      <div itemprop="image" itemtype="http://schema.org/ImageObject" class="c-article-listing__image" itemscope="">
+        <a href="{{ include.article.url | relative_url }}">
+          <img src="{{ include.article.image | relative_url }}" alt="{{ include.article.title }}">
+        </a>
+        <meta itemprop="url" content="{{ include.article.image | relative_url }}">
+      </div>
+    </div>
+
+    <div class="c-BlogPosting-excerpt-contentBox">
+      <!-- Headline -->
+      <h2 itemprop="headline" class="c-BlogPosting-excerpt__title">
+        <a href="{{ include.article.url | relative_url }}" itemprop="url">{{ include.article.title }}</a>
+      </h2>
+      <!-- BlogPosting description-->
+      <div itemprop="description" class="c-BlogPosting-excerpt-content">{{ include.article.excerpt | truncatewords: 33 }} </div>
+      <a class="c-emphasized-anchor" href="{{ include.article.url | relative_url }}" class="c-BlogPosting-excerpt-readMore">Přečíst celý článek &rsaquo;</a>
+    </div>
+    <!-- Publisher -->
+    <div itemprop="publisher" itemtype="http://schema.org/Organization" class="u-hidden" itemscope="">
+      <div itemprop="logo" itemtype="http://schema.org/ImageObject" itemscope="">
+        <meta itemprop="url" content="{{ 'assets/img/brand/logo.svg' | relative_url }}"> </div>
+      <meta itemprop="name" content="Česká pirátská strana">
+    </div>
+  </div>
+
+  <div class="c-article-listing__meta">
+    <div class="c-metadata-block-section">
+      <!-- Date published -->
+      <span itemprop="description" class="c-metadata-block-section__item">
+        <i class="fa fa-calendar-o" aria-hidden="true"></i> {{ include.article.date | date: "%d.%m.%Y" }}
+        <meta itemprop="datePublished" content="{{ include.article.date | date_to_xmlschema }}" />
+      </span>
+
+      <!-- Authors -->
+      <span itemprop="author" itemtype="http://schema.org/Person" class="c-metadata-block-section__item" itemscope="">
+        <i class="fa fa-user" aria-hidden="true"></i>
+        <span itemprop="name">{{ include.article.author }}</span>
+      </span>
+    </div>
+  </div>
+</article>

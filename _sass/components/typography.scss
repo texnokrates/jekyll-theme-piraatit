@@ -11,6 +11,18 @@
   text-decoration: underline;
 }
 
+// Makes classes for each headline style that can be used to override the looks:
+// t-h1, t-h2, ...
+@each $size, $headers in $header-sizes {
+  @include breakpoint($size) {
+    @each $header, $font-size in $headers {
+      .t-#{$header} {
+        font-size: rem-calc($font-size);
+      }
+    }
+  }
+}
+
 // Special page title header
 .c-page-title {
   font-size: 2.55rem;
@@ -39,5 +51,4 @@
 .c-headline-anchor {
   @include headlineAnchor();
 }
-
 
