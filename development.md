@@ -190,9 +190,10 @@ See [gulpfile.js](gulpfile.js) for the detailed run down of the process.
 You can use the theme locally when developing your site using it. This is handy
 when building up new features or updating the build pipeline.
 
-To try it, you can take advantage of Bundler's local config feature. First, make sure
-you have [Gulp CLI](https://www.npmjs.com/package/gulp-cli) installed or install
-it with `npm install -g gulp-cli`. Then, follow these steps:
+To try it, you can take advantage of Bundler's
+[local config](https://bundler.io/v1.16/bundle_config.html) feature. First, make
+sure you have [Gulp CLI](https://www.npmjs.com/package/gulp-cli) installed or
+install it with `npm install -g gulp-cli`. Then, follow these steps:
 
 1. In the `jekyll-theme-pirati` folder, run `gulp build && gulp prepareGem`
 2. Update gemfile in your site to refer to use GitHub as a source for the theme:
