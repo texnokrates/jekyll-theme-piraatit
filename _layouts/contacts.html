@@ -40,7 +40,7 @@ title: Kontaktní informace
           <h2>Kontaktní osoba</h2>
           {% assign contactPersons = site.people | where_exp: "item","item.categories contains 'kontaktni_osoba'" | sort:"ordpak" %}
           {% for person in contactPersons %}
-            {% include people/profile_badge.html item=person imgSize='big' %}
+            {% include people/profile-badge.html item=person imgSize='big' %}
           {% endfor %}
         </div>
       </div>

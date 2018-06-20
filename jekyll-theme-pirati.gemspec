@@ -4,7 +4,8 @@ require 'json'
 
 # Dont panic that this path seems to be wrong! The path to package.json
 # will get autoupdated when building the gem.
-packageFile = JSON.parse(File.read('./package.json'))
+packageFilePath = File.join(__dir__, './package.json')
+packageFile = JSON.parse(File.read(packageFilePath))
 
 Gem::Specification.new do |spec|
   spec.name          = packageFile['name']

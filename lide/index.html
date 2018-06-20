@@ -10,17 +10,17 @@ layout: default
           {% assign team = site.people | where_exp:"item","item.categories contains 'pms'" | sort:"ordpms" %}
           {% assign team_name = "Místní předsednitvo" %}
           {% assign team_shortcut = "pms" %}
-          {% include people/list_group.html param=team param=team_name team=team_shortcut %}
+          {% include people/list-group.html param=team param=team_name team=team_shortcut %}
 
           {% assign team = site.people | where_exp:"item","item.categories contains 'clenove'" %}
           {% assign team_name = "Členové" %}
           {% assign team_shortcut = "clenove" %}
-          {% include people/list_group.html param=team param=team_name team=team_shortcut %}
+          {% include people/list-group.html param=team param=team_name team=team_shortcut %}
 
           {% assign team = site.people | where_exp:"item","item.categories contains 'priznivci'" %}
           {% assign team_name = "Aktivní příznivci" %}
           {% assign team_shortcut = "priznivci" %}
-          {% include people/list_group.html param=team param=team_name teamm=team_shortcut %}
+          {% include people/list-group.html param=team param=team_name teamm=team_shortcut %}
         </main>
       </div>
     </section>

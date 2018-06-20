@@ -73,6 +73,13 @@ gulp.task('copyGemSpec', function () {
     .pipe(gulp.dest(GEM_BUILD_DIR));
 });
 
+// Copy Foundation framework.
+gulp.task('copyFoundation', function () {
+  return gulp
+    .src(['node_modules/foundation-sites/**/*'])
+    .pipe(gulp.dest(`${GEM_BUILD_DIR}/_sass/foundation-sites`));
+});
+
 // Copy over all artifacts created by Webpack.
 gulp.task('copyWebpackBundles', function () {
   return gulp
@@ -85,8 +92,8 @@ gulp.task('copyWebpackBundles', function () {
 gulp.task('writeManifest', function () {
   const manifest = require('./_data/webpackManifest.json');
 
-  const writeJS = file => `<script src="${file}"></script>`;
-  const writeCSS = file => `<link rel="stylesheet" href="${file}" />`;
+  const writeJS = file => `<script src="/${file}"></script>`;
+  const writeCSS = file => `<link rel="stylesheet" href="/${file}" />`;
 
   const cssFiles = manifest.manifest.css.map(writeCSS);
   const jsFiles = manifest.manifest.js.map(writeJS);
@@ -108,7 +115,7 @@ gulp.task('buildGem', function () {
 gulp.task('prepareGem',
   gulp.series([
     'cleanGemDir',
-    gulp.parallel(['copyGemFiles', 'copyWebpackBundles', 'copyGemSpec']),
+    gulp.parallel(['copyGemFiles', 'copyWebpackBundles', 'copyFoundation', 'copyGemSpec']),
     'writeManifest',
     'buildGem'
   ]));

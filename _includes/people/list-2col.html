@@ -8,7 +8,7 @@
   <div class="u-cf o-section-block o-section-block--divided-small o-section-block--divided-small--border">
     {% assign item = team | first %}
     <div class="large-6 small-12 small-collapse columns end o-section-mediumdown-divided-small">
-      {% include people/profile_badge.html item=item imgSize='big' imgStyle='round' %}
+      {% include people/profile-badge.html item=item imgSize='big' imgStyle='round' %}
     </div>
   </div>
 {% else %}
@@ -18,7 +18,7 @@
       <div class="u-cf o-section-block o-section-block--divided-small o-section-block--divided-small--border">
     {% endif %}
     <div class="large-6 small-12 small-collapse columns end o-section-mediumdown-divided-small">
-      {% include people/profile_badge.html item=item imgSize='big' imgStyle='round' %}
+      {% include people/profile-badge.html item=item imgSize='big' imgStyle='round' %}
     </div>
     {% if loopindex == 0 %}
       </div>
