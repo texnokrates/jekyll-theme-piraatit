@@ -19,6 +19,7 @@ This theme requires following prerequisites installed:
   - [Using Docker](#using-docker)
   - [Conventions](#conventions)
   - [Creating new releases and publishing them](#creating-new-releases-and-publishing-them)
+  - [Trying out locally](#trying-out-locally)
   - [Getting help](#getting-help)
 
 ## Installing on Linux
@@ -183,6 +184,25 @@ See [gulpfile.js](gulpfile.js) for the detailed run down of the process.
 
   - Always use `npm run publish` and nothing else.
   - Do not modify `pacakge.json` version directly, use `npm version [new version]` for this task.
+
+## Trying out locally
+
+You can use the theme locally when developing your site using it. This is handy
+when building up new features or updating the build pipeline.
+
+To try it, you can take advantage of Bundler's local config feature. First, make sure
+you have [Gulp CLI](https://www.npmjs.com/package/gulp-cli) installed or install
+it with `npm install -g gulp-cli`. Then, follow these steps:
+
+1. In the `jekyll-theme-pirati` folder, run `gulp build && gulp prepareGem`
+2. Update gemfile in your site to refer to use GitHub as a source for the theme:
+    * Comment out your current `jekyll-theme-pirati` gem dependency
+    * Use `gem "jekyll-theme-pirati", github: "pirati-web/jekyll-theme-pirati", branch: "master"` instead
+3. In your site's directory, run: `bundle config local.jekyll-theme-pirati [path to your jekyll-theme-pirati]/.gembuild`
+
+Now, when you launch your site, it will use your local `jekyll-theme-pirati`
+code. Whenever you update it, you should run `gulp build && gulp prepareGem`
+again and rebuild the site.
 
 ## Getting help
 
