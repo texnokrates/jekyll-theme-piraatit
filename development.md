@@ -196,7 +196,7 @@ sure you have [Gulp CLI](https://www.npmjs.com/package/gulp-cli) installed or
 install it with `npm install -g gulp-cli`. Then, follow these steps:
 
 1. In the `jekyll-theme-pirati` folder, run `gulp build && gulp prepareGem`
-2. Update gemfile in your site to refer to use GitHub as a source for the theme:
+2. Update gemfile in your site to use GitHub as a source for the theme:
     * Comment out your current `jekyll-theme-pirati` gem dependency
     * Use `gem "jekyll-theme-pirati", github: "pirati-web/jekyll-theme-pirati", branch: "master"` instead
 3. In your site's directory, run: `bundle config local.jekyll-theme-pirati [path to your jekyll-theme-pirati]/.gembuild`
