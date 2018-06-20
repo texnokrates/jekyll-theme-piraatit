@@ -1,12 +1,14 @@
-.c-article-listing {
-
-}
-
 .c-article-listing--vertical {
   margin-bottom: 2.5rem;
 
   .c-article-listing__meta {
     margin: 1rem 0;
+  }
+
+  @include breakpoint(small down) {
+    border-bottom: 1px $light-gray solid;
+    padding-bottom: 1.25rem;
+    margin-bottom: 1.25rem;
   }
 }
 
@@ -38,4 +40,12 @@
 
 .c-article-listing:not(:first-of-type):not(.c-article-listing--vertical) {
   border-top: 1px $light-gray solid;
+}
+
+.c-article-listing__nextbox {
+  max-width: 265px;
+
+  @include breakpoint(large down) {
+    max-width: none;
+  }
 }

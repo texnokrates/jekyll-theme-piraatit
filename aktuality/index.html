@@ -4,16 +4,18 @@ title: Aktuality
 ---
 
 
-<div class="row o-section">
-<div class="o-section-inner">
-  <div class="medium-12 large-8 columns">
-    <header class="c-page-header">
-      <h1 itemprop="headline" class="c-page-title">Aktuality</h1>
-    </header>
+<div class="row">
+  <div class="columns">
+    <div class="o-section">
+      <div class="o-section-inner">
+          <header class="c-page-header">
+            <h1 itemprop="headline" class="c-page-title">Aktuality</h1>
+          </header>
+          {% assign posts = paginator.posts %}
+          {% include articles/list_3col.html posts=posts %}
+          {% include articles/pagination.html paginator=paginator %}
+      </div>
+    </div>
   </div>
 </div>
-</div>
 
-{% assign posts = paginator.posts %}
-{% include articles/list_3col.html posts=posts %}
-{% include articles/pagination.html paginator=paginator %}

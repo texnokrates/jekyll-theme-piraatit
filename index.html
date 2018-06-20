@@ -23,7 +23,7 @@ rbar: fb, calendar
         {% for article in site.posts limit: 6 %}
           {% include articles/horizontal_article.html article=article %}
         {% endfor %}
-        <div class="c-BlogPosting-excerpt-nextBox">
+        <div class="c-article-listing__nextbox">
           <a href="{{'/aktuality/' | relative_url}}" rel="next" class="button expanded large">Další články</a>
         </div>
       </div>

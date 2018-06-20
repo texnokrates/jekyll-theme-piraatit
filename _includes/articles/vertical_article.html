@@ -3,7 +3,6 @@
   <link itemprop="mainEntityOfPage" href="{{ include.article.url | absolute_url }}">
 
   <div class="c-article-listing__photobox">
-    <!-- BlogPosting image -->
     <a href="{{ include.article.url | relative_url }}">
       <div itemprop="image" itemtype="http://schema.org/ImageObject" class="c-article-listing__image" itemscope="">
         <img src="{{ include.article.image | relative_url }}" alt="{{ include.article.title }}">
@@ -33,11 +32,10 @@
     <h1 itemprop="headline" class="c-article-listing__headline t-h2">
       <a class="c-headline-anchor" href="{{ include.article.url | relative_url }}" itemprop="url">{{ include.article.title }}</a>
     </h1>
-    <!-- BlogPosting description-->
     <div itemprop="description" class="c-article-listing__perex">
       <p>{{ include.article.excerpt | truncatewords: 45 | strip_html }}</p>
     </div>
-    <a class="c-emphasized-anchor" href="{{ include.article.url | relative_url }}" class="c-BlogPosting-excerpt-readMore">Přečíst celý článek &rsaquo;</a>
+    <a class="c-emphasized-anchor" href="{{ include.article.url | relative_url }}">Přečíst celý článek &rsaquo;</a>
   </div>
 
   <!-- Publisher -->
