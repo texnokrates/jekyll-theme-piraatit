@@ -2,16 +2,16 @@
 <div class="o-media o-media--top">
     {% if site.organization.residenceImg %}
     <div class="o-media__image">
-        <img src="{{ site.organization.residenceImg | relative_url }}" alt="Sídlo">
+      {% asset '{{ site.organization.residenceImg }}' magick:resize='200x' alt='Sídlo' %}
     </div>
     {% endif %}
     <div class="o-media__body">
         <h3>{{ site.organization.name }}</h3>
         <p>{{ site.organization.address | newline_to_br }}</p>
         {% if site.organization.mapLink %}
-        <p>
-          <a class="c-emphasized-anchor" href="{{ site.organization.mapLink }}">Zobrazit mapu ›</a>
-        </p>
+          <p>
+            <a class="c-emphasized-anchor" href="{{ site.organization.mapLink }}">Zobrazit mapu ›</a>
+          </p>
         {% endif %}
     </div>
 </div>

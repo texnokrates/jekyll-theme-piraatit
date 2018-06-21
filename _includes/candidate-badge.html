@@ -2,8 +2,8 @@
   <a class="c-program-candidate-badge__body" href="{{ include.candidate.url | relative_url }}">
       <div class="c-program-candidate-badge__avatar">
           <span class="c-program-candidate-badge__rank"><span>{{ include.candidate.cityCandidatePosition }}.</span></span>
-          {% capture img %}{% if include.candidate.img %}{{ include.candidate.img }}{% else %}people/unknown-pirate.svg{% endif %}{% endcapture %}
-          <img src="{{ img | prepend: '/assets/img/' | relative_url }}" alt="{{ include.candidate.fullname }}" class="c-program-candidate-badge__avatar-image">
+          {% capture img %}{% if include.candidate.img %}{% asset '{{ include.candidate.img }}' magick:resize='240x240^' magick:gravity='center' magick:crop='240x240+0+0' @path %}{% else %}{% asset people/unknown-pirate.svg @path %}{% endif %}{% endcapture %}
+          <img src="{{ img }}" alt="{{ include.candidate.fullname }}" class="c-program-candidate-badge__avatar-image">
       </div>
       <div class="c-program-candidate-badge__description">
           <h4 class="c-program-candidate-badge__name t-h2"><span class="c-headline-anchor">{{ include.candidate.fullname }}</span></h4>

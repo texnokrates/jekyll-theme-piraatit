@@ -4,10 +4,11 @@
   <div class="c-article-listing__row">
     <div class="c-article-listing__photobox">
       <div itemprop="image" itemtype="http://schema.org/ImageObject" class="c-article-listing__image" itemscope="">
+        {% capture imgPath %}{% asset '{{ include.article.image }}' magick:resize="348x232^" magick:gravity='center' magick:crop='348x232+0+0' @path %}{% endcapture %}
         <a href="{{ include.article.url | relative_url }}">
-          <img src="{{ include.article.image | relative_url }}" alt="{{ include.article.title }}">
+          <img src="{{ imgPath }}" alt="{{ include.article.title }}">
         </a>
-        <meta itemprop="url" content="{{ include.article.image | relative_url }}">
+        <meta itemprop="url" content="{{ imgPath }}">
       </div>
     </div>
 

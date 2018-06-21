@@ -8,8 +8,23 @@
 {% endif %}
 <div class="o-media o-media-list {% if include.style == 'card' %}o-media--rpadded o-media--fill{% endif %}">
     <div class="o-media__section">
-      {% capture img %}{% if include.item.img %}{{ include.item.img }}{% else %}people/unknown-pirate.svg{% endif %}{% endcapture %}
-      <a href="{{ url }}"><img src="{{ img | prepend: 'assets/img/' | relative_url }}" alt="{{ label }}" class="{% if include.imgStyle == 'round' %}o-media__image--round{% endif %}" {% if include.imgSize != 'big' %}style="width: 100px"{% endif %}></a>
+      {% comment %} {% if include.imgSize != 'big' %}
+          <a href="{{ url }}">{% asset '{{ include.item.img }}' magick:resize='100x100^' magick:gravity='center' magick:crop='100x100+0+0' alt='{{ label }}' %}</a>
+      {% else %}
+          <a href="{{ url }}">{% asset '{{ include.item.img }}' magick:resize='165x165^' magick:gravity='center' magick:crop='165x165+0+0' alt='{{ label }}' %}</a>
+      {% endif %} {% endcomment %}
+      {%- capture img -%}
+        {%- if include.item.img -%}
+          {%- if include.imgSize != 'big' -%}
+            {% asset '{{ include.item.img }}' magick:resize='100x100^' magick:gravity='center' magick:crop='100x100+0+0' @path %}
+          {%- else -%}
+            {% asset '{{ include.item.img }}' magick:resize='165x165^' magick:gravity='center' magick:crop='165x165+0+0' @path %}
+          {%- endif -%}
+        {%- else -%}
+          {% asset people/unknown-pirate.svg @path %}
+        {%- endif -%}
+      {%- endcapture -%}
+      <a href="{{ url }}"><img src="{{ img }}" alt="{{ label }}" class="{% if include.imgStyle == 'round' %}o-media__image--round{% endif %}" {% if include.imgSize != 'big' %}style="width: 100px"{% endif %}></a>
     </div>
     <div class="o-media__section">
       <div class="o-media__section-inner {% if include.style == 'card' %}o-media__section-inner--vpadded{% endif %}">

@@ -5,8 +5,9 @@
   <div class="c-article-listing__photobox">
     <a href="{{ include.article.url | relative_url }}">
       <div itemprop="image" itemtype="http://schema.org/ImageObject" class="c-article-listing__image" itemscope="">
-        <img src="{{ include.article.image | relative_url }}" alt="{{ include.article.title }}">
-        <meta itemprop="url" content="{{ include.article.image | relative_url }}">
+        {% capture imgPath %}{% asset '{{ include.article.image }}' magick:resize='751x422^' magick:gravity='center' magick:crop='751x422+0+0' @path %}{% endcapture %}
+        <img src="{{ imgPath }}" alt="{{ include.article.title }}">
+        <meta itemprop="url" content="{{ imgPath }}">
       </div>
     </a>
   </div>
@@ -41,7 +42,7 @@
   <!-- Publisher -->
   <div itemprop="publisher" itemtype="http://schema.org/Organization" class="u-hidden" itemscope="">
     <div itemprop="logo" itemtype="http://schema.org/ImageObject" itemscope="">
-      <meta itemprop="url" content="{{ 'images/brand/logo.svg' | relative_url }}">
+      <meta itemprop="url" content="{% asset brand/logo.svg @path %}">
     </div>
     <meta itemprop="name" content="Česká pirátská strana">
   </div>

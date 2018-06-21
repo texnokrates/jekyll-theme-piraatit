@@ -88,6 +88,8 @@ organization:
   mapLink: https://mapy.cz/zakladni?base=ophoto&q=Radou%C5%A1ova%2014,%20Chrudim
   redmineLink: https://redmine.pirati.cz/projects
 
+
+# Image banner on the top of the homepage. Useful for promoting current events.
 homepageBanner:
   display: false
   link: /komunalni-volby/
@@ -125,3 +127,27 @@ forum:
 github:
   url: https://github.com/pirati-web/jekyll-theme-pirati/
   branch: master
+
+
+assets:
+  source_maps: true
+  compression: true
+  gzip: false
+  plugins:
+    css: { autoprefixer: {}}
+    img:
+      optim:
+        jpegoptim:
+          strip: all
+          max_quality: 80
+  autoprefixer:
+    browsers:
+      - "last 2 versions"
+      - "IE > 9"
+  sources:
+    - node_modules
+    - assets/css
+    - assets/fonts
+    - assets/video
+    - assets/img
+    - _sass

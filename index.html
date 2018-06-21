@@ -7,13 +7,14 @@ rbar: fb, calendar
 <div class="row c-hp-banner">
   <div class="small-12 columns">
     <a href="{{ site.homepageBanner.link }}" title="{{ site.homepageBanner.title }}">
+      {% capture img %}{% asset '{{ site.homepageBanner.image.default }}' magick:resize='1135x' @path %}{% endcapture %}
       {% if site.homepageBanner.breakpoint %}
         <picture>
-          <source media="(min-width: {{ site.homepageBanner.breakpoint }}px)" srcset="{{ site.homepageBanner.image.default | prepend: '/assets/img/' | relative_url }}">
-          <img src="{{ site.homepageBanner.image.mobile | prepend: '/assets/img/' | relative_url }}" alt="{{ site.homepageBanner.title }}">
+          <source media="(min-width: {{ site.homepageBanner.breakpoint }}px)" srcset="{{ img }}">
+          <img src="{% asset '{{ site.homepageBanner.image.mobile }}' magick:resize='{{ site.homepageBanner.breakpoint +"px" }}' @path %}" alt="{{ site.homepageBanner.title }}">
         </picture>
       {% else %}
-        <img src="{{ site.homepageBanner.image.default | prepend: '/assets/img/' | relative_url }}" alt="{{ site.homepageBanner.title }}">
+        <img src="{{ img }}" alt="{{ site.homepageBanner.title }}">
       {% endif %}
     </a>
   </div>
