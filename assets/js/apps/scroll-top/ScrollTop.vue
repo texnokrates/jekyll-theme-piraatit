@@ -59,8 +59,8 @@
     right: 30px;
     bottom: 50px;
 
-
-    background: $light-gray;
+    background: $white;
+    border: 1px $primary-color solid;
     cursor: pointer;
     opacity: 1;
     transition: 0.3s;

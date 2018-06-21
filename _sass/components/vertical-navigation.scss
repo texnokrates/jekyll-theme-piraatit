@@ -1,8 +1,6 @@
 $vn-ns: '';
 
 .#{$vn-ns}c-vertical-navigation {
-  margin: 18px 0 10px 0;
-
   @include breakpoint(medium down) {
     padding: 5px;
   }

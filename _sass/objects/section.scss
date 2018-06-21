@@ -176,10 +176,6 @@ $section-ns: '';
   background: lighten($primary-color, 20%);
 }
 
-.#{$section-ns}o-section-inner {
-  padding: 0 10px;
-}
-
 .#{$section-ns}o-section-inner--medium {
   @include breakpoint(medium) {
     padding-left: 10px;

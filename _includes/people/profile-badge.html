@@ -6,37 +6,37 @@
 {% else %}
     {% assign url = include.item.url | relative_url %}
 {% endif %}
-<div class="o-media o-media-list">
-    <div class="o-media__image o-media__image--lgspace {% if include.imgStyle == 'round' %}o-media__image--round{% endif %}">
+<div class="o-media o-media-list {% if include.style == 'card' %}o-media--rpadded o-media--fill{% endif %}">
+    <div class="o-media__section">
       {% capture img %}{% if include.item.img %}{{ include.item.img }}{% else %}people/unknown-pirate.svg{% endif %}{% endcapture %}
-      <a href="{{ url }}"><img src="{{ img | prepend: 'assets/img/' | relative_url }}" alt="{{ label }}" {% if include.imgSize != 'big' %}style="width: 100px"{% endif %}></a>
+      <a href="{{ url }}"><img src="{{ img | prepend: 'assets/img/' | relative_url }}" alt="{{ label }}" class="{% if include.imgStyle == 'round' %}o-media__image--round{% endif %}" {% if include.imgSize != 'big' %}style="width: 100px"{% endif %}></a>
     </div>
-    <div class="o-media__body">
-        <div class="o-media__body-inner {% if include.style == 'card' %}o-media__body-inner--padded{% endif %}">
-            <h2><a href="{{ url }}" class="o-media__headline-link c-headline-anchor">{{ label }}</a></h2>
-            {% unless include.showDescription == false %}
-            <p>
-                {% if include.description %}
-                    {{ include.description }}
-                {% else %}
-                    {{ include.item.description }}
-                {% endif %}
-            </p>
-            {% endunless %}
+    <div class="o-media__section">
+      <div class="o-media__section-inner {% if include.style == 'card' %}o-media__section-inner--vpadded{% endif %}">
+          <h2><a href="{{ url }}" class="c-headline-anchor {% if include.headlineClass %}{{ include.headlineClass }}{% else %}t-h2{% endif %}">{{ label }}</a></h2>
+          {% unless include.showDescription == false %}
+          <p>
+              {% if include.description %}
+                  {{ include.description }}
+              {% else %}
+                  {{ include.item.description }}
+              {% endif %}
+          </p>
+          {% endunless %}
 
-            {% unless include.showContactInfo == false %}
-                {% if include.item.mob or include.item.mail %}
-                    <p>
-                        {% if include.item.mob %}
-                            <i class="fa fa-phone"></i> <a class="c-emphasized-anchor" href="tel:{{ include.item.mob }}">{{ include.item.mob }}</a>
-                            <br>
-                        {% endif %}
-                        {% if include.item.mail %}
-                            <i class="fa fa-envelope-o"></i> <a class="c-emphasized-anchor" href="mailto:{{ include.item.mail }}">{{ include.item.mail }}</a>
-                        {% endif %}
-                    </p>
-                {% endif %}
-            {% endunless %}
+          {% unless include.showContactInfo == false %}
+              {% if include.item.mob or include.item.mail %}
+                  <p>
+                      {% if include.item.mob %}
+                          <i class="fa fa-phone"></i> <a class="c-emphasized-anchor" href="tel:{{ include.item.mob }}">{{ include.item.mob }}</a>
+                          <br>
+                      {% endif %}
+                      {% if include.item.mail %}
+                          <i class="fa fa-envelope-o"></i> <a class="c-emphasized-anchor" href="mailto:{{ include.item.mail }}">{{ include.item.mail }}</a>
+                      {% endif %}
+                  </p>
+              {% endif %}
+          {% endunless %}
         </div>
     </div>
 </div>

@@ -1,5 +1,5 @@
 <div class="o-section-block">
- <ul class="c-widget-accordion c-widget-accordion--dark" data-accordion="" data-allow-all-closed="true">
+ <ul class="c-widget-accordion" data-accordion="" data-allow-all-closed="true">
    <li class="c-widget-accordion-item is-active" data-accordion-item="">
      <a href="#" class="c-widget-accordion-link">
        <span class="c-widget-accordion__title">{{ site.calendar.title }}</span>
@@ -12,10 +12,9 @@
 
        {% if site.calendar.page %}
        <div class="c-widget-accordion-content__cta">
-         <a class="dark expanded button large" href="{{ site.calendar.page | relative_url }}"> Zobrazit všechny akce </a>
+         <a class="expanded button large" href="{{ site.calendar.page | relative_url }}"> Zobrazit všechny akce </a>
        </div>
        {% endif %}
-
      </div>
    </li>
  </ul>

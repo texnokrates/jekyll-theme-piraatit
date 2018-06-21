@@ -42,7 +42,6 @@ $program-item-ns: '';
     display: flex;
     color: $white;
     border: 1px $light-gray solid;
-    transition: border-color .2s ease-in-out;
 
     &:hover {
         border-color: $primary-color;
@@ -92,6 +91,10 @@ $program-item-ns: '';
         display: flex;
         flex-direction: column;
         border: 1px $light-gray solid;
+
+        &:hover {
+          border-color: $primary-color;
+        }
 
         .#{$program-item-ns}c-program-candidate-badge__description {
             padding: 1rem;

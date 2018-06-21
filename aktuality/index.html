@@ -12,7 +12,7 @@ title: Aktuality
             <h1 itemprop="headline" class="c-page-title">Aktuality</h1>
           </header>
           {% assign posts = paginator.posts %}
-          {% include articles/list_3col.html posts=posts %}
+          {% include articles/list-responsive.html posts=posts %}
           {% include articles/pagination.html paginator=paginator %}
       </div>
     </div>

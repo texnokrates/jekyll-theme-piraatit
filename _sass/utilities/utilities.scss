@@ -2,6 +2,11 @@
   @include clearfix;
 }
 
+.u-uniform-size-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .u-hidden/*,
 .u-js-hiddenBeforeLoad*/ {
   display: none !important;
@@ -24,19 +29,6 @@
 
 }
 
-.u-custom-gutter {
-
-  @include breakpoint(large) {
-    margin-left: -0.5rem !important;
-    margin-right: -0.8rem !important;
-  }
-
-}
-
-.u-pmarginbottom {
-  margin-bottom: 1.5rem;
-}
-
 .u-0margin {
   margin: 0 !important;
 }
@@ -44,29 +36,14 @@
 .u-center {
   text-align: center !important;
 }
-
-.u-center-medium-down {
-
+.u-center--medium-down {
   @include breakpoint(medium down) {
     text-align: center;
     margin: 0 auto;
     display: block;
   }
-
 }
-
-.u-center-860-down {
-
-  @include breakpoint(860px down) {
-    text-align: center;
-    margin: 0 auto;
-    display: block;
-  }
-
-}
-
-.u-center-medium-only {
-
+.u-center--medium-only {
   @include breakpoint(medium down) {
     @include breakpoint(mobile) {
       text-align: center;
@@ -75,75 +52,41 @@
     }
   }
 }
-
-.u-center-mobile-down {
-
+.u-center--mobile-down {
   @include breakpoint(mobile down) {
     text-align: center;
     margin: 0 auto;
     display: block;
   }
-
+}
+.u-stacked + .u-stacked {
+  margin-top: 1rem;
 }
 
-.u-stacked-medium-down + .u-stacked-medium-down {
-
+.u-stacked--medium-down + .u-stacked--medium-down {
   @include breakpoint(medium down) {
-    margin-top: 15px;
+    margin-top: 1rem;
   }
-
 }
-
-.u-stacked-mobile-down + .u-stacked-mobile-down {
-
+.u-stacked--mobile-down + .u-stacked--mobile-down {
   @include breakpoint(mobile down) {
-    margin-top: 15px;
+    margin-top: 1rem;
   }
-
-}
-
-.u-mobile-down-clear {
-
-  @include breakpoint(mobile down) {
-    clear: left;
-  }
-
 }
 
 .u-rotate-345 {
   transform: rotate(345deg) !important;
 }
 
-.u-mirror-horizontally-and-rotate-345 {
-  display: inline-block;
-  transform: matrix(-1, 0, 0, 1, 0, 0) rotate(345deg) !important;
-}
-
 .u-rotate-15 {
   transform: rotate(15deg) !important;
 }
 
-.u-10paddingTop {
-  padding-top: 10px;
-}
-
-.u-50paddingTop {
-  padding-top: 50px;
-}
-
 .u-inverted {
-  color: #fff !important;
+  color: $secondary-color !important;
 
   a {
-    color: #fff !important;
-  }
-
-  p a {
-    text-decoration: underline;
-
-    &:hover {
-      text-decoration: none;
-    }
+    color: $secondary-color !important;
   }
 
   h1,
@@ -152,23 +95,8 @@
   h4,
   h5,
   h6 {
-    color: #e1e1e1 !important;
+    color: $secondary-color !important;
   }
-}
-
-.u-inverted.u-inverted--darker {
-  color: #adadad !important;
-
-  a {
-    color: #adadad !important;
-  }
-
-}
-
-
-.u-maxWidth80percent {
-  max-width: 80% !important;
-  margin: 0 auto;
 }
 
 .u-video-wrapper-16-9 {

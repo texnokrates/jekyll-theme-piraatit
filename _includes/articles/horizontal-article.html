@@ -14,7 +14,7 @@
     <div class="c-article-listing__content">
       <!-- Headline -->
       <h2 itemprop="headline" class="c-BlogPosting-excerpt__title">
-        <a href="{{ include.article.url | relative_url }}" itemprop="url">{{ include.article.title }}</a>
+        <a class="c-headline-anchor" href="{{ include.article.url | relative_url }}" itemprop="url">{{ include.article.title }}</a>
       </h2>
       <div itemprop="description" class="c-BlogPosting-excerpt-content">{{ include.article.excerpt | truncatewords: 33 }} </div>
       <a class="c-emphasized-anchor" href="{{ include.article.url | relative_url }}">Přečíst celý článek &rsaquo;</a>

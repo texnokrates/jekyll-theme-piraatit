@@ -1,15 +1,14 @@
 .c-simple-accordion {
     border: 0 !important; // Because of Foundation's bloat
     @include accordion-container;
-}
 
-.c-simple-accordion.c-simple-accordion--nomargin {
-    margin-bottom: 0;
-}
+    &.c-simple-accordion--nomargin {
+      margin-bottom: 0;
 
-
-.c-simple-accordion.c-simple-accordion--nomargin :last-child>.c-simple-accordion-content:last-child {
-    padding-bottom: 0;
+      :last-child > .c-simple-accordion-content:last-child {
+        padding-bottom: 0;
+    }
+  }
 }
 
 .c-simple-accordion-item {
@@ -18,35 +17,25 @@
         display: none !important;
     }
     @include accordion-item;
-
-    &.is-active .c-simple-accordion-title:before {
-        line-height: 15px;
-    }
 }
 
 .c-simple-accordion-title {
     @include accordion-title;
-    display: inline-block;
+    display: block;
     padding-left: 2.5rem;
-    font-size: 1.75rem !important;
-    color: $body-font-color;
-    text-decoration: none !important;
-    background: #fff;
-    border: none;
-    
+    border: 0; // override accordion-title
+
     &:hover,
     &:focus {
         color: $body-font-color;
-        text-decoration: none !important;
-        background: #FFF;
+        background: $white;
     }
 
     &:before {
-        border-radius: 3px;
         display: inline-block;
         width: 22px;
         height: 22px;
-        line-height: 20px;
+        line-height: 22px;
         right: auto;
         left: 0;
         margin-top: auto;
@@ -56,6 +45,10 @@
         font-size: 1.75rem;
         text-align: center;
     }
+}
+
+.c-simple-accordion__headline {
+  margin: 0;
 }
 
 .c-simple-accordion-content {
@@ -80,6 +73,6 @@
     }
 }
 
-:last-child:not(.is-active)>.c-simple-accordion-title {
+:last-child:not(.is-active) > .c-simple-accordion-title {
     border: none;
 }
