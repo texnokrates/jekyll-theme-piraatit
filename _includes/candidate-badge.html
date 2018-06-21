@@ -2,7 +2,7 @@
   <a class="c-program-candidate-badge__body" href="{{ include.candidate.url | relative_url }}">
       <div class="c-program-candidate-badge__avatar">
           <span class="c-program-candidate-badge__rank"><span>{{ include.candidate.cityCandidatePosition }}.</span></span>
-          {% capture img %}{% if include.candidate.img %}{% asset '{{ include.candidate.img }}' magick:resize='240x240^' magick:gravity='center' magick:crop='240x240+0+0' @path %}{% else %}{% asset people/unknown-pirate.svg @path %}{% endif %}{% endcapture %}
+          {% capture img %}{% if include.candidate.img %}{% asset '{{ include.candidate.img }}' magick:resize='240x240^' magick:gravity='center' magick:crop='240x240+0+0' @path %}{% else %}{{ 'assets/img/people/unknown-pirate.svg' | relative_url }}{% endif %}{% endcapture %}
           <img src="{{ img }}" alt="{{ include.candidate.fullname }}" class="c-program-candidate-badge__avatar-image">
       </div>
       <div class="c-program-candidate-badge__description">
