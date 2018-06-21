@@ -46,6 +46,7 @@
     <!-- Fonts -->
     {% if page.layout != 'blank' %}
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    {% comment %}This actually points to assets/css/main.scss{% endcomment %}
     <link rel="stylesheet" href="{% asset 'main.css' @path !type %}">
     {% endif %}
     <!-- API Mapy.cz that has to be in the header -->
