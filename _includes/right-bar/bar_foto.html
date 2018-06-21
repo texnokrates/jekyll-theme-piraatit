@@ -1,6 +1,6 @@
 {% if page.img %}
 <div class="o-section-block">
- <ul class="c-widget-accordion c-widget-accordion--dark" data-accordion="" data-allow-all-closed="true">
+ <ul class="c-widget-accordion" data-accordion="" data-allow-all-closed="true">
    <li class="c-widget-accordion-item is-active" data-accordion-item="">
      <a href="#" class="c-widget-accordion-link">
        <span class="c-widget-accordion__title">Foto</span>
@@ -11,7 +11,7 @@
      <div class="c-widget-accordion-content text-center" data-tab-content="">
        <img src="{{ page.img | prepend: '/assets/img/' | relative_url}}" alt="{{page.name}}" style="margin: auto;">
        <div class="c-widget-accordion-content__cta">
-         <a class="dark expanded button large" href="{{page.profiles.flickr}}"> Zobrazit více fotografii </a>
+         <a class="expanded button large u-0margin" href="{{page.profiles.flickr}}"> Zobrazit více fotografii </a>
        </div>
      </div>
    </li>

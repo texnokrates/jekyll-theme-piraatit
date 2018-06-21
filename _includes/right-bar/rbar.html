@@ -6,14 +6,6 @@
     {% if page.rbar contains 'foto' %}
       {% include right-bar/bar_person_contact.html %}
     {% endif %}
-    {% if page.rbar contains 'team-summary' %}
-      {% include right-bar/bar_teams_summary.html %}
-    {% endif %}
-    {% if page.rbar contains 'teams-toc' %}
-      {% include right-bar/bar_teams_toc.html %}
-    {% elsif page.rbar contains 'toc' %}
-      {% include right-bar/bar_toc.html %}
-    {% endif %}
     {% if page.rbar contains 'garant' %}
       {% include right-bar/bar_garant.html %}
     {% endif %}
@@ -34,9 +26,6 @@
     {% endif %}
     {% if page.rbar contains 'tw' and site.twitter.profile %}
       {% include right-bar/bar_tw.html %}
-    {% endif %}
-    {% if page.rbar contains 'otevrenost' %}
-      {% include right-bar/bar_otevrenost.html %}
     {% endif %}
   </div>
 </aside>

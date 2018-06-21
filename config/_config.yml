@@ -70,8 +70,7 @@ defaults:   # defaults values for collection scope
     scope:
       path: "_program"
     values:
-      layout: "page"
-      class: "c-program-page"
+      layout: "program-post"
       rbar: "garant, program"
 
 emptyArray: []
