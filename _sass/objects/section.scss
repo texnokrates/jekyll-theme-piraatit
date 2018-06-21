@@ -176,28 +176,6 @@ $section-ns: '';
   background: lighten($primary-color, 20%);
 }
 
-.#{$section-ns}o-section-inner--medium {
-  @include breakpoint(medium) {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-}
-
-.#{$section-ns}o-section-inner--mediumdown {
-  @include breakpoint(mobile down) {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-}
-
-
-.#{$section-ns}o-section-inner--noLarge {
-
-  @include breakpoint(large) {
-    padding: 0 0px;
-  }
-}
-
 .#{$section-ns}o-section-inner--leftBlock {
 
   @include breakpoint(large) {
