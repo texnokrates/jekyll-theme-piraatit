@@ -6,43 +6,41 @@ layout: default
   <div class="row">
     <div class="medium-12 columns">
       <div class="o-section o-section--noSpaceBottom">
-        <div class="">
-          <div class="o-section-block o-section-block--fill">
-            <div class="o-section-inner">
-              <div class="medium-12 columns">
-                <!-- Article -->
-                <link itemprop="mainEntityOfPage" href="{{ page.url | absolute_url }}">
-                <header class="c-page-header">
-                  <h1 itemprop="headline" class="c-page-title"> {{ page.title }} </h1>
-                  <div class="c-metadata-block">
-                    <div class="c-metadata-block-section">
-                      <span itemprop="description" class="c-metadata-block-section__item">
-                        <i class="fa fa-calendar-o" aria-hidden="true"></i> {{ page.date | date: "%d. %m. %Y" }}
-                        <meta itemprop="datePublished" content="{{page.date | date_to_xmlschema }}">
-                        <meta itemprop="dateModified" content="">
+        <div class="o-section-block o-section-block--fill">
+          <div class="o-section-inner">
+            <div class="medium-12 columns">
+              <!-- Article -->
+              <link itemprop="mainEntityOfPage" href="{{ page.url | absolute_url }}">
+              <header class="c-page-header">
+                <h1 itemprop="headline" class="c-page-title"> {{ page.title }} </h1>
+                <div class="c-metadata-block">
+                  <div class="c-metadata-block-section">
+                    <span itemprop="description" class="c-metadata-block-section__item">
+                      <i class="fa fa-calendar-o" aria-hidden="true"></i> {{ page.date | date: "%d. %m. %Y" }}
+                      <meta itemprop="datePublished" content="{{page.date | date_to_xmlschema }}">
+                      <meta itemprop="dateModified" content="">
+                    </span>
+                    <!-- Authors -->
+                    <span itemprop="author" itemtype="http://schema.org/Person" class="c-metadata-block-section__item" itemscope="">
+                      <i class="fa fa-user" aria-hidden="true"></i>
+                      <span itemprop="name">
+                          {% include articles/author.html article=page %}
                       </span>
-                      <!-- Authors -->
-                      <span itemprop="author" itemtype="http://schema.org/Person" class="c-metadata-block-section__item" itemscope="">
-                        <i class="fa fa-user" aria-hidden="true"></i>
-                        <span itemprop="name">
-                            {% include articles/author.html article=page %}
-                        </span>
-                      </span>
-                    </div>
-                    {% if page.tags %}
-                    <div class="c-metadata-block-section">
-                      <ul class="c-tag-list">
-                        {% for tag in page.tags %}
-                        <li class="c-tag-list__item">
-                          <a href="{{ tag | prepend: '/tags/#' | relative_url }}" class="c-tag">{{ tag }}</a>
-                        </li>
-                        {% endfor %}
-                      </ul>
-                    </div>
-                    {% endif %}
+                    </span>
                   </div>
-                </header>
-              </div>
+                  {% if page.tags %}
+                  <div class="c-metadata-block-section">
+                    <ul class="c-tag-list">
+                      {% for tag in page.tags %}
+                      <li class="c-tag-list__item">
+                        <a href="{{ tag | prepend: '/tags/#' | relative_url }}" class="c-tag">{{ tag }}</a>
+                      </li>
+                      {% endfor %}
+                    </ul>
+                  </div>
+                  {% endif %}
+                </div>
+              </header>
             </div>
           </div>
         </div>

@@ -1,0 +1,26 @@
+---
+layout: default
+---
+
+{% include page-header.html headline=page.title content=content %}
+
+{% if site.data.members.viewMode == 'grouped' %}
+  {% for group in site.data.members.groups %}
+    <div class="row o-section-block o-section-block--divided">
+      <section class="large-12 columns">
+          {% assign team = site.people | where_exp: "item", "item.categories contains group.category" %}
+          {% if group.sort %}
+            {% assign team = team | sort: group.sort %}
+          {% endif %}
+          {% include people/list-group.html team=team teamName=group.name teamShortcut=group.category %}
+      </section>
+      {% unless forloop.last %}<hr>{% endunless %}
+    </div>
+  {% endfor %}
+{% else %}
+  <div class="row o-section-block o-section-block--divided">
+    <section class="large-12 columns">
+      {% include people/list-responsive.html team=site.people %}
+    </section>
+  </div>
+{% endif %}
