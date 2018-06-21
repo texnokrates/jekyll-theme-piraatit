@@ -1,14 +1,15 @@
 <div class="c-program-candidate-badge{% if include.leader %} c-program-candidate-badge--leader{% endif %}">
   <a class="c-program-candidate-badge__body" href="{{ include.candidate.url | relative_url }}">
       <div class="c-program-candidate-badge__avatar">
-          <span class="c-program-candidate-badge__rank"><span>{{ include.candidate.cityCandidatePosition }}.</span></span>
-          {% capture img %}{% if include.candidate.img %}{% asset '{{ include.candidate.img }}' magick:resize='240x240^' magick:gravity='center' magick:crop='240x240+0+0' @path %}{% else %}{% asset people/unknown-pirate.svg @path %}{% endif %}{% endcapture %}
+          {% assign person = site.people | where_exp:"item","item.uid contains include.candidate" | first  %}
+          <span class="c-program-candidate-badge__rank"><span>{{ person.cityCandidatePosition}}.</span></span>
+          {% capture img %}{% if person.img %}{% asset '{{ person.img }}' magick:resize='240x240^' magick:gravity='center' magick:crop='240x240+0+0' @path %}{% else %}{% asset people/unknown-pirate.svg @path %}{% endif %}{% endcapture %}
           <img src="{{ img }}" alt="{{ include.candidate.fullname }}" class="c-program-candidate-badge__avatar-image">
       </div>
       <div class="c-program-candidate-badge__description">
-          <h4 class="c-program-candidate-badge__name t-h2"><span class="c-headline-anchor">{{ include.candidate.fullname }}</span></h4>
-          <strong class="c-program-candidate-badge__profession">{{ include.candidate.profession }}</strong>
-          <p class="c-program-candidate-badge__bio">{{ include.candidate.candidateDescription }}</p>
+          <h4 class="c-program-candidate-badge__name t-h2"><span class="c-headline-anchor">{{ person.fullname }}</span></h4>
+          <strong class="c-program-candidate-badge__profession">{{ person.profession }}</strong>
+          <p class="c-program-candidate-badge__bio">{{ person.candidateDescription }}</p>
       </div>
   </a>
 </div>

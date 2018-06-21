@@ -14,6 +14,7 @@ layout: page
       </div>
       <div class="c-program-candidates">
         {% assign team = site.people | where_exp:"item","item.categories contains 'kandidat-obec'" | sort:"cityCandidatePosition" %}
+        {% assign team = page.candidates %}
         {% assign leader_candidate = team  | first %}
         {% assign other_candidates = team | slice:1,team.size %}
 
