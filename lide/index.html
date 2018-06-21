@@ -2,28 +2,31 @@
 layout: default
 ---
 
-<div class="row o-section-block o-section-block--divided">
-  <div class="medium-12 large-12 columns">
-    <section class="o-section">
-      <div class="o-section-inner">
-        <main class="o-section-block">
-          {% assign team = site.people | where_exp:"item","item.categories contains 'pms'" | sort:"ordpms" %}
-          {% assign team_name = "Místní předsednitvo" %}
-          {% assign team_shortcut = "pms" %}
-          {% include people/list-group.html param=team param=team_name team=team_shortcut %}
-
-          {% assign team = site.people | where_exp:"item","item.categories contains 'clenove'" %}
-          {% assign team_name = "Členové" %}
-          {% assign team_shortcut = "clenove" %}
-          {% include people/list-group.html param=team param=team_name team=team_shortcut %}
-
-          {% assign team = site.people | where_exp:"item","item.categories contains 'priznivci'" %}
-          {% assign team_name = "Aktivní příznivci" %}
-          {% assign team_shortcut = "priznivci" %}
-          {% include people/list-group.html param=team param=team_name teamm=team_shortcut %}
-        </main>
-      </div>
-    </section>
-    <!-- /. o-section -->
+<div class="row o-section">
+  <div class="columns large-12">
+    <header class="c-page-header">
+      <h1 itemprop="headline" class="c-page-title">O nás</h1>
+    </header>
   </div>
+</div>
+
+<div class="row o-section-block o-section-block--divided">
+  <section class="large-12 columns">
+      {% assign team = site.people | where_exp:"item","item.categories contains 'pms'" | sort:"ordpms" %}
+      {% include people/list-group.html team=team teamName='Místní předsednictvo' teamShortcut='pms' %}
+  </section>
+</div>
+<hr>
+<div class="row o-section-block o-section-block--divided">
+  <section class="large-12 columns">
+    {% assign team = site.people | where_exp:"item","item.categories contains 'clenove'" %}
+    {% include people/list-group.html team=team teamName='Členové' teamShortut='clenove' %}
+  </section>
+</div>
+<hr>
+<div class="row o-section-block o-section-block--divided">
+  <section class="large-12 columns">
+    {% assign team = site.people | where_exp:"item","item.categories contains 'priznivci'" %}
+          {% include people/list-group.html team=team teamName='Aktivní příznivci' teamShortcut='priznivci' %}
+  </section>
 </div>
