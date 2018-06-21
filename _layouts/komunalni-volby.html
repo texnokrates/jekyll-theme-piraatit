@@ -18,13 +18,14 @@ layout: page
         {% assign leader_candidate = team  | first %}
         {% assign other_candidates = team | slice:1,team.size %}
 
-        {% include candidate-badge.html candidate=leader_candidate leader=true %}
+        {% include candidate-badge.html candidate=leader_candidate leader=true position="1" %}
 
         <div class="c-program-candidates__others">
           {% for candidate in other_candidates %}
               {% assign loopindex = forloop.index | modulo: 3 %}
               {% if loopindex == 1 %}<div class="c-program-candidates__row">{% endif %}
-                  {% include candidate-badge.html candidate=candidate leader=false %}
+                  {% assign position = forloop.index | plus: 1 %}
+                  {% include candidate-badge.html candidate=candidate leader=false position=position %}
               {% if loopindex == 0 or forloop.last %}</div>{% endif %}
           {% endfor %}
         </div>
