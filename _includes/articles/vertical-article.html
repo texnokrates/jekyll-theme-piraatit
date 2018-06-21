@@ -23,7 +23,9 @@
       <!-- Authors -->
       <span itemprop="author" itemtype="http://schema.org/Person" class="c-metadata-block-section__item" itemscope="">
         <i class="fa fa-user" aria-hidden="true"></i>
-        <span itemprop="name">{{ include.article.author }}</span>
+        <span itemprop="name">
+            {% include articles/author.html article=page %}
+        </span>
       </span>
     </div>
   </div>
