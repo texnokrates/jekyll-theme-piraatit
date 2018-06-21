@@ -65,7 +65,7 @@ defaults:   # defaults values for collection scope
       path: "_people"
     values:
       layout: "person"
-      rbar: "people, foto"
+      rbar: "people, foto, personContact"
   -
     scope:
       path: "_program"
