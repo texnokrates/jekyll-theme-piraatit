@@ -1,0 +1,11 @@
+/**
+ * Homepage banner image
+ */
+
+ .c-hp-banner {
+  margin-top: 2rem;
+
+  @include breakpoint(small down) {
+    margin: 1.5rem 0;
+  }
+}

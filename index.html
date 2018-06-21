@@ -3,11 +3,18 @@ layout: default
 rbar: fb, calendar
 ---
 
-{% if site.homepageTeaser.display %}
-<div class="row election-teaser">
+{% if site.homepageBanner.display %}
+<div class="row c-hp-banner">
   <div class="small-12 columns">
-    <a href="{{ site.homepageTeaser.link }}" title="{{ site.homepageTeaser.title }}">
-      {{ site.homepageTeaser.title }}
+    <a href="{{ site.homepageBanner.link }}" title="{{ site.homepageBanner.title }}">
+      {% if site.homepageBanner.breakpoint %}
+        <picture>
+          <source media="(min-width: {{ site.homepageBanner.breakpoint }}px)" srcset="{{ site.homepageBanner.image.default | prepend: '/assets/img/' | relative_url }}">
+          <img src="{{ site.homepageBanner.image.mobile | prepend: '/assets/img/' | relative_url }}" alt="{{ site.homepageBanner.title }}">
+        </picture>
+      {% else %}
+        <img src="{{ site.homepageBanner.image.default | prepend: '/assets/img/' | relative_url }}" alt="{{ site.homepageBanner.title }}">
+      {% endif %}
     </a>
   </div>
 </div>
