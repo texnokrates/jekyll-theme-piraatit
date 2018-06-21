@@ -1,6 +1,6 @@
 <template>
   <div class="c-agenda">
-    <div v-for="event in events.slice(0, toShow)" class="c-agenda__event">
+    <div v-for="event in events.slice(0, toShow)" v-bind:key="event.id" class="c-agenda__event">
       <strong class="c-agenda__event-date">{{ event.startVerbose }}</strong>
       <a v-bind:href="event.link" class="c-emphasized-anchor" target="_blank">{{ event.title }}</a>
     </div>
@@ -39,6 +39,7 @@
         }
       },
 
+      // Store events to sessionStorage if possible to save requests.
       storeEventsToStorage() {
         if (window.sessionStorage) {
           window.sessionStorage['__pircal'] = JSON.stringify(this.events);
@@ -53,6 +54,7 @@
         const now = new Date();
         const timeMin = now.toISOString();
         const timeMax = new Date(+now + (1000 * 60 * 60 * 24 * 90)).toISOString(); // 90 days ahead
+        let counter = 0;
 
         this.$http.get(`https://www.googleapis.com/calendar/v3/calendars/${this.calendarId}/events?key=${encodeURIComponent(this.apiKey)}&maxResults=20&timeMin=${encodeURIComponent(timeMin)}&timeMax=${encodeURIComponent(timeMax)}&sanitizeHtml=true&singleEvents=true&maxAtendees=1`).then(resp => {
           const events = resp.body.items
@@ -61,6 +63,7 @@
               const end = new Date(e.end.dateTime);
 
               return {
+                id: counter++,
                 start: start,
                 startVerbose: start.toLocaleDateString('cs-CZ', {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'}),
                 end: end,
