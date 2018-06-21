@@ -21,7 +21,7 @@
             {% asset '{{ include.item.img }}' magick:resize='165x165^' magick:gravity='center' magick:crop='165x165+0+0' @path %}
           {%- endif -%}
         {%- else -%}
-          {% asset people/unknown-pirate.svg @path %}
+          {{ 'assets/img/people/unknown-pirate.svg' | relative_url }}
         {%- endif -%}
       {%- endcapture -%}
       <a href="{{ url }}"><img src="{{ img }}" alt="{{ label }}" class="{% if include.imgStyle == 'round' %}o-media__image--round{% endif %}" {% if include.imgSize != 'big' %}style="width: 100px"{% endif %}></a>
