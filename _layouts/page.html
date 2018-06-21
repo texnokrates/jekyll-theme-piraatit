@@ -7,29 +7,15 @@ layout: default
 {% endunless %}
 
 <div class="row">
-  <div class="medium-12
-      {% if page.rbar == empty or page.rbar == blank or page.rbar == nil %}
-        large-12
-      {% else%}
-        large-8
-      {%endif%} columns">
-    <div class="o-section o-section--spaceBot">
-      <div class="o-section-inner">
-        <main class="o-section-block">
-          <!-- Article -->
-          <article itemtype="http://schema.org/BlogPosting" itemscope="">
-            <link itemprop="mainEntityOfPage" href="{{ page.url }}">
-            <h1 itemprop="headline" class="c-page-title">
-                {% if page.fullname %}{{ page.fullname }}{% else %}{{ page.title }}{% endif %}
-            </h1>
-            <div itemprop="description">
-              {{ content }}
-            </div>
-          </article>
-          <!-- /Article -->
-        </main>
-      </div>
-    </div>
+  <div class="medium-12 {% unless page.rbar == empty or page.rbar == blank or page.rbar == nil %} large-8{% endunless %} columns">
+
+    <!-- Article -->
+    <article itemtype="http://schema.org/BlogPosting" itemscope="">
+      <link itemprop="mainEntityOfPage" href="{{ page.url }}">
+      {% capture headline %}{% if page.fullname %}{{ page.fullname }}{% else %}{{ page.title }}{% endif %}{% endcapture %}
+      {% include page-header.html headline=page.title content=content %}
+    </article>
+    <!-- /Article -->
   </div>
   {% unless page.rbar == empty or page.rbar == blank or page.rbar == nil %}
   <div class="medium-12 large-4 columns">

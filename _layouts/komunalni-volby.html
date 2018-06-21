@@ -3,59 +3,55 @@ layout: page
 ---
 
 <div class="row">
+  <div class="columns">{{ content }}</div>
+</div>
 
-    <div class="c-program-intro">
-        <p> {{ content }} </p>
-    </div>
+<div class="o-section">
+  <div class="row">
+    <div class="columns medium-8">
+      <div class="o-section-header">
+        <h3 class="o-section__heading o-section__heading--small">Kandidátní listina</h3>
+      </div>
+      <div class="c-program-candidates">
+        {% assign team = site.people | where_exp:"item","item.categories contains 'kandidat-obec'" | sort:"cityCandidatePosition" %}
+        {% assign leader_candidate = team  | first %}
+        {% assign other_candidates = team | slice:1,team.size %}
 
-    <div class="o-section">
-        <div class="columns medium-8">
-            <div class="o-section-header">
-                <h3 class="o-section__heading o-section__heading--small">Kandidátní listina</h3>
-            </div>
-            <div class="c-program-candidates">
-                {% assign team = site.people | where_exp:"item","item.categories contains 'kandidat-obec'" | sort:"cityCandidatePosition" %}
-                {% assign leader_candidate = team  | first %}
-                {% assign other_candidates = team | slice:1,team.size %}
+        {% include candidate-badge.html candidate=leader_candidate leader=true %}
 
-                {% include candidate-badge.html candidate=leader_candidate leader=true %}
-
-                <div class="c-program-candidates__others">
-                  {% for candidate in other_candidates %}
-                      {% assign loopindex = forloop.index | modulo: 3 %}
-                      {% if loopindex == 1 %}<div class="c-program-candidates__row">{% endif %}
-                          {% include candidate-badge.html candidate=candidate leader=false %}
-                      {% if loopindex == 0 or forloop.last %}</div>{% endif %}
-                  {% endfor %}
-                </div>
-            </div>
-
-            {% if page.note %}
-            <p><strong>Pozn.:</strong> {{ page.note }}</p>
-            {% endif %}
-
+        <div class="c-program-candidates__others">
+          {% for candidate in other_candidates %}
+              {% assign loopindex = forloop.index | modulo: 3 %}
+              {% if loopindex == 1 %}<div class="c-program-candidates__row">{% endif %}
+                  {% include candidate-badge.html candidate=candidate leader=false %}
+              {% if loopindex == 0 or forloop.last %}</div>{% endif %}
+          {% endfor %}
         </div>
-        <div class="columns medium-4">
-            <div class="o-section-header">
-              <h3 class="o-section__heading o-section__heading--small">Program</h3>
-            </div>
-            <div class="c-program-items">
-                {% assign programCategories = site.program | where_exp:"item","item.categories contains page.category" | sort:"order" %}
-                {% for category in programCategories %}
-                <div class="c-program-items__item">
-                    <div class="c-program-items__item-wrap">
-                        <div class="c-program-items__item-inner">
-                            <a href="{{ category.url | relative_url }}">
-                                <h3 class="c-program-items__item-title t-h2 c-headline-anchor">{{ category.title }}</h3>
-                                <p>{{ category.perex }}</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
+      </div>
 
-        </div>
+      {% if page.note %}
+        <p><strong>Pozn.:</strong> {{ page.note }}</p>
+      {% endif %}
     </div>
-
+    <div class="columns medium-4">
+      <div class="o-section-header">
+        <h3 class="o-section__heading o-section__heading--small">Program</h3>
+      </div>
+      <div class="c-program-items">
+          {% assign programCategories = site.program | where_exp:"item","item.categories contains page.category" | sort:"order" %}
+          {% for category in programCategories %}
+          <div class="c-program-items__item">
+            <div class="c-program-items__item-wrap">
+              <div class="c-program-items__item-inner">
+                <a href="{{ category.url | relative_url }}">
+                  <h3 class="c-program-items__item-title t-h2 c-headline-anchor">{{ category.title }}</h3>
+                  <p>{{ category.perex }}</p>
+                </a>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+      </div>
+    </div>
+  </div>
 </div>

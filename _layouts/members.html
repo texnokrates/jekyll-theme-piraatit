@@ -2,17 +2,7 @@
 layout: default
 ---
 
-<div class="row o-section">
-  <div class="columns large-12">
-    <header class="c-page-header">
-      <h1 itemprop="headline" class="c-page-title">{{ page.title }}</h1>
-    </header>
-  </div>
-  <div class="columns large-12">
-    {{ content }}
-  </div>
-</div>
-
+{% include page-header.html headline=page.title content=content %}
 
 {% if site.data.members.viewMode == 'grouped' %}
   {% for group in site.data.members.groups %}
