@@ -2,29 +2,7 @@
 
 Theme of Czech Pirate Party
 
-## Installation
-
-Add this line to your Jekyll site's `Gemfile`:
-
-```ruby
-gem "jekyll-theme-pirati"
-```
-
-And add this line to your Jekyll site's `_config.yml`:
-
-```yaml
-theme: jekyll-theme-pirati
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install jekyll-theme-pirati
-
-## Usage
+## Installation & usage
 
 For usage see readme of  https://github.com/pirati-web/example.pirati.cz
 
