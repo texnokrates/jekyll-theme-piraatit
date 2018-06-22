@@ -7,7 +7,7 @@
     "test": "echo 'test'",
     "start": "npm run dev",
     "clean": "rm -rf _site",
-    "dev": "npm run clean && concurrently 'npm run webpack:dev' 'npm run jekyll:dev'",
+    "dev": "npm run clean && concurrently 'npm run webpack:dev' 'GOOGLE_CALENDAR_APIKEY=AIzaSyAXWWBxhDChm00CQv_BeK-WI_VuebYr9a8 npm run jekyll:dev'",
     "build": "npm run clean && npm run webpack && npm run jekyll",
     "build:stage": "npm run clean && npm run webpack && npm run jekyll:stage",
     "jekyll": "cross-env JEKYLL_ENV=production bundle exec jekyll build --config config/_config.yml",

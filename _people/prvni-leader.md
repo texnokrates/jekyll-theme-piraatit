@@ -5,6 +5,8 @@ fullname: Bc. První Leader  	# jméno s tituly etc.
 category:
   - clenove
   - kandidat-obec
+  - praha2018
+  - senat
 description: mistr světa ve skoku pro něco # zobrazuje se v lide
 profession: knihovník
 img: people/ppp.jpg # zakomentuj radek dokud není fotka

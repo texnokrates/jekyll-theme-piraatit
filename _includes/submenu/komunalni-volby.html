@@ -1,0 +1,11 @@
+<div class="c-top-sub-nav-header">
+  <div class="c-top-sub-nav__heading"><a href="{{ site.data.elections.baseUrl }}">{{ site.data.elections.headerTitle }}</a></div>
+</div>
+<div class="c-top-sub-nav-divider"></div>
+<ul class="c-top-sub-nav-items">
+  {% for campaign in site.data.elections.campaigns %}
+  <li class="c-top-sub-nav__item">
+    <a href="{{ site.data.elections.baseUrl }}{{ campaign.category }}/">{{ campaign.title }}</a>
+  </li>
+  {% endfor %}
+</ul>

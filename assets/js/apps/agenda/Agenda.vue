@@ -1,10 +1,13 @@
 <template>
   <div class="c-agenda">
-    <div v-for="event in events.slice(0, toShow)" v-bind:key="event.id" class="c-agenda__event">
-      <strong class="c-agenda__event-date">{{ event.startVerbose }}</strong>
-      <a v-bind:href="event.link" class="c-emphasized-anchor" target="_blank">{{ event.title }}</a>
+    <div v-for="group in eventGroups.slice(0, toShow)" v-bind:key="group.date" class="c-agenda__eventgroup">
+      <strong class="c-agenda__event-date">{{ group.date }}</strong>
+      <div class="c-agenda__event" v-for="event in group.events" v-bind:key="event.id">
+        <span class="c-agenda__event-time">{{ event.startTimeVerbose }}</span>
+        <a v-bind:href="event.link" class="c-agenda__event-title c-emphasized-anchor" target="_blank">{{ event.title }}</a>
+      </div>
     </div>
-    <a v-if="toShow < events.length" v-on:click="showMore()" class="c-emphasized-anchor c-agenda__more">Zobrazit další &raquo;</a>
+    <a v-if="toShow < eventGroups.length" v-on:click="showMore()" class="c-emphasized-anchor c-agenda__more">Zobrazit další &raquo;</a>
   </div>
 </template>
 
@@ -24,7 +27,7 @@
     },
     data() {
       return {
-        events: [],
+        eventGroups: [],
         toShow: 7,
       };
     },
@@ -42,7 +45,7 @@
       // Store events to sessionStorage if possible to save requests.
       storeEventsToStorage() {
         if (window.sessionStorage) {
-          window.sessionStorage['__pircal'] = JSON.stringify(this.events);
+          window.sessionStorage['__pircal'] = JSON.stringify(this.eventGroups);
         }
       }
     },
@@ -62,23 +65,39 @@
               const start = new Date(e.start.dateTime);
               const end = new Date(e.end.dateTime);
 
+              const startDateVerbose = start.toLocaleDateString('cs-CZ', {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'});
+              const startTimeVerbose = start.getHours() + ':' + start.getMinutes().toString().padStart(2, '0');
+
               return {
                 id: counter++,
                 start: start,
-                startVerbose: start.toLocaleDateString('cs-CZ', {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'}),
+                startDateVerbose,
+                startTimeVerbose,
                 end: end,
                 title: e.summary,
                 description: e.description,
                 link: e.htmlLink
-              }
+              };
             })
             .sort((e1, e2) => e1.start < e2.start ? -1 : 1);
 
-          this.events = events;
+          const eventGroups = [];
+
+          events.forEach(e => {
+            const group = eventGroups.find(g => g.date === e.startDateVerbose);
+
+            if (group) {
+              group.events.push(e);
+            } else {
+              eventGroups.push({date: e.startDateVerbose, events: [e]});
+            }
+          });
+
+          this.eventGroups = eventGroups;
           this.storeEventsToStorage();
         });
       } else {
-        this.events = ev;
+        this.eventGroups = ev;
       }
     }
   };
@@ -87,11 +106,23 @@
 <style lang="scss">
   @import 'settings';
 
+  .c-agenda__event {
+    display: flex;
+  }
+
   .c-agenda__event-date {
     display: block;
   }
 
-  .c-agenda__event {
+  .c-agenda__event-time {
+    margin-right: 1em;
+  }
+
+  .c-agenda__event-title {
+    flex: 1;
+  }
+
+  .c-agenda__eventgroup {
     margin-bottom: 1rem;
   }
 

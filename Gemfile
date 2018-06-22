@@ -7,6 +7,7 @@ gem "jekyll-feed"
 gem "jekyll-sitemap"
 gem "jekyll-paginate"
 gem "jekyll-assets", "3.0.11", group: :jekyll_plugins
+gem 'jekyll-environment-variables'
 
 gem "json" # For gem building
 gem 'sprockets', '~> 4.0.0.beta'

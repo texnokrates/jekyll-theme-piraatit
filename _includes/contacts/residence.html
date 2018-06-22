@@ -1,11 +1,11 @@
 <h2>Sídlo a kontaktní centrum</h2>
-<div class="o-media o-media--top">
+<div class="o-media">
     {% if site.organization.residenceImg %}
-    <div class="o-media__image">
+    <div class="o-media__section">
       {% asset '{{ site.organization.residenceImg }}' magick:resize='200x' alt='Sídlo' %}
     </div>
     {% endif %}
-    <div class="o-media__body">
+    <div class="o-media__section">
         <h3>{{ site.organization.name }}</h3>
         <p>{{ site.organization.address | newline_to_br }}</p>
         {% if site.organization.mapLink %}
