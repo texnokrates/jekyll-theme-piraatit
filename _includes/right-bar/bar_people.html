@@ -13,7 +13,8 @@
               {% include people/profile-badge.html item=person style='card' headlineClass='t-h3' showContactInfo=false %}
             {% endfor %}
           <div class="c-widget-accordion-content__cta">
-            <a class="expanded button large u-0margin" href="{{ '/lide/' | relative_url }}"> Poznejte celý náš tým! </a>
+            {% assign peopleCol = site.collections | where: "label", "people" | first %}
+            <a class="expanded button large u-0margin" href="{% if peopleCol.root %}{{ peopleCol.root }}{% else %}{{ '/lide/' | relative_url }}{% endif %}"> Poznejte celý náš tým! </a>
           </div>
         </div>
       </li>

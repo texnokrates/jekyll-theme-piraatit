@@ -108,6 +108,10 @@
   padding: 1rem;
   background: $white;
   border: 3px $primary-color solid;
+
+  &.c-widget-accordion-content--nopad {
+    padding: 0;
+  }
 }
 
 .c-widget-accordion .c-widget-accordion-link {
