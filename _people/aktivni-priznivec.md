@@ -4,6 +4,8 @@ name:     Aktivní Příznivec  	# běžně používáné jméno
 fullname: PhDr. Jakub Pirát  	# jméno s tituly etc.
 category:
   - priznivci
+  - kandidat-obec
+  - praha2018
 description: kandidát do senátu # zobrazuje se v lide
 profession: zametač
 img: people/ppp.jpg # zakomentuj radek dokud není fotka
@@ -19,7 +21,7 @@ profiles:
   twitter: https://twitter.com/uzivatel.na.twitteru
   blog: http://blog.aktualne.cz/blogy/lukas-wagenknecht.php
   web: https://lukaswagenknecht.cz/
-office: 
+office:
   - address: Jiřího náměstí 39, 290 33  Poděbrady
     name: Poslanecká kancelář
     opening: "Pondělí 14:00 - 18:00, objednání návštěvy: kancelar-podebrady@pirati.cz nebo 778 111 462. Dne 18. 6. je z pracovních důvodů kancelář mimo provoz."

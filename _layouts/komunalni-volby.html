@@ -1,5 +1,6 @@
 ---
 layout: page
+submenu: 'submenu/komunalni-volby.html'
 ---
 
 <div class="row">
@@ -13,8 +14,7 @@ layout: page
         <h3 class="o-section__heading o-section__heading--small">Kandidátní listina</h3>
       </div>
       <div class="c-program-candidates">
-        {% assign team = site.people | where_exp:"item","item.categories contains 'kandidat-obec'" | sort:"cityCandidatePosition" %}
-        {% assign team = page.candidates %}
+        {% assign team = site.people | where_exp: "item", "item.categories contains page.category" | sort:"cityCandidatePosition" %}
         {% assign leader_candidate = team  | first %}
         {% assign other_candidates = team | slice:1,team.size %}
 
@@ -40,7 +40,7 @@ layout: page
         <h3 class="o-section__heading o-section__heading--small">Program</h3>
       </div>
       <div class="c-program-items">
-          {% assign programCategories = site.program | where_exp:"item","item.categories contains page.category" | sort:"order" %}
+          {% assign programCategories = site.program | where_exp:"item", "item.categories contains page.category" | sort:"order" %}
           {% for category in programCategories %}
           <div class="c-program-items__item">
             <div class="c-program-items__item-wrap">

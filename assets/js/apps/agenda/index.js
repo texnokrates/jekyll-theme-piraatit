@@ -5,7 +5,6 @@ import Agenda from './Agenda.vue';
 Vue.use(VueResource);
 
 const appFactory = (el, attrs) => {
-  console.log(attrs);
   // Bootstrap Vue.js.
   new Vue({
     el,
