@@ -14,19 +14,20 @@ submenu: 'submenu/komunalni-volby.html'
         <h3 class="o-section__heading o-section__heading--small">Kandidátní listina</h3>
       </div>
       <div class="c-program-candidates">
-        {% assign team = site.people | where_exp: "item", "item.categories contains page.category" | sort:"cityCandidatePosition" %}
-        {% assign leader_candidate = team  | first %}
-        {% assign other_candidates = team | slice:1,team.size %}
-
-        {% include candidate-badge.html candidate=leader_candidate leader=true position="1" %}
+        {% assign electionSettings = site.data.elections.campaigns | where: "category", page.category | first %}
+        {% assign leaderCandidateUid = electionSettings.candidates | first %}
+        {% assign leaderCandidate = site.people | where: "uid", leaderCandidateUid | first %}
+        {% include candidate-badge.html candidate=leaderCandidate leader=true rank=1 %}
 
         <div class="c-program-candidates__others">
-          {% for candidate in other_candidates %}
-              {% assign loopindex = forloop.index | modulo: 3 %}
-              {% if loopindex == 1 %}<div class="c-program-candidates__row">{% endif %}
-                  {% assign position = forloop.index | plus: 1 %}
-                  {% include candidate-badge.html candidate=candidate leader=false position=position %}
-              {% if loopindex == 0 or forloop.last %}</div>{% endif %}
+          {% assign otherCandidateUids = electionSettings.candidates | slice: 1, electionSettings.candidates.size %}
+          {% for candidateUid in otherCandidateUids %}
+            {% assign candidate = site.people | where: "uid", candidateUid  | first %}
+            {% assign candidateRank = forloop.index | plus: 1 %}
+            {% assign loopindex = forloop.index | modulo: 3 %}
+            {% if loopindex == 1 %}<div class="c-program-candidates__row">{% endif %}
+              {% include candidate-badge.html candidate=candidate leader=false rank=candidateRank %}
+            {% if loopindex == 0 or forloop.last %}</div>{% endif %}
           {% endfor %}
         </div>
       </div>
