@@ -5,7 +5,6 @@ fullname: PhDr. Jakub Pirát  	# jméno s tituly etc.
 category:
   - priznivci
   - kandidat-obec
-  - praha2018
 description: kandidát do senátu # zobrazuje se v lide
 profession: zametač
 img: people/ppp.jpg # zakomentuj radek dokud není fotka
@@ -15,7 +14,6 @@ asistenti:
     mail: vera.marusiakova@pirati.cz
 mail:
   - aktivni.priznivec@pirati.cz
-cityCandidatePosition: 4
 profiles:
   facebook: https://www.facebook.com/uzivatel.na.fb  # pokud nema, staci smazat tuto radku
   googleplus: https://plus.google.com/+uzivatel.na.googleplus

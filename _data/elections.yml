@@ -4,5 +4,12 @@ baseUrl: /komunalni-volby/
 campaigns:
   - title: Program na radnici
     category: praha2018
+    candidates:
+      - prvni.leader
+      - mistni.predseda
+      - jakub.pirat
+      - aktivni.priznivec
   - title: Senát
     category: senat
+    candidates:
+      - jakub.pirat

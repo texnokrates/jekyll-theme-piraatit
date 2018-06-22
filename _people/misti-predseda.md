@@ -6,14 +6,12 @@ category:
   - clenove
   - kandidat-obec
   - pms
-  - praha2018
 description: mistr světa ve skoku pro něco # zobrazuje se v lide
 profession: knihovník
 #img: people/ppp.jpg # zakomentuj radek dokud není fotka
 candidateDescription: expert na skoky # zobrazuje se v komunalni-volby
 mail:
   - mistni.predsedat@pirati.cz
-cityCandidatePosition: 3
 profiles:
   facebook: https://www.facebook.com/uzivatel.na.fb  # pokud nema, staci smazat tuto radku
   googleplus: https://plus.google.com/+uzivatel.na.googleplus
