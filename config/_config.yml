@@ -36,6 +36,7 @@ exclude:
   - vendor
   - assets/js
   - config
+  - vendor
 
 sass:
   style: compressed
