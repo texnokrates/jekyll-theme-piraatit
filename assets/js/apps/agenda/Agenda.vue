@@ -3,8 +3,11 @@
     <div v-for="group in eventGroups.slice(0, toShow)" v-bind:key="group.date" class="c-agenda__eventgroup">
       <strong class="c-agenda__event-date">{{ group.date }}</strong>
       <div class="c-agenda__event" v-for="event in group.events" v-bind:key="event.id">
-        <span class="c-agenda__event-time">{{ event.startTimeVerbose }}</span>
-        <a v-bind:href="event.link" class="c-agenda__event-title c-emphasized-anchor" target="_blank">{{ event.title }}</a>
+        <span class="c-agenda__event-time" v-if="! event.allDay">{{ event.startTimeVerbose }}</span>
+        <span class="c-agenda__event-time" v-if="event.allDay">celý den</span>
+        <span class="c-agenda__event-title">
+          <a v-bind:href="event.link" class="c-emphasized-anchor" target="_blank">{{ event.title }}</a>
+        </span>
       </div>
     </div>
     <a v-if="toShow < eventGroups.length" v-on:click="showMore()" class="c-emphasized-anchor c-agenda__more">Zobrazit další &raquo;</a>
@@ -62,17 +65,20 @@
         this.$http.get(`https://www.googleapis.com/calendar/v3/calendars/${this.calendarId}/events?key=${encodeURIComponent(this.apiKey)}&maxResults=20&timeMin=${encodeURIComponent(timeMin)}&timeMax=${encodeURIComponent(timeMax)}&sanitizeHtml=true&singleEvents=true&maxAtendees=1`).then(resp => {
           const events = resp.body.items
             .map(e => {
-              const start = new Date(e.start.dateTime);
-              const end = new Date(e.end.dateTime);
+              const start = new Date(e.start.dateTime || e.start.date);
+              const end = new Date(e.end.dateTime || e.end.date);
 
               const startDateVerbose = start.toLocaleDateString('cs-CZ', {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'});
               const startTimeVerbose = start.getHours() + ':' + start.getMinutes().toString().padStart(2, '0');
+
+              const allDay = ! e.start.dateTime;
 
               return {
                 id: counter++,
                 start: start,
                 startDateVerbose,
                 startTimeVerbose,
+                allDay,
                 end: end,
                 title: e.summary,
                 description: e.description,
@@ -115,7 +121,7 @@
   }
 
   .c-agenda__event-time {
-    margin-right: 1em;
+    min-width: 60px;
   }
 
   .c-agenda__event-title {
