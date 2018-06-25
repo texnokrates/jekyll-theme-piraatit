@@ -1,6 +1,6 @@
 <template>
   <div>
-    <strong>{{ item.label }}</strong>
+    <strong v-html="item.label"></strong>
     <em>{{ item.value }}</em>
   </div>
 </template>
