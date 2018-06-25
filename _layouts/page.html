@@ -9,7 +9,7 @@ layout: default
     <article itemtype="http://schema.org/BlogPosting" itemscope="">
       <link itemprop="mainEntityOfPage" href="{{ page.url }}">
       {% capture headline %}{% if page.fullname %}{{ page.fullname }}{% else %}{{ page.title }}{% endif %}{% endcapture %}
-      {% include page-header.html headline=page.title content=content %}
+      {% include page-header.html headline=headline content=content %}
     </article>
     <!-- /Article -->
   </div>
