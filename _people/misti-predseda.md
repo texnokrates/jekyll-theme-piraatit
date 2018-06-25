@@ -5,6 +5,8 @@ fullname: Místní Předseda  	# jméno s tituly etc.
 category:
   - clenove
   - pms
+ordpms: 1
+ordclenove: 1
 description: mistr světa ve skoku pro něco # zobrazuje se v lide
 profession: knihovník
 #img: people/ppp.jpg # zakomentuj radek dokud není fotka

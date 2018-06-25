@@ -6,7 +6,7 @@
 {% else %}
     {% assign url = include.item.url | relative_url %}
 {% endif %}
-<div class="o-media o-media-list {% if include.style == 'card' %}o-media--rpadded o-media--fill{% endif %}">
+<div class="o-media {% if include.viewMode != 'single' %}u-0margin{% else %}o-media-list{% endif %} {% if include.style == 'card' %}o-media--rpadded o-media--fill{% endif %}">
     <div class="o-media__section">
       {% comment %} {% if include.imgSize != 'big' %}
           <a href="{{ url }}">{% asset '{{ include.item.img }}' magick:resize='100x100^' magick:gravity='center' magick:crop='100x100+0+0' alt='{{ label }}' %}</a>
@@ -27,7 +27,7 @@
       <a href="{{ url }}"><img src="{{ img }}" alt="{{ label }}" class="{% if include.imgStyle == 'round' %}o-media__image--round{% endif %}" {% if include.imgSize != 'big' %}style="width: 100px"{% endif %}></a>
     </div>
     <div class="o-media__section">
-      <div class="o-media__section-inner {% if include.style == 'card' %}o-media__section-inner--vpadded{% endif %}">
+      <div class="o-media__section-inner">
           <h2><a href="{{ url }}" class="c-headline-anchor {% if include.headlineClass %}{{ include.headlineClass }}{% else %}t-h2{% endif %}">{{ label }}</a></h2>
           {% unless include.showDescription == false %}
           <p>

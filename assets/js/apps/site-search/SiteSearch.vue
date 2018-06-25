@@ -51,6 +51,10 @@ export default {
 <style lang="scss">
   @import 'settings';
 
+  .c-search__confirm {
+    cursor: default;
+  }
+
   .v-autocomplete {
     position: relative;
     width: 100%;
@@ -78,7 +82,8 @@ export default {
       border-bottom: 0;
     }
 
-    &:hover {
+    &:hover,
+    &.v-autocomplete-item-active {
       background-color: $light-gray;
     }
   }
