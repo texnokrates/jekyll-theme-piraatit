@@ -22,19 +22,6 @@
           {% for item in site.data.menu.main %}
           <li class="c-responsive-menu__item {% if page.url contains item.match %}c-responsive-menu__item--active{% endif %}">
             <a href="{{ item.link | relative_url }}">{{ item.name }}</a>
-
-            {% comment %}
-            <!-- submenu not yet implemented -->
-            {% if item.submenu %}
-            <ul class="menu vertical">
-              {% for subitem in item.submenu %}
-              <li{% if page.url contains 'lide'%} class="is-active"{% endif %}>
-                  <a href="{{ subitem.lik | relative_url }}"> {{ subitem.name }} </a>
-              </li>
-              {% endfor %}
-            </ul>
-            {% endif %}
-            {% endcomment %}
           </li>
           {% endfor %}
         </ul>

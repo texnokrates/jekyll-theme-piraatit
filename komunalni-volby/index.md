@@ -1,6 +1,5 @@
 ---
 layout: page
-submenu: komunalni-volby
 title: Komunální volby 2018
 ---
 
