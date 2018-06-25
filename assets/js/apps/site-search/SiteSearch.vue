@@ -78,7 +78,8 @@ export default {
       border-bottom: 0;
     }
 
-    &:hover {
+    &:hover,
+    &.v-autocomplete-item-active {
       background-color: $light-gray;
     }
   }
