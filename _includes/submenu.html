@@ -1,5 +1,6 @@
 {% for menu in site.data.menu.main %}
 {% if page.url contains menu.match %}
+{% if menu.submenu %}
 <nav class="c-top-sub-nav u-center-860-down">
     <div class="row">
         <div class="c-top-sub-nav-inner">
@@ -10,17 +11,16 @@
                 <div class="c-top-sub-nav-divider"></div>
                 <ul class="c-top-sub-nav-items">
 
-                    {% if menu.submenu %}
                     {% for submenu in menu.submenu %}
                     <li class="c-top-sub-nav__item">
                         <a href="{{ submenu.link }}"> {{submenu.name}} </a>
                     </li>
                     {% endfor %}
-                    {% endif %}
                 </ul>
             </div>
         </div>
     </div>
 </nav>
+{% endif %}
 {% endif %}
 {% endfor %}
