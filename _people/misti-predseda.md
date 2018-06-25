@@ -8,9 +8,7 @@ category:
 ordpms: 1
 ordclenove: 1
 description: mistr světa ve skoku pro něco # zobrazuje se v lide
-profession: knihovník
 #img: people/ppp.jpg # zakomentuj radek dokud není fotka
-candidateDescription: expert na skoky # zobrazuje se v komunalni-volby
 mail:
   - mistni.predsedat@pirati.cz
 profiles:

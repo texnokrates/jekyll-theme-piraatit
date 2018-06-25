@@ -1,6 +1,19 @@
 ---
 layout: page
 ---
+{% assign candidates = site.kandidatka | where: "uid", page.candidateList | first %}
+{% assign programCategories = site.program | where_exp:"item", "item.categories contains page.programCategory" | sort:"order" %}
+
+{% if candidates.number %}
+<div class="row">
+  <div class="columns">
+  <h1 class="o-section__heading o-section__heading--small">Volte číslo {{candidates.number}}!</h1>
+  {% comment %}
+  Tohle bych tělo ještě tučněji, nějak s tím víc graficky pracovat.
+  {% endcomment %}
+  </div>
+</div>
+{% endif %}
 
 <div class="row">
   <div class="columns">{{ content }}</div>
@@ -13,26 +26,46 @@ layout: page
         <h3 class="o-section__heading o-section__heading--small">Kandidátní listina</h3>
       </div>
       <div class="c-program-candidates">
-        {% assign electionSettings = site.data.elections.campaigns | where: "category", page.category | first %}
-        {% assign leaderCandidateUid = electionSettings.candidates | first %}
-        {% assign leaderCandidate = site.people | where: "uid", leaderCandidateUid | first %}
-        {% include candidate-badge.html candidate=leaderCandidate leader=true rank=1 %}
+
+        {% assign leaderCandidate = site.people | where: "uid", candidates.leader.uid | first %}
+        {% include candidate-badge.html candidate=leaderCandidate leader=true rank=1 age=candidates.leader.age profession=candidates.leader.profession description=candidates.leader.description %}
 
         <div class="c-program-candidates__others">
-          {% assign otherCandidateUids = electionSettings.candidates | slice: 1, electionSettings.candidates.size %}
-          {% for candidateUid in otherCandidateUids %}
-            {% assign candidate = site.people | where: "uid", candidateUid  | first %}
+          {% for candidate in candidates.head %}
+            {% assign candidatePage = site.people | where: "uid", candidate.uid  | first %}
             {% assign candidateRank = forloop.index | plus: 1 %}
             {% assign loopindex = forloop.index | modulo: 3 %}
             {% if loopindex == 1 %}<div class="c-program-candidates__row">{% endif %}
-              {% include candidate-badge.html candidate=candidate leader=false rank=candidateRank %}
+              {% include candidate-badge.html candidate=candidatePage leader=false rank=candidateRank age=candidate.age profession=candidate.profession description=candidate.description %}
             {% if loopindex == 0 or forloop.last %}</div>{% endif %}
           {% endfor %}
         </div>
+
+        <div class="c-program-candidates__others">
+          {% for candidate in candidates.tail %}
+            <hr>
+            {% assign candidateRank = forloop.index | plus: 1 | plus: candidates.head.size %}
+            <span style="font-weight: bold">
+            {{ candidateRank }}.
+            {{ candidate.name }},
+            </span>
+            {% if candidate.age %}
+                {{ candidate.age }} let,
+            {% endif %}
+            {% if candidate.profession %}
+                {{ candidate.profession }},
+            {% endif %}
+            {% if candidate.party %}
+                {{ candidate.party }},
+            {% endif %}
+          {% endfor %}
+          <hr>
+        </div>
+
       </div>
 
-      {% if page.note %}
-        <p><strong>Pozn.:</strong> {{ page.note }}</p>
+      {% if candidates.note %}
+        <p><strong>Pozn.:</strong> {{ candidates.note }}</p>
       {% endif %}
     </div>
     <div class="columns medium-4">
@@ -40,7 +73,6 @@ layout: page
         <h3 class="o-section__heading o-section__heading--small">Program</h3>
       </div>
       <div class="c-program-items">
-          {% assign programCategories = site.program | where_exp:"item", "item.categories contains page.category" | sort:"order" %}
           {% for category in programCategories %}
           <div class="c-program-items__item">
             <div class="c-program-items__item-wrap">

@@ -1,8 +1,8 @@
 ---
 layout: komunalni-volby
 title: Senátní volby
-note: Primárky stále běží. Zbytek kandidátky zveřejníme, jakmile doběhnou.
-category: senat
+programCategory: senat
+candidateList: senat
 ---
 
 Úvodní text. Např vysvětlení koalice, podpory.

@@ -61,6 +61,11 @@ collections:
     output: true
     permalink: /komunalni-volby/program/:path/
 
+  kandidatka:
+    output: false
+    permalink: /kandidatka/:path
+
+
 defaults:   # defaults values for collection scope
   -
     scope:
@@ -71,6 +76,12 @@ defaults:   # defaults values for collection scope
   -
     scope:
       path: "_program"
+    values:
+      layout: "program-post"
+      rbar: "garant, program"
+  -
+    scope:
+      path: "_kandidatka"
     values:
       layout: "program-post"
       rbar: "garant, program"

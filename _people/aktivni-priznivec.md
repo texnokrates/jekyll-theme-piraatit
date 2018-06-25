@@ -1,12 +1,11 @@
 ---
 uid: aktivni.priznivec
 name:     Aktivní Příznivec  	# běžně používáné jméno
-fullname: PhDr. Jakub Pirát  	# jméno s tituly etc.
+fullname: PhDr. Aktivní Příznivec  	# jméno s tituly etc.
 category:
   - priznivci
   - kandidat-obec
 description: kandidát do senátu # zobrazuje se v lide
-profession: zametač
 img: people/ppp.jpg # zakomentuj radek dokud není fotka
 asistenti:
   - name: Mgr. Věra Marušiaková

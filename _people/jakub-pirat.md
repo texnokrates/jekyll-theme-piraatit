@@ -6,10 +6,8 @@ category:
   - clenove
   - kontaktni_osoba
 description: mistr světa ve skoku pro něco # zobrazuje se v lide
-profession: knihovník
 img: people/ppp.jpg # zakomentuj radek dokud není fotka
 ordclenove: 2
-candidateDescription: expert na skoky # zobrazuje se v komunalni-volby
 mail:
   - jakub.pirat@pirati.cz
 profiles:
