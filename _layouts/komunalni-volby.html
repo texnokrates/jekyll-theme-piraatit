@@ -28,7 +28,7 @@ layout: page
       <div class="c-program-candidates">
 
         {% assign leaderCandidate = site.people | where: "uid", candidates.leader.uid | first %}
-        {% include candidate-badge.html candidate=leaderCandidate leader=true rank=1 age=candidates.leader.age profession=candidates.leader.profession description=candidates.leader.description party=candidates.leader.party %}
+        {% include candidate-badge.html candidate=candidates.leader candidatePage=leaderCandidate leader=true rank=1 %}
 
         <div class="c-program-candidates__others">
           {% for candidate in candidates.head %}
@@ -36,7 +36,7 @@ layout: page
             {% assign candidateRank = forloop.index | plus: 1 %}
             {% assign loopindex = forloop.index | modulo: 3 %}
             {% if loopindex == 1 %}<div class="c-program-candidates__row">{% endif %}
-              {% include candidate-badge.html candidate=candidatePage leader=false rank=candidateRank age=candidate.age profession=candidate.profession description=candidate.description party=candate.party %}
+              {% include candidate-badge.html candidate=candidate candidatePage=candidatePage leader=false rank=candidateRankg %}
             {% if loopindex == 0 or forloop.last %}</div>{% endif %}
           {% endfor %}
         </div>
