@@ -51,6 +51,10 @@ export default {
 <style lang="scss">
   @import 'settings';
 
+  .c-search__confirm {
+    cursor: default;
+  }
+
   .v-autocomplete {
     position: relative;
     width: 100%;
