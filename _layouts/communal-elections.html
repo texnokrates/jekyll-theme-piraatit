@@ -1,26 +1,26 @@
 ---
-layout: page
+layout: blank-article
 ---
-{% assign candidates = site.candidatelists | where: "uid", page.candidateListUid | first %}
-{% assign programCategories = site.program | where: "campaignCategoryUid", page.campaignCategoryUid | sort:"order" %}
 
-{% if candidates.number %}
-<div class="row u-stacked">
-  <div class="columns">
-  <div class="c-tile c-tile--inverted c-tile--fill">
-    <div class="c-tile__body u-center">
-      <h1 class="u-0margin">Volte číslo {{ candidates.number }}!</h1>
+<div class="c-corner-ribbon-container">
+  {% assign candidates = site.candidatelists | where: "uid", page.candidateListUid | first %}
+  {% assign programCategories = site.program | where: "campaignCategoryUid", page.campaignCategoryUid | sort:"order" %}
+
+  {% capture headline %}{{ page.title }}{% if candidates.number %}<span class="t-subheader u-1margin--left">&raquo; volte č. {{ candidates.number }} &laquo;</span>{% endif %}{% endcapture %}
+  {% capture headerContent %}
+    <div class="c-emphasized-text">{{ content }}</div>
+  {% endcapture %}
+
+  {% if candidates.number %}
+    <div class="c-corner-ribbon c-corner-ribbon--top-right">
+      Volte č. {{ candidates.number }}!
+      {% comment %}
+      Tohle bych tělo ještě tučněji, nějak s tím víc graficky pracovat.
+      {% endcomment %}
     </div>
-  </div>
-  {% comment %}
-  Tohle bych tělo ještě tučněji, nějak s tím víc graficky pracovat.
-  {% endcomment %}
-  </div>
-</div>
-{% endif %}
+  {% endif %}
 
-<div class="row u-stacked">
-  <div class="columns">{{ content }}</div>
+  {% include page-header.html headline=headline content=headerContent %}
 </div>
 
 <div class="o-section">
@@ -95,3 +95,4 @@ layout: page
     </div>
   </div>
 </div>
+

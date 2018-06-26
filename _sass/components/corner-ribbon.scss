@@ -1,0 +1,24 @@
+.c-corner-ribbon-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.c-corner-ribbon {
+  width: 200px;
+  background: $primary-color;
+  position: absolute;
+  top: 25px;
+  left: -50px;
+  text-align: center;
+  line-height: 50px;
+  letter-spacing: 1px;
+  color: $secondary-color;
+  transform: rotate(-45deg);
+}
+
+.c-corner-ribbon--top-right {
+  top: 25px;
+  right: -50px;
+  left: auto;
+  transform: rotate(45deg);
+}
