@@ -1,21 +1,6 @@
 ---
-layout: default
+layout: blank-article
 ---
 
-<div class="row">
-  <div class="medium-12 {% unless page.rbar == empty or page.rbar == blank or page.rbar == nil %} large-8{% endunless %} columns">
-
-    <!-- Article -->
-    <article itemtype="http://schema.org/BlogPosting" itemscope="">
-      <link itemprop="mainEntityOfPage" href="{{ page.url }}">
-      {% capture headline %}{% if page.fullname %}{{ page.fullname }}{% else %}{{ page.title }}{% endif %}{% endcapture %}
-      {% include page-header.html headline=headline content=content %}
-    </article>
-    <!-- /Article -->
-  </div>
-  {% unless page.rbar == empty or page.rbar == blank or page.rbar == nil %}
-  <div class="medium-12 large-4 columns">
-    {% include right-bar/rbar.html %}
-  </div>
-  {% endunless %}
-</div>
+{% capture headline %}{% if page.fullname %}{{ page.fullname }}{% else %}{{ page.title }}{% endif %}{% endcapture %}
+{% include page-header.html headline=headline content=content %}

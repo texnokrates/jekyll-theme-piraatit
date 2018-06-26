@@ -25,6 +25,15 @@
   }
 }
 
+.t-subheader {
+  font-weight: normal;
+  color: $dark-gray;
+}
+
+.t-h {
+  font-family: $header-font-family;
+}
+
 // Special page title header
 .c-page-title {
   font-size: 2.55rem;
