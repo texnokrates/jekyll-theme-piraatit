@@ -2,7 +2,7 @@
 layout: page
 ---
 {% assign candidates = site.kandidatka | where: "uid", page.candidateList | first %}
-{% assign programCategories = site.program | where_exp:"item", "item.categories contains page.programCategory" | sort:"order" %}
+{% assign programCategories = site.program | where: "campaignCategoryUid", page.campaignCategoryUid | sort:"order" %}
 
 {% if candidates.number %}
 <div class="row u-stacked">

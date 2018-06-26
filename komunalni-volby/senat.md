@@ -1,7 +1,7 @@
 ---
 layout: komunalni-volby
 title: Senátní volby
-programCategory: senat
+campaignCategoryUid: senat
 candidateList: senat
 ---
 

@@ -52,6 +52,10 @@ $program-item-ns: '';
     }
 }
 
+.#{$program-item-ns}c-program-items__item + .#{$program-item-ns}c-program-items__item {
+  margin-top: 1.5rem;
+}
+
 .#{$program-item-ns}c-program-candidates {
     display: flex;
     flex-direction: row;
