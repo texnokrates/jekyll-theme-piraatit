@@ -2,12 +2,16 @@
 layout: page
 ---
 {% assign candidates = site.kandidatka | where: "uid", page.candidateList | first %}
-{% assign programCategories = site.program | where_exp:"item", "item.categories contains page.programCategory" | sort:"order" %}
+{% assign programCategories = site.program | where: "campaignCategoryUid", page.campaignCategoryUid | sort:"order" %}
 
 {% if candidates.number %}
-<div class="row">
+<div class="row u-stacked">
   <div class="columns">
-  <h1 class="o-section__heading o-section__heading--small">Volte číslo {{candidates.number}}!</h1>
+  <div class="c-tile c-tile--inverted c-tile--fill">
+    <div class="c-tile__body u-center">
+      <h1 class="u-0margin">Volte číslo {{ candidates.number }}!</h1>
+    </div>
+  </div>
   {% comment %}
   Tohle bych tělo ještě tučněji, nějak s tím víc graficky pracovat.
   {% endcomment %}
@@ -15,7 +19,7 @@ layout: page
 </div>
 {% endif %}
 
-<div class="row">
+<div class="row u-stacked">
   <div class="columns">{{ content }}</div>
 </div>
 
@@ -30,37 +34,39 @@ layout: page
         {% assign leaderCandidate = site.people | where: "uid", candidates.leader.uid | first %}
         {% include candidate-badge.html candidate=candidates.leader candidatePage=leaderCandidate leader=true rank=1 %}
 
-        <div class="c-program-candidates__others">
-          {% for candidate in candidates.head %}
-            {% assign candidatePage = site.people | where: "uid", candidate.uid  | first %}
-            {% assign candidateRank = forloop.index | plus: 1 %}
-            {% assign loopindex = forloop.index | modulo: 3 %}
-            {% if loopindex == 1 %}<div class="c-program-candidates__row">{% endif %}
-              {% include candidate-badge.html candidate=candidate candidatePage=candidatePage leader=false rank=candidateRankg %}
-            {% if loopindex == 0 or forloop.last %}</div>{% endif %}
-          {% endfor %}
-        </div>
+        {% if candidates.head.size %}
+          <div class="c-program-candidates__others">
+            {% for candidate in candidates.head %}
+              {% assign candidatePage = site.people | where: "uid", candidate.uid  | first %}
+              {% assign candidateRank = forloop.index | plus: 1 %}
+              {% assign loopindex = forloop.index | modulo: 3 %}
+              {% if loopindex == 1 %}<div class="c-program-candidates__row">{% endif %}
+                {% include candidate-badge.html candidate=candidate candidatePage=candidatePage leader=false rank=candidateRank %}
+              {% if loopindex == 0 or forloop.last %}</div>{% endif %}
+            {% endfor %}
+          </div>
+        {% endif %}
 
-        <div class="c-program-candidates__others">
-          {% for candidate in candidates.tail %}
-            <hr>
-            {% assign candidateRank = forloop.index | plus: 1 | plus: candidates.head.size %}
-            <span style="font-weight: bold">
-            {{ candidateRank }}.
-            {{ candidate.name }},
-            </span>
-            {% if candidate.age %}
-                {{ candidate.age }} let,
-            {% endif %}
-            {% if candidate.profession %}
-                {{ candidate.profession }},
-            {% endif %}
-            {% if candidate.party %}
-                {{ candidate.party }},
-            {% endif %}
-          {% endfor %}
-          <hr>
-        </div>
+        {% if candidates.tail.size > 0 %}
+          <div class="c-program-candidates__others">
+            {% for candidate in candidates.tail %}
+              <p>
+                {% assign candidateRank = forloop.index | plus: 1 | plus: candidates.head.size %}
+                <strong>{{ candidateRank }}. {{ candidate.name }}{% if candidate.age or candidate.profession or candidate.party %}, {% endif %}</strong>
+
+                {% if candidate.age %}
+                    {{ candidate.age }} let{% if candidate.profession or candidate.party %}, {% endif %}
+                {% endif %}
+                {% if candidate.profession %}
+                    {{ candidate.profession }}{% if candidate.party %}, {% endif %}
+                {% endif %}
+                {% if candidate.party %}
+                    {{ candidate.party }}
+                {% endif %}
+              </p>
+            {% endfor %}
+          </div>
+        {% endif %}
 
       </div>
 
@@ -75,8 +81,8 @@ layout: page
       <div class="c-program-items">
           {% for category in programCategories %}
           <div class="c-program-items__item">
-            <div class="c-program-items__item-wrap">
-              <div class="c-program-items__item-inner">
+            <div class="c-program-items__item-wrap c-tile">
+              <div class="c-program-items__item-inner c-tile__body">
                 <a href="{{ category.url | relative_url }}">
                   <h3 class="c-program-items__item-title t-h2 c-headline-anchor">{{ category.title }}</h3>
                   <p>{{ category.perex }}</p>

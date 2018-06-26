@@ -44,19 +44,16 @@ $program-item-ns: '';
     border: 3px $primary-color solid;
 }
 
-
-.#{$program-item-ns}c-program-items__item + .#{$program-item-ns}c-program-items__item {
-    margin-top: 1.5rem;
-}
-
 .#{$program-item-ns}c-program-items__item-inner {
-    padding: 1.25rem;
-
     a:not(.button) {
         color: $black;
         // color: $white;
         text-decoration: none;
     }
+}
+
+.#{$program-item-ns}c-program-items__item + .#{$program-item-ns}c-program-items__item {
+  margin-top: 1.5rem;
 }
 
 .#{$program-item-ns}c-program-candidates {

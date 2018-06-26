@@ -1,7 +1,7 @@
 ---
 layout: komunalni-volby
 title: Komunální volby v Praze
-programCategory: praha2018
+campaignCategoryUid: praha2018
 candidateList: radnice # uid z `_kandidatka/radnice.md`
 ---
 
