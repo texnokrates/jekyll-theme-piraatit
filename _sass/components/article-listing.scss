@@ -49,3 +49,22 @@
     max-width: none;
   }
 }
+
+.c-article-listing__image--videoicon {
+  position: relative;
+
+  &:before {
+    content: '\f144';
+    position: absolute;
+    width: 90px;
+    height: 130px;
+    top: 50%;
+    left: 50%;
+    margin-top: -65px;
+    margin-left: -45px;
+    font-family: 'FontAwesome';
+    font-size: 100px;
+    color: $secondary-color;
+    opacity: .85;
+  }
+}
