@@ -58,6 +58,7 @@
     position: fixed;
     right: 30px;
     bottom: 50px;
+    z-index: 1000;
 
     background: $white;
     border: 1px $primary-color solid;

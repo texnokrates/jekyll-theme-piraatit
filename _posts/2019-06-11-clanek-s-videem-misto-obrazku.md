@@ -1,12 +1,13 @@
 ---
-date: 2018-06-10
+date: 2018-06-11
 category: blog
 tags: tag1 tag2
 layout: post
-title: Článek s videem
+title: Článek s videem místo obrázku
 author: Jmeno Prijmeni
 authorId: jakub.pirat    # uid nekoho z _people (nepoviné)
 image: posts/obrazek.u.tohoto.postu.jpg
+youtubeVideoId: 5f0-nQLHHM4 # if youtubeVideoId is provided, it will replace the image as the main content
 ---
 
 Posty musí být každý ve vlastním souboru pojmenovaném datumem a nejakym nazvem, například _posts/2018-03-14-slavime-pi-day.md. Tento název se pak objeví v adrese, tedy xxx.pirati.cz/aktuality/slavime-pi-day.html.
@@ -19,18 +20,6 @@ Obrázky dávejte do assets/img/posts/
 * viz [wikipedia](https://cs.wikipedia.org/wiki/Markdown)
 
 <hr>
-
-# Youtube
-
-Lze embeddovat pomocí vložení:
-
-```{% raw %}{% include youtube.html id='id youtube videa' %}{% endraw %}```
-
-Výsledek pak vypadá takto:
-
-{% include youtube.html id='5f0-nQLHHM4' %}
-
-
 
 # Ukázky typografie
 

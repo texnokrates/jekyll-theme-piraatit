@@ -3,7 +3,7 @@
 
   <div class="c-article-listing__row">
     <div class="c-article-listing__photobox">
-      <div itemprop="image" itemtype="http://schema.org/ImageObject" class="c-article-listing__image" itemscope="">
+      <div itemprop="image" itemtype="http://schema.org/ImageObject" class="c-article-listing__image {% if include.article.youtubeVideoId %}c-article-listing__image--videoicon{% endif %}" itemscope="">
         {% capture imgPath %}{% asset '{{ include.article.image }}' magick:resize="348x232^" magick:gravity='center' magick:crop='348x232+0+0' @path %}{% endcapture %}
         <a href="{{ include.article.url | relative_url }}">
           <img src="{{ imgPath }}" alt="{{ include.article.title }}">

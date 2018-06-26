@@ -1,9 +1,9 @@
 ---
-date: 2018-03-14
+date: 2018-06-10
 category: blog
 tags: tag1 tag2
 layout: post
-title: Nadpis článku
+title: Článek s vložený videem uvnitř textu
 author: Jmeno Prijmeni
 authorId: jakub.pirat    # uid nekoho z _people (nepoviné)
 image: posts/obrazek.u.tohoto.postu.jpg
@@ -19,6 +19,18 @@ Obrázky dávejte do assets/img/posts/
 * viz [wikipedia](https://cs.wikipedia.org/wiki/Markdown)
 
 <hr>
+
+# Youtube
+
+Lze embeddovat pomocí vložení:
+
+```{% raw %}{% include youtube.html id='id youtube videa' %}{% endraw %}```
+
+Výsledek pak vypadá takto:
+
+{% include youtube.html id='5f0-nQLHHM4' %}
+
+
 
 # Ukázky typografie
 

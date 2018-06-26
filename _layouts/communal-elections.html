@@ -12,12 +12,7 @@ layout: blank-article
   {% endcapture %}
 
   {% if candidates.number %}
-    <div class="c-corner-ribbon c-corner-ribbon--top-right">
-      Volte č. {{ candidates.number }}!
-      {% comment %}
-      Tohle bych tělo ještě tučněji, nějak s tím víc graficky pracovat.
-      {% endcomment %}
-    </div>
+    <div class="c-corner-ribbon c-corner-ribbon--top-right">Volte č. {{ candidates.number }}!</div>
   {% endif %}
 
   {% include page-header.html headline=headline content=headerContent %}
