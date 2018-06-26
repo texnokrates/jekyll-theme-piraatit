@@ -20,6 +20,7 @@ This theme requires following prerequisites installed:
   - [Conventions](#conventions)
   - [Creating new releases and publishing them](#creating-new-releases-and-publishing-them)
   - [Trying out locally](#trying-out-locally)
+  - [Missing some JavaScript fanciness?](#missing-some-javascript-fanciness)
   - [Getting help](#getting-help)
 
 ## Installing on Linux
@@ -204,6 +205,16 @@ install it with `npm install -g gulp-cli`. Then, follow these steps:
 Now, when you launch your site, it will use your local `jekyll-theme-pirati`
 code. Whenever you update it, you should run `gulp build && gulp prepareGem`
 again and rebuild the site.
+
+## Missing some JavaScript fanciness?
+
+If you're missing any JavaScript features that you think others could benefit
+from too, you should consider contributing the code to the theme package
+itself.
+
+All JS shall be written in [Vue.js](https://vuejs.org/), bundling is provided
+by [Webpack](https://webpack.js.org/). See [JS assets directory](./assets/js)
+for further reference.
 
 ## Getting help
 
