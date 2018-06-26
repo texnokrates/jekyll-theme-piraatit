@@ -27,22 +27,6 @@ main:
         name: Senát
         match: senat
 
-campaigns:
-  - title: Program na radnici
-    category: praha2018
-    candidates:
-      - prvni.leader
-      - mistni.predseda
-      - jakub.pirat
-      - aktivni.priznivec
-  - title: Senát
-    category: senat
-    candidates:
-      - jakub.pirat
-  - link: /kontakt/
-    name: Kontakt
-    match: kontakt
-
 bottom:
   - class: small-12 medium-4
     title: Připoj se
