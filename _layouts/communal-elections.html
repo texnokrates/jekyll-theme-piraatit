@@ -1,7 +1,7 @@
 ---
 layout: page
 ---
-{% assign candidates = site.kandidatka | where: "uid", page.candidateList | first %}
+{% assign candidates = site.candidatelists | where: "uid", page.candidateListUid | first %}
 {% assign programCategories = site.program | where: "campaignCategoryUid", page.campaignCategoryUid | sort:"order" %}
 
 {% if candidates.number %}

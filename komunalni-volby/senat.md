@@ -1,8 +1,8 @@
 ---
-layout: komunalni-volby
+layout: communal-elections
 title: Senátní volby
 campaignCategoryUid: senat
-candidateList: senat
+candidateListUid: senat
 ---
 
 Úvodní text. Např vysvětlení koalice, podpory.

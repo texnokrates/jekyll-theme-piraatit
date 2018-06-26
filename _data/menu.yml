@@ -20,12 +20,13 @@ main:
     name: Komunální volby
     match: komunalni-volby
     submenu:
-        - link: /komunalni-volby/praha2018
-          name: Program na radnici
-          match: radnice
-        - link: /komunalni-volby/senat
-          name: Senát
-          match: senat
+      - link: /komunalni-volby/praha2018
+        name: Program na radnici
+        match: radnice
+      - link: /komunalni-volby/senat
+        name: Senát
+        match: senat
+
 campaigns:
   - title: Program na radnici
     category: praha2018
