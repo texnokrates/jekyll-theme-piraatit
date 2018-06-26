@@ -12,12 +12,7 @@ layout: blank-article
   {% endcapture %}
 
   {% if candidates.number %}
-    <div class="c-corner-ribbon c-corner-ribbon--top-right">
-      Volte č. {{ candidates.number }}!
-      {% comment %}
-      Tohle bych tělo ještě tučněji, nějak s tím víc graficky pracovat.
-      {% endcomment %}
-    </div>
+    <div class="c-corner-ribbon c-corner-ribbon--top-right">Volte č. {{ candidates.number }}!</div>
   {% endif %}
 
   {% include page-header.html headline=headline content=headerContent %}
@@ -41,7 +36,7 @@ layout: blank-article
               {% assign candidateRank = forloop.index | plus: 1 %}
               {% assign loopindex = forloop.index | modulo: 3 %}
               {% if loopindex == 1 %}<div class="c-program-candidates__row">{% endif %}
-                {% include candidate-badge.html candidate=candidatePage leader=false rank=candidateRank age=candidate.age profession=candidate.profession description=candidate.description party=candate.party %}
+                {% include candidate-badge.html candidate=candidatePage leader=false rank=candidateRank age=candidate.age profession=candidate.profession description=candidate.description party=candidate.party %}
               {% if loopindex == 0 or forloop.last %}</div>{% endif %}
             {% endfor %}
           </div>
