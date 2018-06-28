@@ -15,4 +15,5 @@ node_modules
 *DS_Store
 *.swp
 
-Gemfile.lock #https://github.com/bundler/bundler/issues/635 
+# https://github.com/bundler/bundler/issues/635 
+Gemfile.lock 
