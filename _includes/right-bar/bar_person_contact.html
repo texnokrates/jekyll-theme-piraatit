@@ -26,7 +26,7 @@
               <h3>{{ asistent.position }}</h3>
               <p>
               <i class="fa fa-user-o"></i> {{asistent.name}}<br/>
-              {% if asistent.mail %}<i class="fa fa-envelope-o"></i> <a href="mailto:{{main.mail}}">{{main.mail}}</a><br/>{% endif %}
+              {% if asistent.mail %}<i class="fa fa-envelope-o"></i> <a href="mailto:{{asistent.mail}}">{{asistent.mail}}</a><br/>{% endif %}
               {% if asistent.tel %}<i class="fa fa-phone"></i> {{ main.tel }}<br/>{% endif %}
               </p>
             {% endfor %} 
