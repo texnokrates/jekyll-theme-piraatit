@@ -95,16 +95,6 @@ organization:
   redmineLink: https://redmine.pirati.cz/projects
 
 
-# Image banner on the top of the homepage. Useful for promoting current events.
-homepageBanner:
-  display: false
-  link: /komunalni-volby/
-  title: Komunální volby 2018
-  breakpoint: 640 # breakpoint in pixels when to start showing `default` instead of `mobile`
-  image:
-    default: path/to/img.jpg
-    mobile: path/to/img.jpg
-
 calendar:
   # To enable a nicer calendar, make sure you start jekyll with GOOGLE_CALENDAR_APIKEY=[apikey] bundle exec jekyll serve
   title: Celostátní kalendář
