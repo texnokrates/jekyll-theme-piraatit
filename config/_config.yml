@@ -71,13 +71,18 @@ defaults:   # defaults values for collection scope
       path: "_people"
     values:
       layout: "person"
-      rbar: "people, foto, personContact"
+      rbar: 
+         - foto
+         - personContact
+         - people
   -
     scope:
       path: "_program"
     values:
       layout: "program-post"
-      rbar: "garant, program"
+      rbar: 
+         - garant
+         - program
 
 emptyArray: []
 
@@ -103,7 +108,7 @@ calendar:
 
 facebook:
   loadSDK: true
-  profilePage:
+  profilePage: https://www.facebook.com/ceska.piratska.strana/ 
   appId: 1526197851008996
 
 twitter:
