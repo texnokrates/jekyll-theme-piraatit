@@ -9,19 +9,19 @@ $icon-ns: '';
 }
 
 .#{$icon-ns}c-icon.#{$icon-ns}c-icon--facebook {
-  background: #1672b9;
+  background: $facebook-color;
 }
 
 .#{$icon-ns}c-icon.#{$icon-ns}c-icon--twitter {
-  background: #91cfff;
+  background: $twitter-color;
 }
 
 .#{$icon-ns}c-icon.#{$icon-ns}c-icon--googlePlus {
-  background: #cc0303;
+  background: $gplus-color;
 }
 
 .#{$icon-ns}c-icon.#{$icon-ns}c-icon--instagram {
-  background: #d10869;
+  background: $instagram-color;
 }
 
 .#{$icon-ns}c-icon.#{$icon-ns}c-icon--rounded {
