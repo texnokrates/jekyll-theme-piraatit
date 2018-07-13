@@ -16,12 +16,12 @@ title: Kontaktní informace
             </header>
             <div class="o-section-block o-section-block--fill">
               <div class="u-cf">
-                <div class="medium-12 large-8 columns o-section-mediumdown-divided-small">
+                <div class="medium-12 {% if contentSize == 'even' %}large-6{% else %}large-8{% endif %} columns o-section-mediumdown-divided-small">
                 <div itemprop="description" class="c-content-block c-emphasized-text">
                   {{ content }}
                 </div>
                 </div>
-                <div class="medium-12 large-4 columns o-section-mediumdown-divided-small">
+                <div class="medium-12 {% if contentSize == 'even' %}large-6{% else %}large-4{% endif %} columns o-section-mediumdown-divided-small">
                     {% include contacts/basic-contacts.html %}
                 </div>
               </div>
@@ -33,9 +33,9 @@ title: Kontaktní informace
   </div>
 </div>
 <hr>
-<div class="row o-section-block o-section-block--divided">
 
-    <div class="medium-12 large-8 columns">
+<div class="row o-section-block o-section-block--divided">
+  <div class="medium-12 {% if contentSize == 'even' %}large-6{% else %}large-8{% endif %} columns">
     <section class="o-section o-section--spaceBot">
       <div class="o-section-inner">
         <div class="o-section-block">
@@ -50,7 +50,7 @@ title: Kontaktní informace
   </div>
 
   {% unless page.noresidence %}
-  <div class="medium-12 large-4 columns">
+  <div class="medium-12 {% if contentSize == 'even' %}large-6{% else %}large-4{% endif %} columns">
     <div class="o-section o-section--spaceBot">
       <div class="o-section-inner">
         <div class="o-section-block">
@@ -60,5 +60,4 @@ title: Kontaktní informace
     </div>
   </div>
   {% endunless %}
-
 </div>
