@@ -22,7 +22,8 @@ title: Kontaktní informace
                 </div>
                 </div>
                 <div class="medium-12 {% if contentSize == 'even' %}large-6{% else %}large-4{% endif %} columns o-section-mediumdown-divided-small">
-                    {% include contacts/basic-contacts.html %}
+                  <h2>Základní údaje</h2>
+                  {% include contacts/summary-table.html %}
                 </div>
               </div>
             </div>
@@ -54,6 +55,7 @@ title: Kontaktní informace
     <div class="o-section o-section--spaceBot">
       <div class="o-section-inner">
         <div class="o-section-block">
+          <h2>Sídlo a kontaktní centrum</h2>
           {% include contacts/residence.html %}
         </div>
       </div>
