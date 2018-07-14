@@ -107,7 +107,7 @@
   }
 
   // Display '/' divider between menu items on desktop view.
-  .c-responsive-menu__item + .c-responsive-menu__item a {
+  .c-responsive-menu__item:not(.hide-for-medium):not(.hide-for-large) + .c-responsive-menu__item a {
     @include breakpoint(large) {
       &:before {
         content: '/';
