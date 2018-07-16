@@ -3,7 +3,7 @@
   <ul class="c-widget-accordion" data-accordion="" data-allow-all-closed="true">
     <li class="c-widget-accordion-item is-active" data-accordion-item="">
       <a href="#" class="c-widget-accordion-link">
-        <span class="c-widget-accordion__title">Kontakt</span>
+        <span class="c-widget-accordion__title t-h2">Kontakt</span>
         <span class="c-widget-accordion__icon c-widget-accordion__icon c-widget-accordion__icon--bottom c-widget-accordion__icon--bottomPulled" aria-hidden="true">
           <i class="fa fa-users fa-lg"></i>
         </span>
@@ -22,14 +22,14 @@
 		  {% if page.profiles.report %}<i class="fa fa-file-text-o"></i> <a href="{{page.profiles.report}}">Report poslance</a><br/>{% endif %}
           {% if page.asistenti %}
             {% for asistent in page.asistenti %}
-              <hr /> 
+              <hr />
               <h3>{{ asistent.position }}</h3>
               <p>
               <i class="fa fa-user-o"></i> {{asistent.name}}<br/>
               {% if asistent.mail %}<i class="fa fa-envelope-o"></i> <a href="mailto:{{asistent.mail}}">{{asistent.mail}}</a><br/>{% endif %}
               {% if asistent.tel %}<i class="fa fa-phone"></i> {{ main.tel }}<br/>{% endif %}
               </p>
-            {% endfor %} 
+            {% endfor %}
           {% endif %}
           {% if page.office %}
               {% assign kancl = page.office | first %}

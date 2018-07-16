@@ -1,6 +1,6 @@
 .c-widget-accordion {
   @include accordion-container;
-  background: $primary-color;
+  background: $light-gray;
 }
 
 .c-widget-accordion + .c-widget-accordion {
@@ -12,23 +12,25 @@
   font-family: $header-font-family-sub;
   font-size: 1.5rem;
   padding: 0;
-  padding-left: 1rem;
   display: table;
   height: 50px;
   min-height: 50px;
   line-height: 1;
   width: 100%;
-  background: $primary-color !important;
+  background-color: $medium-gray;
+  // background: transparent !important;
+  overflow: hidden;
 
   &:before {
-    position: absolute;
-    right: 1rem;
-    top: 50%;
-    content: '\f196';
-    font-family: 'FontAwesome';
-    font-size: 1.4rem;
-    margin-top: -0.7rem;
-    color: $white;
+    display: none;
+    // position: absolute;
+    // right: 1rem;
+    // top: 50%;
+    // content: '\f196';
+    // font-family: 'FontAwesome';
+    // font-size: 1.4rem;
+    // margin-top: -0.7rem;
+    // color: $white;
   }
 }
 
@@ -37,20 +39,34 @@
     content: '\f147';
   }
 
-  .c-widget-accordion-link.c-widget-accordion-link--fb:before {
-    content: '\f09a';
-    margin-right: 0.5rem;
+  .c-widget-accordion-link.c-widget-accordion-link--fb {
+    background: $facebook-color;
+
+    .c-widget-accordion__title {
+      color: $white;
+    }
+
+    &:before {
+      content: '\f09a';
+    }
   }
 
-  .c-widget-accordion-link.c-widget-accordion-link--twitter:before {
-    content: '\f099';
-    margin-right: 0.5rem;
+  .c-widget-accordion-link.c-widget-accordion-link--cal {
+    background: #df3a3f;
+
+    .c-widget-accordion__title {
+      color: $white;
+    }
+
+    &:before {
+      content: '\f09a';
+    }
   }
 
-  .c-widget-accordion-link.c-widget-accordion-link--fb:hover,
-  .c-widget-accordion-link.c-widget-accordion-link--twitter:hover {
-    background: #2785ce !important;
-    cursor: default;
+  .c-widget-accordion-link.c-widget-accordion-link--twitter {
+    &:before {
+      content: '\f099';
+    }
   }
 }
 
@@ -59,8 +75,11 @@
   display: table-cell;
   vertical-align: middle;
   line-height: normal;
-  color: $white;
+  color: $primary-color;
   white-space: nowrap;
+  padding-left: 1rem;
+  padding-top: 1rem;
+  padding-bottom: .5rem;
 }
 
 .c-widget-accordion .c-widget-accordion__title--noicon {
@@ -74,7 +93,7 @@
 }
 
 .c-widget-accordion .c-widget-accordion__icon {
-  opacity: 0.2;
+  opacity: 0.05;
   font-size: 2rem;
   padding-left: 1rem;
   line-height: 0;
@@ -106,8 +125,6 @@
 
 .c-widget-accordion .c-widget-accordion-content {
   padding: 1rem;
-  background: $white;
-  border: 3px $primary-color solid;
 
   &.c-widget-accordion-content--nopad {
     padding: 0;

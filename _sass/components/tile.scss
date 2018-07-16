@@ -1,8 +1,8 @@
 .c-tile {
-  border: 3px $primary-color solid;
+  // border: 3px $primary-color solid;
 
   &.c-tile--fill {
-    background: $secondary-color;
+    background: $light-gray;
   }
 
   &.c-tile--inverted.c-tile--fill {

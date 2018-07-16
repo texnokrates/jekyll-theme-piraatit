@@ -1,16 +1,27 @@
 @mixin emphasizedAnchor {
   text-decoration: underline;
 
-  &:hover,
   &.active {
     background-color: $primary-color;
     color: $secondary-color;
+    font-weight: bold;
+    text-decoration: none;
   }
 
 }
 
 @mixin headlineAnchor {
-  text-decoration: underline;
+  // &:hover {
+  //   text-decoration: underline;
+  // }
+}
+
+@mixin headerStyle($header) {
+  @each $breakpointSize, $headers in $header-sizes {
+    @include breakpoint($breakpointSize) {
+      font-size: rem-calc(map-get($headers, $header));
+    }
+  }
 }
 
 // Makes classes for each headline style that can be used to override the looks:
@@ -20,9 +31,41 @@
     @each $header, $font-size in $headers {
       .t-#{$header} {
         font-size: rem-calc($font-size);
+        font-weight: $header-font-weight;
       }
     }
   }
+}
+
+h1,
+h2 {
+  letter-spacing: .02em;
+}
+
+h3 {
+  letter-spacing: .08em;
+}
+
+h4,
+h5,
+h6 {
+  letter-spacing: .1em;
+}
+
+// @note: .t-h* styles take precendence.
+.t-h1,
+.t-h2 {
+  letter-spacing: .02em;
+}
+
+.t-h3 {
+  letter-spacing: .08em;
+}
+
+.t-h4,
+.t-h5,
+.t-h6 {
+  letter-spacing: .1em;
 }
 
 .t-subheader {
@@ -36,8 +79,11 @@
 
 // Special page title header
 .c-page-title {
-  font-size: 2.55rem;
-  margin-bottom: 0.85em;
+  font-size: rem-calc(53.516);
+  font-weight: bold;
+  font-family: 'Bebas Neue', Helvetica, Arial, sans-serif;
+  margin-bottom: 0;
+  letter-spacing: 0;
 
   @include breakpoint(640px down) {
     padding-top: 0.7em;

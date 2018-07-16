@@ -22,7 +22,7 @@ layout: blank-article
   <div class="row">
     <div class="columns medium-8">
       <div class="o-section-header">
-        <h3 class="o-section__heading o-section__heading--small">Kandidátní listina</h3>
+        <h3 class="o-section__heading">Kandidátní listina</h3>
       </div>
       <div class="c-program-candidates">
 
@@ -71,12 +71,12 @@ layout: blank-article
     </div>
     <div class="columns medium-4">
       <div class="o-section-header">
-        <h3 class="o-section__heading o-section__heading--small">Program</h3>
+        <h3 class="o-section__heading">Program</h3>
       </div>
       <div class="c-program-items">
           {% for category in programCategories %}
           <div class="c-program-items__item">
-            <div class="c-program-items__item-wrap c-tile">
+            <div class="c-program-items__item-wrap c-tile c-tile--fill">
               <div class="c-program-items__item-inner c-tile__body">
                 <a href="{{ category.url | relative_url }}">
                   <h3 class="c-program-items__item-title t-h2 c-headline-anchor">{{ category.title }}</h3>

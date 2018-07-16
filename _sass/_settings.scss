@@ -57,7 +57,7 @@ $foundation-palette: (
   dark: #343434
 );
 $light-gray: #f3f3f3;
-$medium-gray: #cacaca;
+$medium-gray: #eaeaea;
 $dark-gray: #8a8a8a;
 $black: #0a0a0a;
 $white: #fff;
@@ -105,7 +105,7 @@ $block-grid-max: 8;
 // 4. Base Typography
 // ------------------
 
-$header-font-family: 'Bebas Neue', Helvetica, Arial, sans-serif;
+$header-font-family: 'Bebas Neue Book', Helvetica, Arial, sans-serif;
 $header-font-family-sub: 'Bebas Neue Book', Helvetica, Arial, sans-serif;
 $header-font-weight: bold;
 $header-font-style: normal;
@@ -120,12 +120,12 @@ $header-sizes: (
     'h6': 16,
   ),
   medium: (
-    'h1': 32,
-    'h2': 25.5,
-    'h3': 20,
-    'h4': 18,
-    'h5': 16,
-    'h6': 14,
+    'h1': 37.897,
+    'h2': 28.430,
+    'h3': 21.328,
+    'h4': 16,
+    'h5': 12.003,
+    'h6': 9.004,
   ),
 );
 $header-color: inherit;
@@ -134,7 +134,7 @@ $header-margin-bottom: 0.5rem;
 $header-text-rendering: optimizeLegibility;
 $small-font-size: 80%;
 $header-small-font-color: $medium-gray;
-$paragraph-lineheight: 1.6;
+$paragraph-lineheight: 1.4;
 $paragraph-margin-bottom: 1rem;
 $paragraph-text-rendering: optimizeLegibility;
 $code-color: $black;
@@ -170,6 +170,19 @@ $keystroke-background: $light-gray;
 $keystroke-padding: rem-calc(2 4 0);
 $keystroke-radius: $global-radius;
 $abbr-underline: 1px dotted $black;
+
+$facebook-color: #1672b9;
+$twitter-color: #91cfff;
+$gplus-color: #cc0303;
+$instagram-color: #d10869;
+$pinterest-color: #cb2027;
+$tumblr-color: #32506d;
+$reddit-color: #ff4500;
+$linkedin-color: #007bb5;
+$envelope-color: #444444;
+
+$ternary-color: lighten($primary-color, 13%);
+$rbar-accent-color: $ternary-color;
 
 // 5. Typography Helpers
 // ---------------------
@@ -240,8 +253,8 @@ $breadcrumbs-item-slash: true;
 $button-padding: 0.85em 1em;
 $button-margin: 0 0 $global-margin 0;
 $button-fill: solid;
-$button-background: $primary-color;
-$button-background-hover: scale-color($button-background, $lightness: -15%);
+$button-background: $ternary-color;
+$button-background-hover: scale-color($button-background, $lightness: 15%);
 $button-color: $white;
 $button-color-alt: $black;
 $button-radius: $global-radius;

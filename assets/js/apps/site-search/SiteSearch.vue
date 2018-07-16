@@ -69,14 +69,15 @@ export default {
     text-align: left;
     max-height: 300px;
     overflow-y: auto;
-    border: $input-border;
+    border: 1px $dark-gray solid;
   }
 
   .v-autocomplete-list-item {
+    color: $primary-color;
     cursor: pointer;
     background-color: $white;
     padding: .75em;
-    border-bottom: $input-border;
+    border-bottom: 1px $dark-gray solid;
 
     &:last-child {
       border-bottom: 0;

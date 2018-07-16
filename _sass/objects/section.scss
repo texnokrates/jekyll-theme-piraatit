@@ -173,7 +173,7 @@ $section-ns: '';
 }
 
 .#{$section-ns}o-section.#{$section-ns}o-section--darker {
-  background: lighten($primary-color, 20%);
+  background: $ternary-color;
 }
 
 .#{$section-ns}o-section-inner--leftBlock {
@@ -193,19 +193,20 @@ $section-ns: '';
 .#{$section-ns}o-section .#{$section-ns}o-section-header {
   position: relative;
   color: $primary-color;
-  border-bottom: 3px solid $primary-color;
+  border-bottom: 3px solid $ternary-color;
   margin-top: 6px;
   padding-bottom: 2px;
   margin-bottom: -2px;
 }
 
 .#{$section-ns}o-section .#{$section-ns}o-section__heading {
-  font-size: 1.8rem;
+  @include headerStyle('h2');
+
   color: $primary-color;
+  margin-bottom: 0;
 
   &.#{$section-ns}o-section__heading--small {
-    font-size: 1.5rem;
-    margin-bottom: 0.75rem;
+    @include headerStyle('h3');
   }
 }
 
