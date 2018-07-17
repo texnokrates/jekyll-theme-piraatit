@@ -1,9 +1,9 @@
 <template>
-  <div class="c-search">
+  <div class="c-search c-top-bar__search-container">
     <v-autocomplete
       class="autocomplete"
       v-model="item"
-      :input-attrs="{class: 'autocomplete__input c-search__input', placeholder: 'Hledaný výraz'}"
+      :input-attrs="{class: 'autocomplete__input c-search__input c-top-bar__search-input', placeholder: 'Hledaný výraz'}"
       :items="items"
       :get-label="getLabel"
       :component-item="itemTemplate"
@@ -12,7 +12,7 @@
       :min-len="0"
       @item-selected="onItemSelected"
       @update-items="onUpdateItems"></v-autocomplete>
-    <button type="button" class="c-search__confirm"><i class="fa fa-search" aria-hidden="true"></i></button>
+    <button type="button" class="c-search__confirm c-top-bar__search-confirm"><i class="fa fa-search" aria-hidden="true"></i></button>
   </div>
 </template>
 
@@ -50,10 +50,6 @@ export default {
 
 <style lang="scss">
   @import 'settings';
-
-  .c-search__confirm {
-    cursor: default;
-  }
 
   .v-autocomplete {
     position: relative;

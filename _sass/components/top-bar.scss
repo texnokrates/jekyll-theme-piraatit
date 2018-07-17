@@ -23,13 +23,14 @@
 .c-responsive-menu-toggle {
   display: inline-block;
   font-size: 1.15rem;
-  border: 1px solid $medium-gray;
+  border: 1px solid $dark-gray;
   transition: border .2s;
 }
   .c-responsive-menu-toogle__button {
     display: flex;
     align-items: center;
     padding: 0.7rem 1.25rem;
+    color: $dark-gray;
   }
 
   .c-responsive-menu-toggle__caption {
@@ -39,6 +40,7 @@
 
 .c-responsive-menu {
   display: block;
+  padding: .5rem 0;
 
   @include breakpoint(medium down) {
     position: absolute;
@@ -47,16 +49,7 @@
     z-index: 10;
     background: $light-gray;
     border-bottom: 3px $primary-color solid;
-
-    width: calc(100% + 2.5rem);
-    margin-left: -1.25rem;
-    margin-right: -1.25rem;
-  }
-
-  @include breakpoint(small down) {
-    width: calc(100% + 1.25rem);
-    margin-left: -0.625rem;
-    margin-right: -0.625rem;
+    width: 100%;
   }
 }
 
@@ -78,19 +71,19 @@
   }
 
   .c-responsive-menu__item a {
+    @include headerStyle('h3');
+
     display: block;
     position: relative;
     color: $dark-gray;
-    text-transform: uppercase;
-    font-family: $header-font-family;
-    font-size: 1.25rem;
-    letter-spacing: .04em;
-    font-weight: 600;
     margin: 0.7rem 1.25rem;
     padding: 4px .25em 0; // 4px to compensate for font
+    transition: all .1s ease-in-out;
+    border-bottom: 1px transparent solid;
 
     @include breakpoint(medium down) {
       padding: 1rem 1.8rem;
+      color: $primary-color;
     }
   }
 
@@ -99,42 +92,23 @@
   .c-responsive-menu__item--active a {
     @include breakpoint(large) {
       color: $secondary-color;
-      border-bottom: 1px $secondary-color solid;
+      border-color: $secondary-color;
     }
   }
-
-  // Display '/' divider between menu items on desktop view.
-  // .c-responsive-menu__item:not(.hide-for-medium):not(.hide-for-large) + .c-responsive-menu__item a {
-  //   @include breakpoint(large) {
-  //     &:before {
-  //       content: '/';
-  //       width: 12px;
-  //       display: inline-block;
-  //       position: absolute;
-  //       top: -1px;
-  //       left: -27px;
-  //       font-size: 1.7rem;
-  //       color: $medium-gray;
-  //       border: 0px solid transparent;
-  //       margin-top: 0;
-  //     }
-  //   }
-  // }
-
 
 .c-top-bar {
   background: $ternary-color;
   color: $secondary-color;
   padding-bottom: .25rem;
+  position: relative;
 }
 
 .c-top-bar__body {
-  position: relative;
   display: flex;
   align-items: center;
 
   @include breakpoint(medium down) {
-    padding: 1.5rem 0;
+    padding: 0 0 .5rem;
   }
 }
 
@@ -180,7 +154,7 @@
       margin-right: 1.5rem;
     }
 
-    .c-search {
+    .c-top-bar__search-container {
       border-color: $dark-gray;
       border-width: 1px;
 
@@ -190,30 +164,34 @@
 
       // On large screen, search confirm is at the very right of the container.
       // @see: order: 3.
-      .c-search__confirm {
+      .c-top-bar__search-confirm {
+        cursor: default;
+        color: $dark-gray;
+
         @include breakpoint(large) {
           padding-right: 0;
         }
       }
-    }
 
-    .c-search__input {
-      background: $ternary-color;
+      .c-top-bar__search-input {
+        background: $ternary-color;
+        appearance: textfield;
+        color: $white;
+
+        &::placeholder {
+          color: $dark-gray;
+          opacity: 1;
+        }
+
+        &:focus {
+          background: $ternary-color;
+        }
+      }
     }
   }
+
 
   .c-top-bar .c-responsive-menu-toggle {
     order: 4;
-  }
-
-  // Divides top bar from the rest of the page.
-  .c-top-bar__divider {
-    clear: both;
-    display: block;
-    height: 5px;
-    margin-top: -3px;
-    background: $primary-color;
-    position: relative;
-    z-index: 9;
   }
 

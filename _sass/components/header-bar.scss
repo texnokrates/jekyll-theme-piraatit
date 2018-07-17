@@ -45,12 +45,12 @@ $hb-ns: '';
 
   a {
     color: $dark-gray;
-  }
 
-  a:hover {
-    text-decoration: underline;
+    &:hover {
+      color: $white;
+      text-decoration: underline;
+    }
   }
-
 }
 
 .#{$hb-ns}c-header-bar {

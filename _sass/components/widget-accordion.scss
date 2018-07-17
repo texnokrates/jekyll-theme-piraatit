@@ -42,7 +42,8 @@
   .c-widget-accordion-link.c-widget-accordion-link--fb {
     background: $facebook-color;
 
-    .c-widget-accordion__title {
+    .c-widget-accordion__title,
+    .c-widget-accordion__icon {
       color: $white;
     }
 
@@ -54,7 +55,8 @@
   .c-widget-accordion-link.c-widget-accordion-link--cal {
     background: #df3a3f;
 
-    .c-widget-accordion__title {
+    .c-widget-accordion__title,
+    .c-widget-accordion__icon {
       color: $white;
     }
 
@@ -93,7 +95,7 @@
 }
 
 .c-widget-accordion .c-widget-accordion__icon {
-  opacity: 0.05;
+  opacity: .2;
   font-size: 2rem;
   padding-left: 1rem;
   line-height: 0;

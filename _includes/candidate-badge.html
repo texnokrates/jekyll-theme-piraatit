@@ -6,7 +6,7 @@
           <img src="{{ img }}" alt="{{ include.candidate.fullname }}" class="c-program-candidate-badge__avatar-image">
       </div>
       <div class="c-program-candidate-badge__description">
-          <h4 class="c-program-candidate-badge__name t-h2"><span class="c-headline-anchor">{{ include.candidatePage.fullname }}</span></h4>
+          <h4 class="c-program-candidate-badge__name {% if include.leader %}t-h2{% else %}t-h3{% endif %}"><span class="c-headline-anchor">{{ include.candidatePage.fullname }}</span></h4>
           <strong class="c-program-candidate-badge__profession">
               {% if include.candidate.age %} {{ include.candidate.age }} let, {% endif %}
               {{ include.candidate.profession }}{% if include.candidate.party %}, {{ include.candidate.party }} {% endif %}

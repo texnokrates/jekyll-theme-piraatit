@@ -19,53 +19,62 @@
 @mixin headerStyle($header) {
   @each $breakpointSize, $headers in $header-sizes {
     @include breakpoint($breakpointSize) {
+      font-family: $header-font-family;
       font-size: rem-calc(map-get($headers, $header));
-    }
-  }
-}
+      font-weight: $header-font-weight;
 
-// Makes classes for each headline style that can be used to override the looks:
-// t-h1, t-h2, ...
-@each $size, $headers in $header-sizes {
-  @include breakpoint($size) {
-    @each $header, $font-size in $headers {
-      .t-#{$header} {
-        font-size: rem-calc($font-size);
-        font-weight: $header-font-weight;
+      @if($header == 'h1' or $header == 'h2') {
+        letter-spacing: .02em;
+      }
+
+      @if($header == 'h3') {
+        letter-spacing: .04em;
+      }
+
+      @if($header == 'h4' or $header == 'h5' or $header == 'h6') {
+        letter-spacing: .1em;
       }
     }
   }
 }
 
-h1,
+h1 {
+  @include headerStyle('h1');
+}
 h2 {
-  letter-spacing: .02em;
+  @include headerStyle('h2');
 }
-
 h3 {
-  letter-spacing: .08em;
+  @include headerStyle('h3');
 }
-
-h4,
-h5,
+h4 {
+  @include headerStyle('h4');
+}
+h5 {
+  @include headerStyle('h5');
+}
 h6 {
-  letter-spacing: .1em;
+  @include headerStyle('h6');
 }
 
 // @note: .t-h* styles take precendence.
-.t-h1,
+.t-h1 {
+  @include headerStyle('h1');
+}
 .t-h2 {
-  letter-spacing: .02em;
+  @include headerStyle('h2');
 }
-
 .t-h3 {
-  letter-spacing: .08em;
+  @include headerStyle('h3');
 }
-
-.t-h4,
-.t-h5,
+.t-h4 {
+  @include headerStyle('h4');
+}
+.t-h5 {
+  @include headerStyle('h5');
+}
 .t-h6 {
-  letter-spacing: .1em;
+  @include headerStyle('h6');
 }
 
 .t-subheader {
@@ -79,14 +88,14 @@ h6 {
 
 // Special page title header
 .c-page-title {
-  font-size: rem-calc(53.516);
+  font-size: 3.157334518321rem;
   font-weight: bold;
-  font-family: 'Bebas Neue', Helvetica, Arial, sans-serif;
+  font-family: $header-font-family-super;
   margin-bottom: 0;
   letter-spacing: 0;
 
-  @include breakpoint(640px down) {
-    padding-top: 0.7em;
+  @include breakpoint(medium down) {
+    font-size: 2.441rem;
   }
 }
 

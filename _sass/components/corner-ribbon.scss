@@ -8,17 +8,18 @@
   background: $primary-color;
   position: absolute;
   top: 25px;
-  left: -50px;
+  left: -55px;
   text-align: center;
-  line-height: 50px;
+  line-height: 40px;
   letter-spacing: 1px;
   color: $secondary-color;
   transform: rotate(-45deg);
+  font-family: $header-font-family-super;
 }
 
 .c-corner-ribbon--top-right {
   top: 25px;
-  right: -50px;
+  right: -55px;
   left: auto;
   transform: rotate(45deg);
 }
