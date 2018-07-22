@@ -1,6 +1,8 @@
 # jekyll-theme-pirati
 
-Theme of Czech Pirate Party
+Theme of Czech Pirate Party.
+
+[![Gem Version](https://badge.fury.io/rb/jekyll-theme-pirati.svg)](https://badge.fury.io/rb/jekyll-theme-pirati)
 
 ## Installation & usage
 
