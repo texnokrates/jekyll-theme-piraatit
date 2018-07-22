@@ -6,7 +6,7 @@
         <span class="c-agenda__event-time" v-if="! event.allDay">{{ event.startTimeVerbose }}</span>
         <span class="c-agenda__event-time" v-if="event.allDay">celý den</span>
         <span class="c-agenda__event-title">
-          <a v-bind:href="event.link" class="c-emphasized-anchor" target="_blank">{{ event.title }}</a>
+          <a v-bind:href="event.link" class="c-agenda__event-title-link c-emphasized-anchor" target="_blank">{{ event.title }}</a>
         </span>
       </div>
     </div>
@@ -126,6 +126,10 @@
 
   .c-agenda__event-title {
     flex: 1;
+
+    .c-agenda__event-title-link  {
+      white-space: normal;
+    }
   }
 
   .c-agenda__eventgroup {
