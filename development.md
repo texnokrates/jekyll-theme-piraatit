@@ -14,6 +14,7 @@ This theme requires following prerequisites installed:
       - [Ubuntu 18.04](#ubuntu-1804)
       - [Fedora 28](#fedora-28)
     - [Install rbenv and nvm](#install-rbenv-and-nvm)
+    - [Installing dependencies on macOS](#installing-dependencies-on-macos)
     - [Installation](#installation)
   - [Launching the app](#launching-the-app)
   - [Using Docker](#using-docker)
@@ -71,6 +72,17 @@ Next, install nvm to manage Node.js versions:
 ```
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 exec $SHELL
+```
+
+### Installing dependencies on macOS
+
+```
+brew install rbenv
+rbenv init
+echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+exec $SHELL
+rbenv install 2.5.1
+ruby -v # Verify ruby@2.5.1 is installed
 ```
 
 ### Installation
