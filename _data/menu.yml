@@ -23,12 +23,15 @@ main:
     name: Komunální volby
     match: komunalni-volby
     submenu:
-      - link: /komunalni-volby/praha2018
+      - link: /komunalni-volby/praha2018/
         name: Program na radnici
         match: radnice
-      - link: /komunalni-volby/senat
+      - link: /komunalni-volby/senat/
         name: Senát
         match: senat
+      - link: /komunalni-volby/mapa-zameru/
+        name: Mapa záměrů
+        match: mapa-zameru
   - link: /kontakt/
     name: Kontakt
     match: kontakt

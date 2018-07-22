@@ -214,7 +214,7 @@ module.exports = (env = {}, argv) => {
       }
     },
     resolve: {
-      extensions: ['.webpack-loader.js', '.web-loader.js', '.loader.js', '.js', '.jsx'],
+      extensions: ['.webpack-loader.js', '.web-loader.js', '.loader.js', '.js', '.jsx', '.vue'],
       modules: [
         path.resolve(paths.src, 'node_modules'),
         path.resolve(paths.js),
