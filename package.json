@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jitka/jekyll-theme-pirati.git"
+    "url": "git+https://github.com/pirati-web/jekyll-theme-pirati.git"
   },
   "keywords": [
     "pirati",
@@ -38,9 +38,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jitka/jekyll-theme-pirati/issues"
+    "url": "https://github.com/pirati-web/jekyll-theme-pirati/issues"
   },
-  "homepage": "https://github.com/jitka/jekyll-theme-pirati#readme",
+  "homepage": "https://github.com/pirati-web/jekyll-theme-pirati#readme",
   "devDependencies": {
     "autoprefixer": "^8.6.2",
     "babel-core": "^6.26.3",
