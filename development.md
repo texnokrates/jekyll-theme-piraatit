@@ -9,12 +9,13 @@ This theme requires following prerequisites installed:
 
 - [Development](#development)
   - [Table of contents](#table-of-contents)
-  - [Installing on Linux](#installing-on-linux)
+  - [Installation](#installation)
     - [Install build dependencies](#install-build-dependencies)
       - [Ubuntu 18.04](#ubuntu-1804)
       - [Fedora 28](#fedora-28)
     - [Install rbenv and nvm](#install-rbenv-and-nvm)
-    - [Installation](#installation)
+    - [Install rbenv and nvm on macOS](#install-rbenv-and-nvm-on-macos)
+    - [Installing the app](#installing-the-app)
   - [Launching the app](#launching-the-app)
   - [Using Docker](#using-docker)
   - [Conventions](#conventions)
@@ -24,7 +25,7 @@ This theme requires following prerequisites installed:
   - [Missing some JavaScript fanciness?](#missing-some-javascript-fanciness)
   - [Getting help](#getting-help)
 
-## Installing on Linux
+## Installation
 
 The process is practically the same on any Linux. Only difference is build dependencies.
 
@@ -33,7 +34,6 @@ The process is practically the same on any Linux. Only difference is build depen
 First, install required development dependencies:
 
 #### Ubuntu 18.04
-
 
 ```
 sudo apt-get update
@@ -73,7 +73,18 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | 
 exec $SHELL
 ```
 
-### Installation
+### Install rbenv and nvm on macOS
+
+```
+brew install rbenv
+rbenv init
+echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+exec $SHELL
+rbenv install 2.5.1
+ruby -v # Verify ruby@2.5.1 is installed
+```
+
+### Installing the app
 
 Once you have both Ruby and Node.js the installed, clone the `jekyll-theme-pirati` repository:
 

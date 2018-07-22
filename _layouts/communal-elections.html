@@ -8,7 +8,7 @@ layout: blank-article
 
   {% capture headline %}{{ page.title }}{% if candidates.number %}<span class="t-subheader u-1margin--left">&raquo; volte č. {{ candidates.number }} &laquo;</span>{% endif %}{% endcapture %}
   {% capture headerContent %}
-    <div class="c-emphasized-text">{{ content }}</div>
+    <div class="c-content-block c-emphasized-text">{{ content }}</div>
   {% endcapture %}
 
   {% if candidates.number %}

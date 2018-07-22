@@ -3,7 +3,7 @@
       <div class="c-program-candidate-badge__avatar">
           <span class="c-program-candidate-badge__rank"><span>{{ include.rank }}.</span></span>
           {% capture img %}{% if include.candidatePage.img %}{% asset '{{ include.candidatePage.img }}' magick:resize='240x240^' magick:gravity='center' magick:crop='240x240+0+0' @path %}{% else %}{{ 'assets/img/people/unknown-pirate.svg' | relative_url }}{% endif %}{% endcapture %}
-          <img src="{{ img }}" alt="{{ include.candidate.fullname }}" class="c-program-candidate-badge__avatar-image">
+          <img src="{{ img }}" alt="{{ include.candidatePage.fullname }}" class="c-program-candidate-badge__avatar-image">
       </div>
       <div class="c-program-candidate-badge__description">
           <h4 class="c-program-candidate-badge__name {% if include.leader %}t-h2{% else %}t-h3{% endif %}"><span class="c-headline-anchor">{{ include.candidatePage.fullname }}</span></h4>
