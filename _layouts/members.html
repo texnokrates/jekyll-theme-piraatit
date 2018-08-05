@@ -6,7 +6,7 @@ layout: default
 
 {% if page.viewMode == 'grouped' %}
   {% for group in page.groups %}
-    <div class="row o-section-block o-section-block--divided">
+    <div class="row o-section-block">
       <section class="large-12 columns">
           {% assign team = site.people | where_exp: "item", "item.categories contains group.category" %}
           {% if group.sort %}
@@ -14,7 +14,6 @@ layout: default
           {% endif %}
           {% include people/list-group.html team=team teamName=group.name teamShortcut=group.category %}
       </section>
-      {% unless forloop.last %}<hr>{% endunless %}
     </div>
   {% endfor %}
 {% else %}
@@ -28,7 +27,7 @@ layout: default
     {% assign team = team | sort: page.sort %}
   {% endif %}
 
-  <div class="row o-section-block o-section-block--divided">
+  <div class="row o-section-block">
     <section class="large-12 columns">
       {% include people/list-responsive.html team=team %}
     </section>

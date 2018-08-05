@@ -67,8 +67,8 @@ $body-font-family: 'Roboto Condensed', Helvetica, Arial, sans-serif;
 $body-antialiased: true;
 $global-margin: 1rem;
 $global-padding: 1rem;
-$global-weight-normal: normal;
-$global-weight-bold: bold;
+$global-weight-normal: 300;
+$global-weight-bold: 700;
 $global-radius: 0;
 $global-text-direction: ltr;
 $global-flexbox: false;
@@ -105,18 +105,104 @@ $block-grid-max: 8;
 // 4. Base Typography
 // ------------------
 
-$header-fonts: (
+$text: (
+  weight: (
+    default: 300,
+    mid: 400,
+    bold: 700
+  ),
+);
+
+$headers: (
   super: (
     family: "'Bebas Neue', Helvetica, Arial, sans-serif",
-    weight: bold
+    weight: bold,
+    sizes: (
+      small: (
+        'h1': 2.027rem,
+        'h2': 1.802rem,
+        'h3': 1.602rem,
+        'h4': 1.424rem,
+        'h5': 1.266rem,
+        'h6': 1.125rem,
+        'h7': 1rem,
+      ),
+      medium: (
+        'h1': 3.157rem,
+        'h2': 3.11rem,
+        'h3': 2.441rem,
+        'h4': 1.953rem,
+        'h5': 1.563rem,
+        'h6': 1.25rem,
+        'h7': 1rem,
+      ),
+    )
   ),
   main: (
     family: "'Roboto Condensed', Helvetica, Arial, sans-serif",
     weight: 700,
+    sizes: (
+      small: (
+        'h1': 1.953rem,
+        'h2': 1.563rem,
+        'h3': 1.25rem,
+        'h4': 1rem,
+        'h5': 0.8rem,
+        'h6': 0.64rem,
+      ),
+      medium: (
+        'h1': 1.953rem,
+        'h2': 1.563rem,
+        'h3': 1.25rem,
+        'h4': 1rem,
+        'h5': 0.8rem,
+        'h6': 0.64rem,
+      ),
+    )
   ),
   sub: (
     family: "'Roboto Condensed', Helvetica, Arial, sans-serif",
     weight: 400,
+    sizes: (
+      small: (
+        'h1': 1.953rem,
+        'h2': 1.563rem,
+        'h3': 1.25rem,
+        'h4': 1rem,
+        'h5': 0.8rem,
+        'h6': 0.64rem,
+      ),
+      medium: (
+        'h1': 1.953rem,
+        'h2': 1.563rem,
+        'h3': 1.25rem,
+        'h4': 1rem,
+        'h5': 0.8rem,
+        'h6': 0.64rem,
+      ),
+    )
+  ),
+  alt: (
+    family: "'Roboto Condensed', Helvetica, Arial, sans-serif",
+    weight: 300,
+    sizes: (
+      small: (
+        'h1': 1.953rem,
+        'h2': 1.563rem,
+        'h3': 1.25rem,
+        'h4': 1rem,
+        'h5': 0.8rem,
+        'h6': 0.64rem,
+      ),
+      medium: (
+        'h1': 1.953rem,
+        'h2': 1.563rem,
+        'h3': 1.25rem,
+        'h4': 1rem,
+        'h5': 0.8rem,
+        'h6': 0.64rem,
+      ),
+    )
   ),
 );
 
@@ -269,8 +355,8 @@ $breadcrumbs-item-slash: true;
 $button-padding: 0.85em 1em;
 $button-margin: 0 0 $global-margin 0;
 $button-fill: solid;
-$button-background: $ternary-color;
-$button-background-hover: scale-color($button-background, $lightness: 15%);
+$button-background: $dark-gray;
+$button-background-hover: $ternary-color;
 $button-color: $white;
 $button-color-alt: $black;
 $button-radius: $global-radius;

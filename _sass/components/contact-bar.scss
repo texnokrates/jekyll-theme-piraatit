@@ -14,11 +14,11 @@ $cb-ns: '';
 }
 
 .#{$cb-ns}c-contact-bar .#{$cb-ns}c-contact-bar__heading {
-  font-weight: bold;
+  @include headerStyle('h3', sub);
+
   margin: 0;
-  line-height: 1.3;
   display: inline-block;
-  font-size: 1.3rem;
+  text-transform: uppercase;
 }
 
 .#{$cb-ns}c-contact-bar .#{$cb-ns}c-contact-bar-items {

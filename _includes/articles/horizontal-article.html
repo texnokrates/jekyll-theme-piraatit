@@ -14,10 +14,10 @@
 
     <div class="c-article-listing__content">
       <!-- Headline -->
-      <h2 itemprop="headline">
+      <h1 itemprop="headline" class="c-article-listing__headline t-h3">
         <a class="c-headline-anchor" href="{{ include.article.url | relative_url }}" itemprop="url">{{ include.article.title }}</a>
-      </h2>
-      <p itemprop="description" class="c-article-listing__perex u-stacked">{{ include.article.excerpt | truncatewords: 33 | strip_html }}</p>
+      </h1>
+      <p itemprop="description" class="c-article-listing__perex u-stacked t-font-features">{{ include.article.excerpt | truncatewords: 33 | strip_html }}</p>
       <a class="c-emphasized-anchor u-stacked" href="{{ include.article.url | relative_url }}">Přečíst celý článek &rsaquo;</a>
     </div>
     <!-- Publisher -->

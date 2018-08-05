@@ -17,11 +17,13 @@
 }
 
 @mixin headerStyle($header, $type: main) {
-  @each $breakpointSize, $headers in $header-sizes {
+  $settings: map-get($headers, $type);
+
+  @each $breakpointSize, $headers in map-get($settings, sizes) {
     @include breakpoint($breakpointSize) {
-      font-family: #{map-get(map-get($header-fonts, $type), family)};
+      font-family: #{map-get($settings, family)};
       font-size: rem-calc(map-get($headers, $header));
-      font-weight: map-get(map-get($header-fonts, $type), weight);
+      font-weight: map-get($settings, weight);
 
       // @if($header == 'h1' or $header == 'h2') {
       //   letter-spacing: .02em;
@@ -36,6 +38,12 @@
       // }
     }
   }
+}
+
+@mixin fontFeatures() {
+  font-feature-settings: "kern", "onum", "liga";
+  font-kerning: auto;
+  text-rendering: optimizeLegibility;
 }
 
 h1 {
@@ -77,6 +85,30 @@ h6 {
   @include headerStyle('h6');
 }
 
+.t-h1-super {
+  @include headerStyle('h1', super);
+}
+
+.t-h2-super {
+  @include headerStyle('h2', super);
+}
+
+.t-h3-super {
+  @include headerStyle('h3', super);
+}
+
+.t-h4-super {
+  @include headerStyle('h4', super);
+}
+
+.t-h5-super {
+  @include headerStyle('h5', super);
+}
+
+.t-h6-super {
+  @include headerStyle('h6', super);
+}
+
 .t-subheader {
   font-weight: normal;
   color: $dark-gray;
@@ -88,19 +120,14 @@ h6 {
 
 // Special page title header
 .c-page-title {
-  font-size: 3.157334518321rem;
-  font-weight: bold;
-  font-family: $header-font-family-super;
   margin-bottom: 0;
-  letter-spacing: 0;
 
-  @include breakpoint(medium down) {
-    font-size: 2.441rem;
-  }
+  @include headerStyle('h1', super);
 }
 
 // Page header section with provided whitespace for clean separation from the content
 .c-page-header {
+  padding-top: 2rem;
   padding-bottom: 2rem;
 }
 
@@ -118,3 +145,6 @@ h6 {
   @include headlineAnchor();
 }
 
+.t-font-features {
+  @include fontFeatures();
+}

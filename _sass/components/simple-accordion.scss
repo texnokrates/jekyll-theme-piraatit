@@ -49,6 +49,8 @@
 
 .c-simple-accordion__headline {
   margin: 0;
+
+  @include headerStyle('h1', alt);
 }
 
 .c-simple-accordion-content {

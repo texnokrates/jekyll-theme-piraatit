@@ -1,16 +1,13 @@
 <div class="o-section-block">
     <ul class="c-widget-accordion" data-accordion="" data-allow-all-closed="true">
       <li class="c-widget-accordion-item is-active" data-accordion-item="">
-        <a href="#" class="c-widget-accordion-link">
+        <a href="#" class="c-widget-accordion-link c-widget-accordion-link--nofill">
           <span class="c-widget-accordion__title t-h2">Lidé</span>
-          <span class="c-widget-accordion__icon c-widget-accordion__icon c-widget-accordion__icon--bottom c-widget-accordion__icon--bottomPulled" aria-hidden="true">
-            <i class="fa fa-users fa-lg"></i>
-          </span>
         </a>
         <div class="c-widget-accordion-content" data-tab-content="">
             {% assign persons = site.people | sample:3 %}
             {% for person in persons %}
-              {% include people/profile-badge.html item=person style='card' headlineClass='t-h3' showContactInfo=false %}
+              {% include people/profile-badge.html item=person style='card' showContactInfo=false class='c-profile-badge--stacked' headlineClass='t-h6-super' %}
             {% endfor %}
           <div class="c-widget-accordion-content__cta">
             {% assign peopleCol = site.collections | where: "label", "people" | first %}

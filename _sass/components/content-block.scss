@@ -17,4 +17,8 @@
   a {
     @include emphasizedAnchor();
   }
+
+  p {
+    @include fontFeatures();
+  }
 }

@@ -193,21 +193,20 @@ $section-ns: '';
 .#{$section-ns}o-section .#{$section-ns}o-section-header {
   position: relative;
   color: $primary-color;
-  border-bottom: 3px solid $ternary-color;
   margin-top: 6px;
   padding-bottom: 2px;
   margin-bottom: -2px;
+
+  &--bordered {
+    border-bottom: 1px solid $ternary-color;
+  }
 }
 
 .#{$section-ns}o-section .#{$section-ns}o-section__heading {
-  @include headerStyle('h2');
+  @include headerStyle('h3', super);
 
   color: $primary-color;
   margin-bottom: 0;
-
-  &.#{$section-ns}o-section__heading--small {
-    @include headerStyle('h3');
-  }
 }
 
 .#{$section-ns}o-section .#{$section-ns}o-section-header .#{$section-ns}o-section__dateUpdated {

@@ -41,6 +41,10 @@
   margin-right: 1rem;
 }
 
+.u-4margin--right {
+  margin-right: 4rem;
+}
+
 .u-1margin--top {
   margin-top: 1rem;
 }
@@ -99,19 +103,20 @@
 }
 
 .u-inverted {
-  color: $secondary-color !important;
+  color: $dark-gray !important;
 
-  a {
-    color: $secondary-color !important;
-  }
-
+  a,
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
-    color: $secondary-color !important;
+    color: $dark-gray;
+  }
+
+  a:hover {
+    color: $secondary-color;
   }
 }
 

@@ -21,25 +21,20 @@ layout: blank-article
 <div class="o-section">
   <div class="row">
     <div class="columns medium-8">
-      <div class="o-section-header">
+      <div class="o-section-header o-section-header--bordered">
         <h3 class="o-section__heading">Kandidátní listina</h3>
       </div>
       <div class="c-program-candidates">
 
         {% assign leaderCandidate = site.people | where: "uid", candidates.leader.uid | first %}
-        {% include candidate-badge.html candidate=candidates.leader candidatePage=leaderCandidate leader=true rank=1 %}
+        {% include candidate-badge.html candidate=candidates.leader candidatePage=leaderCandidate rank=1 %}
 
         {% if candidates.head.size %}
-          <div class="c-program-candidates__others">
             {% for candidate in candidates.head %}
               {% assign candidatePage = site.people | where: "uid", candidate.uid  | first %}
               {% assign candidateRank = forloop.index | plus: 1 %}
-              {% assign loopindex = forloop.index | modulo: 3 %}
-              {% if loopindex == 1 %}<div class="c-program-candidates__row">{% endif %}
-                {% include candidate-badge.html candidate=candidate candidatePage=candidatePage leader=false rank=candidateRank %}
-              {% if loopindex == 0 or forloop.last %}</div>{% endif %}
+              {% include candidate-badge.html candidate=candidate candidatePage=candidatePage leader=false rank=candidateRank %}
             {% endfor %}
-          </div>
         {% endif %}
 
         {% if candidates.tail.size > 0 %}
@@ -70,7 +65,7 @@ layout: blank-article
       {% endif %}
     </div>
     <div class="columns medium-4">
-      <div class="o-section-header">
+      <div class="o-section-header o-section-header--bordered">
         <h3 class="o-section__heading">Program</h3>
       </div>
       <div class="c-program-items">

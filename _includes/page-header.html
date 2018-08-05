@@ -6,7 +6,9 @@
   </div>
   {% if include.content %}
     <div class="columns large-12">
-      {{ include.content }}
+      <div class="{% if include.contentClass %}{{ include.contentClass }}{% endif %}">
+        {{ include.content }}
+      </div>
     </div>
   {% endif %}
 </div>

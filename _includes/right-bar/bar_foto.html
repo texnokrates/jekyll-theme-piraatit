@@ -1,17 +1,3 @@
 {% if page.img %}
-<div class="o-section-block">
- <ul class="c-widget-accordion" data-accordion="" data-allow-all-closed="true">
-   <li class="c-widget-accordion-item is-active" data-accordion-item="">
-     <a href="#" class="c-widget-accordion-link">
-       <span class="c-widget-accordion__title t-h2">Foto</span>
-       <span class="c-widget-accordion__icon c-widget-accordion__icon c-widget-accordion__icon--bottom" aria-hidden="true">
-         <i class="fa  fa-address-card-o  fa-lg u-rotate-15"></i>
-       </span>
-     </a>
-     <div class="c-widget-accordion-content c-widget-accordion-content--nopad text-center" data-tab-content="">
-      {% asset '{{ page.img }}' alt='{{ page.name }}' magick:resize="350x" %}
-     </div>
-   </li>
- </ul>
-</div>
+{% asset '{{ page.img }}' alt='{{ page.name }}' magick:resize="350x" %}
 {% endif %}
