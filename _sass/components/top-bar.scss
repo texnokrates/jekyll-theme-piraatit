@@ -71,15 +71,16 @@
   }
 
   .c-responsive-menu__item a {
-    @include headerStyle('h3');
+    @include headerStyle('h4', sub);
 
     display: block;
     position: relative;
     color: $dark-gray;
-    margin: 0.7rem 1.25rem;
+    margin: 0.7rem 1rem 0;
     padding: 4px .25em 0; // 4px to compensate for font
     transition: all .1s ease-in-out;
-    border-bottom: 1px transparent solid;
+    text-transform: uppercase;
+    letter-spacing: .01em;
 
     @include breakpoint(medium down) {
       padding: 1rem 1.8rem;
@@ -92,7 +93,6 @@
   .c-responsive-menu__item--active a {
     @include breakpoint(large) {
       color: $secondary-color;
-      border-color: $secondary-color;
     }
   }
 

@@ -16,24 +16,24 @@
   // }
 }
 
-@mixin headerStyle($header) {
+@mixin headerStyle($header, $type: main) {
   @each $breakpointSize, $headers in $header-sizes {
     @include breakpoint($breakpointSize) {
-      font-family: $header-font-family;
+      font-family: #{map-get(map-get($header-fonts, $type), family)};
       font-size: rem-calc(map-get($headers, $header));
-      font-weight: $header-font-weight;
+      font-weight: map-get(map-get($header-fonts, $type), weight);
 
-      @if($header == 'h1' or $header == 'h2') {
-        letter-spacing: .02em;
-      }
+      // @if($header == 'h1' or $header == 'h2') {
+      //   letter-spacing: .02em;
+      // }
 
-      @if($header == 'h3') {
-        letter-spacing: .04em;
-      }
+      // @if($header == 'h3') {
+      //   letter-spacing: .04em;
+      // }
 
-      @if($header == 'h4' or $header == 'h5' or $header == 'h6') {
-        letter-spacing: .1em;
-      }
+      // @if($header == 'h4' or $header == 'h5' or $header == 'h6') {
+      //   letter-spacing: .1em;
+      // }
     }
   }
 }

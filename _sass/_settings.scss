@@ -105,10 +105,25 @@ $block-grid-max: 8;
 // 4. Base Typography
 // ------------------
 
+$header-fonts: (
+  super: (
+    family: "'Bebas Neue', Helvetica, Arial, sans-serif",
+    weight: bold
+  ),
+  main: (
+    family: "'Roboto Condensed', Helvetica, Arial, sans-serif",
+    weight: 700,
+  ),
+  sub: (
+    family: "'Roboto Condensed', Helvetica, Arial, sans-serif",
+    weight: 400,
+  ),
+);
+
 $header-font-family-super: 'Bebas Neue', Helvetica, Arial, sans-serif;
-$header-font-family: 'Bebas Neue Book', Helvetica, Arial, sans-serif;
+$header-font-family: 'Roboto Condensed', Helvetica, Arial, sans-serif;
 $header-font-family-sub: 'Bebas Neue Book', Helvetica, Arial, sans-serif;
-$header-font-weight: bold;
+$header-font-weight: 700;
 $header-font-style: normal;
 $font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
 $header-sizes: (
