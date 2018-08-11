@@ -2,8 +2,9 @@
  * Homepage banner image
  */
 
- .c-hp-banner {
+.c-hp-banner {
   margin-top: 2rem;
+  border-bottom: 1px $primary-color solid;
 
   @include breakpoint(small down) {
     margin: 1.5rem 0;
