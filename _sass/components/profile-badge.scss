@@ -40,18 +40,24 @@
 
 .c-profile-badge__contacts {
   display: flex;
-  flex: 1;
+  flex-grow: 1;
   flex-direction: column;
   justify-content: flex-end;
+}
+
+.c-profile-badge--bottomalign {
+  .c-profile-badge__contacts {
+    flex-grow: initial;
+  }
+
+  .c-profile-badge__body {
+    justify-content: flex-end;
+  }
 }
 
 .c-profile-badge--stacked {
   + .c-profile-badge--stacked {
     margin-top: 1rem;
-  }
-
-  .c-profile-badge__body {
-    justify-content: flex-end;
   }
 }
 

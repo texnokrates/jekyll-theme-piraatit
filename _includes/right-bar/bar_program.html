@@ -11,7 +11,7 @@
             </a>
             <div class="c-widget-accordion-content" data-tab-content="" id="toc">
                 {% for campaign in campaignGroup.campaigns %}
-                <h3>{{ campaign.title }}</h3>
+                <h3 class="t-h5">{{ campaign.title }}</h3>
                 <ul class="c-widget-accordion-list">
                     <ul>
                         {% assign programSections = site.program | where: "campaignCategoryUid", campaign.categoryUid | sort:"order" %}

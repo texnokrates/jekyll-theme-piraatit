@@ -7,7 +7,7 @@
       </a>
       <div class="c-widget-accordion-content" data-tab-content="" id="toc">
         {% assign garant = site.people | where:"uid",page.garant | first %}
-        {% include people/profile-badge.html item=garant style='card' viewMode='single' showDescription=false %}
+        {% include people/profile-badge.html item=garant style='card' viewMode='single' showDescription=false class='c-profile-badge--bottomalign' headlineClass='t-h6-super' %}
       </div>
     </li>
   </ul>
