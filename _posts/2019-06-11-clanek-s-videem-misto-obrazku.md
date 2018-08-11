@@ -10,14 +10,16 @@ image: posts/obrazek.u.tohoto.postu.jpg
 youtubeVideoId: 5f0-nQLHHM4 # if youtubeVideoId is provided, it will replace the image as the main content
 ---
 
-Posty musí být každý ve vlastním souboru pojmenovaném datumem a nejakym nazvem, například _posts/2018-03-14-slavime-pi-day.md. Tento název se pak objeví v adrese, tedy xxx.pirati.cz/aktuality/slavime-pi-day.html.
-
-Obrázky dávejte do assets/img/posts/
-
-# Struktura
-
-* texty pište v *Markdown*
-* viz [wikipedia](https://cs.wikipedia.org/wiki/Markdown)
+Nullam lectus justo, vulputate eget mollis sed, tempor sed magna. Etiam commodo
+dui eget wisi. Cras elementum. Etiam dictum tincidunt diam. Aliquam erat
+volutpat. Duis sapien nunc, commodo et, interdum suscipit, sollicitudin et,
+dolor. Aliquam erat volutpat. Etiam ligula pede, sagittis quis, interdum
+ultricies, scelerisque eu. Cras elementum. Vestibulum fermentum tortor id mi.
+Etiam quis quam. Mauris elementum mauris vitae tortor. Fusce tellus. Integer
+rutrum, orci vestibulum ullamcorper ultricies, lacus quam ultricies odio, vitae
+placerat pede sem sit amet enim. Ut enim ad minima veniam, quis nostrum
+exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi
+consequatur?
 
 <hr>
 
