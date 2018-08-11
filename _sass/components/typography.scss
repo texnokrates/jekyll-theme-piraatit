@@ -2,10 +2,7 @@
   text-decoration: underline;
 
   &.active {
-    background-color: $primary-color;
-    color: $secondary-color;
     font-weight: bold;
-    text-decoration: none;
   }
 
 }
