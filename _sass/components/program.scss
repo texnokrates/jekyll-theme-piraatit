@@ -87,10 +87,13 @@ $program-item-ns: '';
 .c-program-candidate-badge__name {
   margin-top: auto;
   margin-bottom: 0;
+  padding-right: 30px; // space for the rank circle
 
   @include headerStyle('h6', super);
 
   @include breakpoint(medium) {
+    padding-right: 45px; // space for the rank circle
+
     @include headerStyle('h5', super);
   }
 }
@@ -113,7 +116,7 @@ $program-item-ns: '';
     max-width: calc(33.333% - 0.75rem);
 
     @include breakpoint(medium) {
-      max-width: calc(200px - 0.75rem);
+      max-width: calc(225px - 0.75rem);
     }
 }
 
@@ -131,14 +134,17 @@ $program-item-ns: '';
     color: $black;
     border: 2px $black solid;
 
-    @include headerStyle('h5', super);
+    @include headerStyle('h6', super);
 
     @include breakpoint(medium) {
       top: 1.5rem;
       right: 1.5rem;
-      width: 35px;
-      height: 35px;
+      width: 45px;
+      height: 45px;
       // Compensate for the font misalignment.
-      line-height: 36px;
+      line-height: 45px;
+      border-width: 3px;
+
+      @include headerStyle('h5', super);
     }
 }

@@ -54,7 +54,7 @@
 .c-page-title {
   margin-bottom: 0;
 
-  @include headerStyle('h1', super);
+  @include headerStyle('h2', super);
 }
 
 // Page header section with provided whitespace for clean separation from the content
@@ -65,7 +65,9 @@
 
 .c-top-sub-nav + .page-content .o-section,
 .c-top-sub-nav + .page-content .c-page-header {
-  padding-top: 0;
+  @include breakpoint(medium) {
+    padding-top: 0;
+  }
 }
 
 // The block will have larger text for better readability. Often used with

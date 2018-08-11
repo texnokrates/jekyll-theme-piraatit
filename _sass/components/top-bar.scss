@@ -71,7 +71,7 @@
   }
 
   .c-responsive-menu__item a {
-    @include headerStyle('h3', sub);
+    @include headerStyle('h5', sub);
 
     display: block;
     position: relative;

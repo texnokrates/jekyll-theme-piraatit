@@ -13,7 +13,7 @@ $vn-ns: '';
 .#{$vn-ns}c-vertical-navigation .#{$vn-ns}c-vertical-navigation__title {
   text-transform: uppercase;
 
-  @include headerStyle('h3', sub);
+  @include headerStyle('h5', sub);
 }
 
 .#{$vn-ns}c-vertical-navigation .#{$vn-ns}c-vertical-navigation-items {

@@ -14,7 +14,7 @@ $cb-ns: '';
 }
 
 .#{$cb-ns}c-contact-bar .#{$cb-ns}c-contact-bar__heading {
-  @include headerStyle('h3', sub);
+  @include headerStyle('h5', sub);
 
   margin: 0;
   display: inline-block;

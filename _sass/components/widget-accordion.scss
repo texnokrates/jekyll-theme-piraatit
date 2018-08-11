@@ -13,7 +13,7 @@
   padding: .5rem 1rem;
   background-color: $medium-gray;
   overflow: hidden;
-  @include headerStyle('h2', alt);
+  @include headerStyle('h3', alt);
 
   &:before {
     display: none;
@@ -23,7 +23,7 @@
     background: $body-background;
     padding-left: 0;
 
-    @include headerStyle('h1', alt);
+    @include headerStyle('h2', alt);
   }
 }
 

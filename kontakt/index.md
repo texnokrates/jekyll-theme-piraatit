@@ -5,7 +5,7 @@ contentSize: big
 ---
 
 <div class="o-section-header o-section-header--indented">
-  <h1 class="t-h1-alt">Přidejte se</h1>
+  <h1 class="t-h2-alt">Přidejte se</h1>
 </div>
 
 Zajámá vás co piráti dělají? Ozvěte se Jakubu Pirátovy nebo přijďte k nám
