@@ -25,19 +25,18 @@
       font-size: rem-calc(map-get($headers, $header));
       font-weight: map-get($settings, weight);
 
-      // @if($header == 'h1' or $header == 'h2') {
-      //   letter-spacing: .02em;
-      // }
+      $letter-spacing: map-get($settings, letter-spacing);
 
-      // @if($header == 'h3') {
-      //   letter-spacing: .04em;
-      // }
-
-      // @if($header == 'h4' or $header == 'h5' or $header == 'h6') {
-      //   letter-spacing: .1em;
-      // }
+      @if ($letter-spacing) {
+        letter-spacing: $letter-spacing;
+      }
     }
   }
+}
+
+@function getHeaderSettings($prop, $type: main) {
+  $settings: map-get($headers, $type);
+  @return map-get($settings, $prop);
 }
 
 @mixin fontFeatures() {
@@ -46,76 +45,9 @@
   text-rendering: optimizeLegibility;
 }
 
-h1 {
-  @include headerStyle('h1');
-}
-h2 {
-  @include headerStyle('h2');
-}
-h3 {
-  @include headerStyle('h3');
-}
-h4 {
-  @include headerStyle('h4');
-}
-h5 {
-  @include headerStyle('h5');
-}
-h6 {
-  @include headerStyle('h6');
-}
-
-// @note: .t-h* styles take precendence.
-.t-h1 {
-  @include headerStyle('h1');
-}
-.t-h2 {
-  @include headerStyle('h2');
-}
-.t-h3 {
-  @include headerStyle('h3');
-}
-.t-h4 {
-  @include headerStyle('h4');
-}
-.t-h5 {
-  @include headerStyle('h5');
-}
-.t-h6 {
-  @include headerStyle('h6');
-}
-
-.t-h1-super {
-  @include headerStyle('h1', super);
-}
-
-.t-h2-super {
-  @include headerStyle('h2', super);
-}
-
-.t-h3-super {
-  @include headerStyle('h3', super);
-}
-
-.t-h4-super {
-  @include headerStyle('h4', super);
-}
-
-.t-h5-super {
-  @include headerStyle('h5', super);
-}
-
-.t-h6-super {
-  @include headerStyle('h6', super);
-}
-
 .t-subheader {
   font-weight: normal;
   color: $dark-gray;
-}
-
-.t-h {
-  font-family: $header-font-family;
 }
 
 // Special page title header
@@ -129,6 +61,11 @@ h6 {
 .c-page-header {
   padding-top: 2rem;
   padding-bottom: 2rem;
+}
+
+.c-top-sub-nav + .page-content .o-section,
+.c-top-sub-nav + .page-content .c-page-header {
+  padding-top: 0;
 }
 
 // The block will have larger text for better readability. Often used with

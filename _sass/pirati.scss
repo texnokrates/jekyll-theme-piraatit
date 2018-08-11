@@ -49,3 +49,6 @@
 @import 'objects/section';
 @import 'objects/media';
 @import 'objects/space';
+
+// Import header styles -- these go last to be able to override things
+@import 'utilities/header-styles';

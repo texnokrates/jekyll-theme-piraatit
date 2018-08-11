@@ -3,7 +3,7 @@ layout: default
 title: Kontaktní informace
 ---
 
-<div class="row o-section-block o-section-block--divided">
+<div class="row o-section-block ">
   <div class="medium-12 large-12 columns">
     <section class="o-section">
       <div class="o-section-inner">
@@ -17,12 +17,14 @@ title: Kontaktní informace
             <div class="o-section-block o-section-block--fill">
               <div class="u-cf">
                 <div class="medium-12 {% if page.contentSize == 'even' %}large-6{% else %}large-8{% endif %} columns o-section-mediumdown-divided-small">
-                <div itemprop="description" class="c-content-block c-emphasized-text">
-                  {{ content }}
-                </div>
+                  <div itemprop="description" class="c-content-block c-emphasized-text">
+                    {{ content }}
+                  </div>
                 </div>
                 <div class="medium-12 {% if page.contentSize == 'even' %}large-6{% else %}large-4{% endif %} columns o-section-mediumdown-divided-small">
-                  <h2>Základní údaje</h2>
+                  <div class="o-section-header o-section-header--indented">
+                    <h2 class="t-h1-alt">Základní údaje</h2>
+                  </div>
                   {% include contacts/summary-table.html %}
                 </div>
               </div>
@@ -33,14 +35,15 @@ title: Kontaktní informace
     </section>
   </div>
 </div>
-<hr>
 
-<div class="row o-section-block o-section-block--divided">
+<div class="row o-section-block">
   <div class="medium-12 {% if page.contentSize == 'even' %}large-6{% else %}large-8{% endif %} columns">
     <section class="o-section o-section--spaceBot">
+      <div class="o-section-header o-section-header--indented">
+        <h2 class="t-h1-alt">Kontaktní osoba</h2>
+      </div>
       <div class="o-section-inner">
         <div class="o-section-block">
-          <h2>Kontaktní osoba</h2>
           {% assign contactPersons = site.people | where_exp: "item","item.categories contains 'kontaktni_osoba'" | sort:"ordpak" %}
           {% for person in contactPersons %}
             {% include people/profile-badge.html item=person imgSize='big' imgStyle='round' class='c-profile-badge--centered' %}
@@ -53,9 +56,11 @@ title: Kontaktní informace
   {% unless page.noresidence %}
   <div class="medium-12 {% if page.contentSize == 'even' %}large-6{% else %}large-4{% endif %} columns">
     <div class="o-section o-section--spaceBot">
+      <div class="o-section-header o-section-header--indented">
+          <h2 class="t-h1-alt">Sídlo a kontaktní centrum</h2>
+      </div>
       <div class="o-section-inner">
         <div class="o-section-block">
-          <h2>Sídlo a kontaktní centrum</h2>
           {% include contacts/residence.html %}
         </div>
       </div>

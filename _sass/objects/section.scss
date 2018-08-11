@@ -1,10 +1,10 @@
 $section-ns: '';
 
 .#{$section-ns}o-section {
-  padding: 35px 0;
+  padding: 2rem 0;
 
   @include breakpoint(mobile down) {
-    padding: 10px 0;
+    padding: 1rem 0;
   }
 }
 
@@ -137,20 +137,21 @@ $section-ns: '';
 }
 
 .#{$section-ns}o-section.#{$section-ns}o-section--smaller {
-  padding: 10px 0;
+  padding: 1rem 0;
 }
 
 
 .#{$section-ns}o-section.#{$section-ns}o-section--bigger {
   @include breakpoint(mobile down) {
-    padding: 20px 0;
+    padding: 1rem 0;
   }
 }
 
 .#{$section-ns}o-section--noSpaceBottom {
   padding-bottom: 0;
+
   @include breakpoint(mobile down) {
-    padding: 20px 0;
+    padding: 1rem 0;
   }
 }
 
@@ -159,15 +160,14 @@ $section-ns: '';
 }
 
 .#{$section-ns}o-section.#{$section-ns}o-section--spaceBot {
-
-  padding-bottom: 50px;
+  padding-bottom: 3rem;
 
   @include breakpoint(large down) {
-    padding-bottom: 20px;
+    padding-bottom: 2rem;
   }
 
   @include breakpoint(mobile down) {
-    padding-bottom: 15px;
+    padding-bottom: 1rem;
   }
 
 }
@@ -193,29 +193,19 @@ $section-ns: '';
 .#{$section-ns}o-section .#{$section-ns}o-section-header {
   position: relative;
   color: $primary-color;
-  margin-top: 6px;
-  padding-bottom: 2px;
-  margin-bottom: -2px;
 
   &--bordered {
     border-bottom: 1px solid $ternary-color;
   }
+
+  &--indented {
+    margin-bottom: 2rem;
+  }
 }
 
-.#{$section-ns}o-section .#{$section-ns}o-section__heading {
+.#{$section-ns}o-section__heading {
   @include headerStyle('h3', super);
 
   color: $primary-color;
   margin-bottom: 0;
-}
-
-.#{$section-ns}o-section .#{$section-ns}o-section-header .#{$section-ns}o-section__dateUpdated {
-  position: absolute;
-  bottom: 13px;
-  right: 0;
-  color: $body-font-color;
-
-  @include breakpoint(mobile down) {
-    display: none;
-  }
 }

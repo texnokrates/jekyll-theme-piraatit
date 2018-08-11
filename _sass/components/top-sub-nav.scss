@@ -1,29 +1,29 @@
 $tsb-ns: '';
 
-nav.#{$tsb-ns}c-top-sub-nav {
-  background: $light-gray;
-}
-
-.#{$tsb-ns}c-top-sub-nav .#{$tsb-ns}c-top-sub-nav-inner {
+.c-top-sub-nav .c-top-sub-nav-inner {
   display: flex;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   overflow-y: hidden;
+  align-items: center;
 
   @include breakpoint(mobile down) {
     text-align: center;
     flex-direction: column;
   }
+
+  // This matches .o-section and .c-page-header padding which is stripped in this case.
+  @include breakpoint(medium) {
+    min-height: 4rem;
+  }
 }
 
-.#{$tsb-ns}c-top-sub-nav .#{$tsb-ns}c-top-sub-nav__heading {
-  font-size: 1.5rem;
-  font-weight: 500;
-  font-family: $header-font-family;
+.c-top-sub-nav .c-top-sub-nav__heading {
+
   margin: 0;
 }
 
-.#{$tsb-ns}c-top-sub-nav .#{$tsb-ns}c-top-sub-nav-divider {
+.c-top-sub-nav .c-top-sub-nav-divider {
   margin: 0 2rem;
 
   &:before {
@@ -42,16 +42,22 @@ nav.#{$tsb-ns}c-top-sub-nav {
   }
 }
 
-.#{$tsb-ns}c-top-sub-nav-items {
+.c-top-sub-nav .c-top-sub-nav__heading,
+.c-top-sub-nav .c-top-sub-nav__item {
+  font-size: 1.15rem;
+  font-weight: map-get(map-get($text, weight), default);
+  font-family: $body-font-family;
+}
+
+.c-top-sub-nav-items {
   list-style-type: none;
   margin-left: 0;
   margin-bottom: 0;
 }
 
-.#{$tsb-ns}c-top-sub-nav__item {
+.c-top-sub-nav__item {
   display: inline-block;
   margin-left: 0;
-  font-size: 1.15rem;
 
   a {
     text-decoration: underline;
@@ -61,8 +67,8 @@ nav.#{$tsb-ns}c-top-sub-nav {
     display: block;
   }
 }
-.#{$tsb-ns}c-top-sub-nav__item +
-.#{$tsb-ns}c-top-sub-nav__item {
+.c-top-sub-nav__item +
+.c-top-sub-nav__item {
   margin-left: 2rem;
 
   @include breakpoint(medium down) {

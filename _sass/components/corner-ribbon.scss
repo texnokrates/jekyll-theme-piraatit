@@ -11,10 +11,10 @@
   left: -55px;
   text-align: center;
   line-height: 40px;
-  letter-spacing: 1px;
   color: $secondary-color;
   transform: rotate(-45deg);
-  font-family: $header-font-family-super;
+
+  @include headerStyle('h3', main);
 }
 
 .c-corner-ribbon--top-right {

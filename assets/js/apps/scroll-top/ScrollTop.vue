@@ -1,7 +1,7 @@
 <template>
   <transition :name="'back-top-fade'" :duration="300">
     <div class="scroll-top" v-show="showBackToTop" @click="toTop">
-        <slot><div class="scroll-top__area icon"><i class="fa fa-4x fa-angle-up"></i></div></slot>
+        <slot><div class="scroll-top__area icon"><i class="fa fa-angle-up"></i></div></slot>
     </div>
   </transition>
 </template>
@@ -73,7 +73,13 @@
   }
 
   .scroll-top__area {
-    padding:20px;
+    font-size: 3em;
+    padding: .5rem 1rem;
+
+    @include breakpoint(medium) {
+      font-size: 4em;
+      // padding: 1rem;
+    }
   }
 
   .back-top-fade-enter,

@@ -78,6 +78,7 @@
   position: relative;
 
   &:before {
+    pointer-events: none;
     content: '\f144';
     position: absolute;
     width: 90px;

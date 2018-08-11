@@ -106,6 +106,7 @@
 .c-top-bar__body {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 
   @include breakpoint(medium down) {
     padding: 0 0 .5rem;
@@ -123,10 +124,6 @@
 
     @include breakpoint(medium down) {
       width: 115px;
-    }
-
-    @include breakpoint(small down) {
-      display: none;
     }
   }
 
@@ -152,6 +149,10 @@
     @include breakpoint(medium down) {
       flex: 1;
       margin-right: 1.5rem;
+    }
+
+    @include breakpoint(small down) {
+      display: none;
     }
 
     .c-top-bar__search-container {

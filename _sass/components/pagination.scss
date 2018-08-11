@@ -9,6 +9,10 @@
     margin-bottom: 1rem;
   }
 
+  @include breakpoint(medium) {
+    margin-bottom: 2rem;
+  }
+
   .c-pagination__previous a,
   .c-pagination__next a {
     color: $button-color;
@@ -36,4 +40,5 @@
 .c-pagination__anchor {
   padding: $button-padding;
   color: $anchor-color;
+  display: block;
 }
