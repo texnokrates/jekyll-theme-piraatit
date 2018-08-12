@@ -16,7 +16,10 @@ const appFactory = (el, attrs) => {
   new Vue({
     el,
     render: h => h(CustomLayerMap, {
-      props: {layerId: attrs.layer}
+      props: {
+        layerId: attrs.layer,
+        layerCacheVersion: attrs.version || '1',
+      }
     })
   });
 };
