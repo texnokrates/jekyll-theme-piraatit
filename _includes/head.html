@@ -37,11 +37,13 @@
     <meta property="og:title"         content="{{ title }}" />
     <meta property="og:description"   content="{{ description }}" />
     {% if page.layout == 'post' %}
-    <meta property="og:image"         content="{% asset '{{ page.image }}' @path %}" />
+    {% capture img_path %}{% asset '{{ page.image }}' @path %}{% endcapture %}
+    <meta property="og:image"         content="{{ img_path | absolute_url }}" />
     {% elsif page.img %}
-    <meta property="og:image"         content="{% asset '{{ page.img }}' @path %}'" />
+    {% capture img_path %}{% asset '{{ page.img }}' @path %}{% endcapture %}
+    <meta property="og:image"         content="{{ img_path | absolute_url }}" />
     {% else %}
-    <meta property="og:image"         content="{{ 'assets/img/brand/logo-round.png' | relative_url }}" />
+    <meta property="og:image"         content="{{ 'assets/img/brand/logo-round.png' | absolute_url }}" />
     {% endif %}
     <!-- Fonts -->
     {% if page.layout != 'blank' %}
