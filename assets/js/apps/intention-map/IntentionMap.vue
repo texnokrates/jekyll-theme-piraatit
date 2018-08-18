@@ -190,7 +190,6 @@ export default {
           style: getStyleForFeature,
           onEachFeature
         });
-        console.log(this.layer);
         this.layer.addTo(this.map);
         this.map.addLayer(markers);
         this.map.panTo(this.layer.getBounds().getCenter());

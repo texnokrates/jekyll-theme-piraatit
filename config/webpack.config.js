@@ -92,7 +92,7 @@ const getPlugins = (isProduction) => {
      */
     new MiniCssExtractPlugin({
       filename: isProduction ? 'assets/js/main.[hash].css' : 'js/main.css',
-      chunkFilename: "[id].css"
+      chunkFilename: isProduction ? "assets/js/main.[hash].[id].css" : 'js/main.[id].css'
     }),
 
   ];
@@ -129,7 +129,7 @@ const getRules = (isProduction) => {
       ],
     },
     {
-      test: /\.scss$/,
+      test: /\.(sa|sc|c)ss$/,
       use: [
         ...(isProduction ? [MiniCssExtractPlugin.loader]: ['vue-style-loader']),
         {
@@ -162,35 +162,6 @@ const getRules = (isProduction) => {
             includePaths: [
               path.resolve(paths.src, '_sass'),
               path.resolve(paths.src, 'node_modules'),
-            ]
-          }
-        },
-      ]
-    },
-    {
-      test: /\.css$/,
-      use: [
-        ...(isProduction ? [MiniCssExtractPlugin.loader]: ['vue-style-loader']),
-        {
-          loader: 'css-loader',
-          options: {
-            autoprefixer: false,
-            sourceMap: true,
-            importLoaders: 1
-          }
-        },
-        {
-          loader: 'postcss-loader',
-          options: {
-            sourceMap: isProduction,
-            ident: 'postcss',
-            plugins: () => [
-              autoprefixer({
-                browsers: [
-                  'last 3 version',
-                  'ie >= 10',
-                ],
-              })
             ]
           }
         },
