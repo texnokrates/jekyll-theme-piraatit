@@ -168,6 +168,35 @@ const getRules = (isProduction) => {
       ]
     },
     {
+      test: /\.css$/,
+      use: [
+        ...(isProduction ? [MiniCssExtractPlugin.loader]: ['vue-style-loader']),
+        {
+          loader: 'css-loader',
+          options: {
+            autoprefixer: false,
+            sourceMap: true,
+            importLoaders: 1
+          }
+        },
+        {
+          loader: 'postcss-loader',
+          options: {
+            sourceMap: isProduction,
+            ident: 'postcss',
+            plugins: () => [
+              autoprefixer({
+                browsers: [
+                  'last 3 version',
+                  'ie >= 10',
+                ],
+              })
+            ]
+          }
+        },
+      ]
+    },
+    {
       test: /\.(png|gif|jpg)$/,
       include: paths.images,
       use: 'url-loader?limit=20480&name=assets/js/[name]-[hash].[ext]',
