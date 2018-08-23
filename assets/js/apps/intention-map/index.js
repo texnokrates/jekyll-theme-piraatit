@@ -23,6 +23,7 @@ const appFactory = (el, attrs) => {
       props: {
         accessToken: attrs.accesstoken,
         datasetUrl: attrs.dataset,
+        ideaFormUrl: attrs.ideaform,
       }
     })
   });

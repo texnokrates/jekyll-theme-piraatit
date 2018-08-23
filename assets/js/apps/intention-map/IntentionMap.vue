@@ -4,6 +4,27 @@
       <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
     </l-map>
 
+    <div class="c-intention-map-layer__cta">
+      <a
+        :href="ideaFormUrl"
+        target="_blank"
+        rel="noopener"
+        class="intention-cta"
+        title="Pošlete nám váš nápad" >
+        <i class="fa fa-lightbulb-o"></i>
+        Mám nápad
+      </a>
+
+      <a
+        :href="shareUrl"
+        class="intention-cta"
+        onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+        title="Sdílet na Facebooku" >
+        <i class="fa fa-facebook-official"></i>
+        Sdílet na Facebooku
+      </a>
+    </div>
+
     <div class="c-intention-map-layer__iteminfo" v-if="currentItem">
       <div class="item-info">
         <a class="item-info__close" @click="closeItemInfo"><i class="fa fa-times"></i></a>
@@ -45,6 +66,9 @@ export default {
       type: String,
       required: true,
     },
+    ideaFormUrl: {
+      type: String,
+    }
   },
   components: {
     LMap,
@@ -67,6 +91,9 @@ export default {
     }
   },
   computed: {
+    shareUrl: function () {
+      return `https://www.facebook.com/sharer/sharer.php?u=${window.location.href}`;
+    },
     categoryListExpanded: function () {
       return Object.values(this.categories).reduce((result, category) => {
         return result || category.expanded;
@@ -273,22 +300,22 @@ export default {
   }
 
   .c-intention-map-layer__legend,
-  .c-intention-map-layer__iteminfo {
+  .c-intention-map-layer__iteminfo,
+  .c-intention-map-layer__cta {
     position: absolute;
     z-index: 2;
     background: rgba(255, 255, 255, 0.9);
   }
 
   .c-intention-map-layer__legend {
-    top: 2rem;
+    top: 0;
     right: 2rem;
     padding: 1rem;
     width: 20em;
-    max-height: calc(100% - 4rem);
+    max-height: calc(100% - 8rem);
     overflow-y: auto;
 
     @include breakpoint(medium down) {
-      top: 0;
       right: 0;
       max-width: 50%;
       max-height: 50%;
@@ -296,18 +323,28 @@ export default {
   }
 
   .c-intention-map-layer__iteminfo {
-    bottom: 2rem;
+    bottom: 0;
     left: 2rem;
     width: 33%;
     max-height: 80%;
 
     @include breakpoint(medium down) {
-      bottom: 0;
       top: auto;
       left: 0;
       right: 0;
       width: 100%;
       height: 40%;
+    }
+  }
+
+  .c-intention-map-layer__cta {
+    bottom: 2rem;
+    right: 2rem;
+    padding: 1rem;
+    overflow-y: auto;
+
+    @include breakpoint(medium down) {
+      display: none;
     }
   }
 
@@ -331,7 +368,7 @@ export default {
     flex: 1;
 
     @include breakpoint(medium down) {
-      font-size: 70%;
+      font-size: 80%;
     }
   }
 
@@ -359,7 +396,7 @@ export default {
     text-decoration: underline;
 
     @include breakpoint(medium down) {
-      font-size: 70%;
+      font-size: 80%;
     }
   }
 
@@ -383,6 +420,18 @@ export default {
 
     img {
       margin-bottom: 1rem;
+
+      @include breakpoint(medium down) {
+        display: none;
+      }
     }
+  }
+
+  .intention-cta {
+    display: inline-block;
+  }
+
+  .intention-cta + .intention-cta {
+    margin-left: 1rem;
   }
 </style>
