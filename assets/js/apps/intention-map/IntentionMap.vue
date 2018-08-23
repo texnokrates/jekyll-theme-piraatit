@@ -8,6 +8,7 @@
       <div class="item-info">
         <a class="item-info__close" @click="closeItemInfo"><i class="fa fa-times"></i></a>
         <div class="item-info__body">
+          <img v-if="currentItem.image" :src="currentItem.image" :alt="currentItem.name">
           <h4>{{ currentItem.name }}</h4>
           <p>{{ currentItem.description }}</p>
         </div>
@@ -379,5 +380,9 @@ export default {
   .item-info__body {
     padding: 1rem;
     overflow-y: auto;
+
+    img {
+      margin-bottom: 1rem;
+    }
   }
 </style>
