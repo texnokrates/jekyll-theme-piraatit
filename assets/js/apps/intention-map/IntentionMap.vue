@@ -18,7 +18,7 @@
       <div class="legend-item" :class="{'legend-item--expanded': category.expanded}" v-for="category in categories" :key="category.name">
         <div class="legend-item__header">
           <div class="legend-item__color" :style="{backgroundColor: category.color}"></div>
-          <a class="legend-item__caption" @click="toggleExpandCategory(category)">{{ category.name }} ({{ category.items.length}})</a>
+          <a class="legend-item__caption" @click="toggleExpandCategory(category)">{{ category.name }} ({{ category.items.length}}) <i class="fa" :class="{'fa-plus-square': ! category.expanded, 'fa-minus-square': category.expanded}"></i></a>
         </div>
         <ul class="legend-item__items" v-show="category.expanded">
           <li class="legend-item__items-item" v-for="item in category.items" :key="item.name"><a @click="zoomToCategoryItem(category, item)">{{ item.name }}</a></li>
