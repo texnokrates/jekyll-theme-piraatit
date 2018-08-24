@@ -58,14 +58,23 @@ import 'leaflet.markercluster';
 
 export default {
   props: {
+    /**
+     * Access token for mapbox.
+     */
     accessToken: {
       type: String,
       required: true,
     },
+    /**
+     * URL to the GeoJSON dataset to populate map from.
+     */
     datasetUrl: {
       type: String,
       required: true,
     },
+    /**
+     * Optional link to "send us your idea" form.
+     */
     ideaFormUrl: {
       type: String,
     }
@@ -101,7 +110,29 @@ export default {
     },
   },
   methods: {
-    initCategories(features) {
+    initialize(geoJSON) {
+      // Annotate with proper id, slug and composed url.
+      const annotatedFeatures = geoJSON.features.map(f => {
+        f.properties.id = parseInt(f.properties.id);
+        f.properties.slug = this.slugify(f.properties.name);
+        f.properties.url = `${f.properties.id}-${f.properties.slug}`;
+        return f;
+      });
+      const features = {features: annotatedFeatures};
+
+      // Build category list.
+      this.initCategories(features);
+
+      // Draw the map.
+      this.initMap(features);
+    },
+    /**
+     * Traverse list of features a build list of categories
+     * with features assigned.
+     *
+     * @param {GeoJSON features} features
+     */
+    initCategories(data) {
       const categories = {};
       const palette = [
         '#1B0338',
@@ -113,7 +144,7 @@ export default {
         '#F9F871',
       ];
 
-      const categoryNames = [...new Set(features.map(feature => feature.properties.category).filter(cat => !! cat))].sort();
+      const categoryNames = [...new Set(data.features.map(feature => feature.properties.category).filter(cat => !! cat))].sort();
 
       categoryNames.forEach((cat, index) => {
         const paletteColor = palette[index % palette.length];
@@ -126,7 +157,7 @@ export default {
         };
       });
 
-      features.forEach((feature, featureIndex) => {
+      data.features.forEach((feature, featureIndex) => {
         if (feature.properties.category) {
           categories[feature.properties.category].items.push({...feature.properties, featureIndex});
         }
@@ -134,96 +165,181 @@ export default {
 
       this.categories = categories;
     },
+    initMap(data) {
+      // Custom item marker.
+      const pirateMarker = new L.Icon({
+        iconUrl: '/assets/img/map-marker.svg',
+        iconSize: [20, 32],
+        iconAnchor: [10, 32],
+      });
+
+      // Markers are clustered for easier orientation.
+      const markers = L.markerClusterGroup({
+        showCoverageOnHover: false,
+        maxClusterRadius: 48,
+      });
+
+      // Get color for feature - either from category or fall back to default.
+      const colorForFeature = feature => {
+        const cat = feature.properties.category;
+        return cat ? this.categories[cat].color : '#000';
+      }
+
+      // Get style for given feature.
+      const style = feature => ({
+          fillColor: colorForFeature(feature),
+          weight: 3,
+          opacity: 1,
+          color: '#fff',
+          dashArray: '3',
+          fillOpacity: 0.7
+      });
+
+      // Called for each feature when building the map.
+      const onEachFeature = (feature, layer) => {
+        // Find pole of inaccessibility (not centroid) for the polygon
+        // @see: https://github.com/mapbox/polylabel
+        const markerPos = polylabel(feature.geometry.coordinates, 1);
+        const markerPosLatLng = L.latLng(markerPos[1], markerPos[0]);
+
+        // add marker
+        const featureMarker = new L
+          .marker(markerPosLatLng, {icon: pirateMarker})
+          .on('click', evt => {
+            this.zoomTo(layer);
+          });
+
+        // Add item marker to the cluster.
+        markers.addLayer(featureMarker);
+
+        // Bind click event on the layer.
+        layer.on({click: evt => this.zoomTo(evt.target)});
+      }
+
+      this.layer = L.geoJSON(data, {style, onEachFeature});
+      this.layer.addTo(this.map);
+      this.map.addLayer(markers);
+      this.map.panTo(this.layer.getBounds().getCenter());
+
+      // If hash is present when starting, locate the item and zoom to i.
+      if (window.location.hash) {
+        this.zoomToItemBySlugUrl(window.location.hash.substring(1));
+      }
+
+      // Listen to hashbang changes when user users browser history navigation.
+      window.addEventListener('hashchange', this.onHashChange, false);
+    },
+    /**
+     * Creates an URL-friendly version of given text.
+     *
+     * @param {String} str
+     */
+    slugify(str) {
+      str = str.replace(/^\s+|\s+$/g, ''); // trim
+      str = str.toLowerCase();
+
+      // remove accents, swap ñ for n, etc
+      const from = "áěščřžýíéěňúůóť–-·/_,:;";
+      const to   = "aescrzyieenuuot--------";
+
+      for (let i=0, l=from.length ; i<l ; i++) {
+        str = str.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
+      }
+
+      str = str
+        .replace(/[^a-z0-9 -]/g, '') // remove invalid chars
+        .replace(/\s+/g, '-') // collapse whitespace and replace by -
+        .replace(/-+/g, '-'); // collapse dashes
+
+      return str;
+    },
+    /**
+     * Stores item's url in the hashbang.
+     *
+     * @param {Object} item
+     */
+    setUrlHash(item) {
+      if (item === null) {
+        history.pushState({}, null, '#');
+      } else {
+        history.pushState({}, item.name, '#' + item.url);
+      }
+    },
+    /**
+     * Called when URL hash changes. Will display detail
+     * of corresponding item if such exist.
+     *
+     * @param {Event} evt
+     */
+    onHashChange(evt) {
+      const urlBits = evt.newURL.split('#');
+
+      if (urlBits.length == 2) {
+        this.zoomToItemBySlugUrl(urlBits[1]);
+      }
+    },
+    /**
+     * Hide current item detail, drop it from URL.
+     */
     closeItemInfo() {
       this.currentItem = null;
+      this.setUrlHash(null);
     },
+    /**
+     * Expand category, show list of items belonging to id.
+     * @param {String} category
+     */
     toggleExpandCategory(category) {
       category.expanded = ! category.expanded;
     },
-    zoomTo(layer) {
+    /**
+     * Zoom to a detail of a layer.
+     *
+     * @param {L.Layer} layer
+     * @param {Boolean} pushState whether to push new state to history.
+     */
+    zoomTo(layer, updateUrl = true) {
       this.map.fitBounds(layer.getBounds());
       this.currentItem = layer.feature.properties;
+
+      if (updateUrl) {
+        this.setUrlHash(this.currentItem);
+      }
     },
+    /**
+     * Zoom to a cateogry item. Wraps `zoomTo`.
+     *
+     * @param {Object} category
+     * @param {Object} item
+     */
     zoomToCategoryItem(category, item) {
-      const layer = Object.values(this.layer._layers).find(l => l.feature.properties.fidx == item.fidx);
+      const layer = Object.values(this.layer._layers).find(l => l.feature.properties.id == item.id);
       if (layer) {
         this.zoomTo(layer);
       }
     },
+    /**
+     * Zoom to a item with corresponding slugified URL.
+     *
+     * @param {String} slugUrl
+     */
+    zoomToItemBySlugUrl(slugUrl) {
+      const layer = Object.values(this.layer._layers).find(l => l.feature.properties.url == slugUrl);
+      if (layer) {
+        this.zoomTo(layer, false);
+      }
+    }
   },
   mounted() {
-    const pirateMarker = new L.Icon({
-      iconUrl: '/assets/img/map-marker.svg',
-      iconSize: [20, 32],
-      iconAnchor: [10, 32],
-    });
-
-    // Markers are clustered for easier orientation.
-    const markers = L.markerClusterGroup({
-      showCoverageOnHover: false,
-      maxClusterRadius: 48,
-    });
-
-    const getColorForFeature = feature => {
-      const cat = feature.properties.category;
-
-      if (cat) {
-        return this.categories[cat].color;
-      }
-
-      return '#000';
-    };
-
-    const getStyleForFeature = feature => ({
-        fillColor: getColorForFeature(feature),
-        weight: 3,
-        opacity: 1,
-        color: '#fff',
-        dashArray: '3',
-        fillOpacity: 0.7
-    });
-
-    const onEachFeature = (feature, layer) => {
-      // Find pole of inaccessibility (not centroid) for the polygon
-      // @see: https://github.com/mapbox/polylabel
-      const markerPos = polylabel(feature.geometry.coordinates, 1);
-      const markerPosLatLng = L.latLng(markerPos[1], markerPos[0]);
-
-      // add marker
-      const featureMarker = new L
-        .marker(markerPosLatLng, {icon: pirateMarker})
-        .on('click', evt => {
-          this.zoomTo(layer);
-        });
-
-      markers.addLayer(featureMarker);
-
-      layer.on({
-        click: evt => this.zoomTo(evt.target),
-      });
-    }
-
+    // Download the dataset and then initialize.
     this.$nextTick(() => {
-      this.map = this.$refs.map.mapObject; // work as expected
-
-      this.$http.get(this.datasetUrl).then(resp => {
-        // Annotate with fidx.
-        const annotatedFeatures = resp.body.features.map((f, fidx) => {
-          f.properties.fidx = fidx;
-          return f;
-        });
-        const features = {features: annotatedFeatures};
-        this.initCategories(features.features);
-        this.layer = L.geoJSON(features, {
-          style: getStyleForFeature,
-          onEachFeature
-        });
-        this.layer.addTo(this.map);
-        this.map.addLayer(markers);
-        this.map.panTo(this.layer.getBounds().getCenter());
-      });
+      this.map = this.$refs.map.mapObject;
+      this.$http.get(this.datasetUrl).then(resp => this.initialize(resp.body));
     });
-
+  },
+  // Unbind event listener on component destroy.
+  beforeDestroy() {
+    window.removeEventListener('hashchange', this.onHashChange);
   }
 }
 </script>
