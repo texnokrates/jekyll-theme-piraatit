@@ -101,7 +101,13 @@ export default {
   },
   computed: {
     shareUrl: function () {
-      return `https://www.facebook.com/sharer/sharer.php?u=${window.location.href}`;
+      let url = `https://www.facebook.com/sharer/sharer.php?u=${window.location.href.split('#')[0]}`;
+
+      if (this.currentItem) {
+        url += `#${this.currentItem.url}`;
+      }
+
+      return url;
     },
     categoryListExpanded: function () {
       return Object.values(this.categories).reduce((result, category) => {
