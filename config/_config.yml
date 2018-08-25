@@ -71,7 +71,7 @@ defaults:   # defaults values for collection scope
       path: "_people"
     values:
       layout: "person"
-      rbar: 
+      rbar:
          - foto
          - personContact
          - people
@@ -80,7 +80,7 @@ defaults:   # defaults values for collection scope
       path: "_program"
     values:
       layout: "program-post"
-      rbar: 
+      rbar:
          - garant
          - program
 
@@ -123,7 +123,8 @@ calendar:
 
 facebook:
   loadSDK: true
-  profilePage: https://www.facebook.com/ceska.piratska.strana/ 
+  profilePage: https://www.facebook.com/ceska.piratska.strana/
+  profilePageName: Nějaký název FB profilu
   appId: 1526197851008996
 
 twitter:
