@@ -3,6 +3,16 @@
     <div class="o-section-inner" style="padding: 3px;">
       <div class="medium-12 columns">
         <ul class="c-header-bar-items">
+          <li class="c-header-bar__item">
+            <a href="{{ '/' | absolute_url }}" rel="noopener noreferrer" target="_blank">
+              <span class="c-header-bar__itemDescription">{{ site.organization.name }}</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="c-header-bar-divider show-for-medium"></div>
+
+        <ul class="c-header-bar-items show-for-medium">
           {% if site.facebook.profilePage %}
           <li class="c-header-bar__item c-header-bar__item--smallerSpace">
             <a href="{{ site.facebook.profilePage }}" rel="noopener noreferrer" target="_blank" title="Naše stránka na Facebooku">
@@ -45,9 +55,9 @@
           </li>
           {% endif %}
         </ul>
-        <div class="c-header-bar-divider show-for-medium"></div>
+        <div class="c-header-bar-divider show-for-large"></div>
 
-        <ul class="c-header-bar-items show-for-medium">
+        <ul class="c-header-bar-items show-for-large">
           {% for item in site.data.menu.top %}
           <li class="c-header-bar__item">
             <a href="{{ item.url }}" rel="noopener noreferrer" target="_blank">
