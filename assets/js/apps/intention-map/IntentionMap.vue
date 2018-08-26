@@ -31,6 +31,12 @@
         <div class="item-info__body">
           <img v-if="currentItem.image" :src="currentItem.image" :alt="currentItem.name">
           <h4>{{ currentItem.name }}</h4>
+          <div class="legend-item" v-if="currentItem.categoryObj">
+            <div class="legend-item__header">
+              <div class="legend-item__color" :style="{backgroundColor: currentItem.categoryObj.color}"></div>
+              <span class="legend-item__caption">{{ currentItem.categoryObj.name }}</span>
+            </div>
+          </div>
           <p>{{ currentItem.description }}</p>
         </div>
       </div>
@@ -56,6 +62,94 @@ import { LMap, LTileLayer, LMarker, LGeoJson } from 'vue2-leaflet';
 import polylabel from 'polylabel';
 import 'leaflet.markercluster';
 
+const mapMarkerPath = '/assets/img/map-markers';
+const palette = {
+  black: {
+    color: '#000000',
+    icon: 'map-marker-black.svg',
+  },
+  turqoise: {
+    color: '#1abc9c',
+    icon: 'map-marker-turqoise.svg',
+  },
+  emerald: {
+    color: '#2ecc71',
+    icon: 'map-marker-emerald.svg',
+  },
+  peterRiver: {
+    color: '#3498db',
+    icon: 'map-marker-peter-river.svg',
+  },
+  amethyst: {
+    color: '#9b59b6',
+    icon: 'map-marker-amethyst.svg',
+  },
+  wetAsphalt: {
+    color: '#34495e',
+    icon: 'map-marker-wet-asphalt.svg',
+  },
+  sunFlower: {
+    color: '#f1c40f',
+    icon: 'map-marker-sun-flower.svg',
+  },
+  carrot: {
+    color: '#e67e22',
+    icon: 'map-marker-carrot.svg',
+  },
+  alizarin: {
+    color: '#e74c3c',
+    icon: 'map-marker-alizarin.svg',
+  },
+  concrete: {
+    color: '#95a5a6',
+    icon: 'map-marker-concrete.svg'
+  },
+  greenSea: {
+    color: '#16a085',
+    icon: 'map-marker-green-sea.svg',
+  },
+  nephritis: {
+    color: '#27ae60',
+    icon: 'map-marker-nephritis.svg',
+  },
+  belizeHole: {
+    color: '#2980b9',
+    icon: 'map-marker-belize-hole.svg',
+  },
+  wisteria: {
+    color: '#8e44ad',
+    icon: 'map-marker-wisteria.svg',
+  },
+  midnightBlue: {
+    color: '#2c3e50',
+    icon: 'map-marker-midnight-blue.svg',
+  },
+  orange: {
+    color: '#f39c12',
+    icon: 'map-marker-orange.svg',
+  },
+  pumpkin: {
+    color: '#d35400',
+    icon: 'map-marker-pumpkin.svg',
+  },
+  pomegranate: {
+    color: '#c0392b',
+    icon: 'map-marker-pomegranate.svg',
+  },
+  asbestos: {
+    color: '#7f8c8d',
+    icon: 'map-marker-asbestos.svg',
+  },
+};
+
+Object.keys(palette).forEach(key => {
+  palette[key].marker = new L.Icon({
+    iconUrl: `${mapMarkerPath}/${palette[key].icon}`,
+    iconSize: [20, 32],
+    iconAnchor: [10, 32],
+  });
+});
+
 export default {
   props: {
     /**
@@ -77,7 +171,15 @@ export default {
      */
     ideaFormUrl: {
       type: String,
-    }
+      required: false,
+    },
+    /**
+     * Optional color mapping for categories.
+     */
+    categoryColors: {
+      type: Object,
+      required: false,
+    },
   },
   components: {
     LMap,
@@ -93,7 +195,7 @@ export default {
       layer: null,
       currentItem: null,
       categories: [],
-      zoom:13,
+      zoom: 13,
       url:`https://api.tiles.mapbox.com/v4/mapbox.light/{z}/{x}/{y}.png?access_token=${this.accessToken}`,
       attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
       intentionMapLayerGeoJson: null,
@@ -129,6 +231,14 @@ export default {
       // Build category list.
       this.initCategories(features);
 
+      features.features.forEach(f => {
+        if (f.properties.category && this.categories[f.properties.category]) {
+          f.properties.categoryObj = this.categories[f.properties.category];
+        }
+      })
+
+      console.log(features.features);
+
       // Draw the map.
       this.initMap(features);
     },
@@ -140,25 +250,23 @@ export default {
      */
     initCategories(data) {
       const categories = {};
-      const palette = [
-        '#1B0338',
-        '#460795',
-        '#B00080',
-        '#EB2463',
-        '#FF744A',
-        '#FFB947',
-        '#F9F871',
-      ];
-
       const categoryNames = [...new Set(data.features.map(feature => feature.properties.category).filter(cat => !! cat))].sort();
+      const paletteKeys = Object.keys(palette);
 
       categoryNames.forEach((cat, index) => {
-        const paletteColor = palette[index % palette.length];
+        let paletteKey = null;
+
+        if (this.categoryColors && this.categoryColors[cat]) {
+          paletteKey = this.categoryColors[cat];
+        } else {
+          paletteKey = paletteKeys[index % paletteKeys.length];
+        }
 
         categories[cat] = {
           expanded: false,
           name: cat,
-          color: paletteColor,
+          color: palette[paletteKey].color,
+          markerIcon: palette[paletteKey].marker,
           items: [],
         };
       });
@@ -172,13 +280,6 @@ export default {
       this.categories = categories;
     },
     initMap(data) {
-      // Custom item marker.
-      const pirateMarker = new L.Icon({
-        iconUrl: '/assets/img/map-marker.svg',
-        iconSize: [20, 32],
-        iconAnchor: [10, 32],
-      });
-
       // Markers are clustered for easier orientation.
       const markers = L.markerClusterGroup({
         showCoverageOnHover: false,
@@ -209,8 +310,12 @@ export default {
         const markerPosLatLng = L.latLng(markerPos[1], markerPos[0]);
 
         // add marker
+        const markerIcon = feature.properties.category && this.categories[feature.properties.category] ?
+          this.categories[feature.properties.category].markerIcon :
+          palette.black.markerIcon;
+
         const featureMarker = new L
-          .marker(markerPosLatLng, {icon: pirateMarker})
+          .marker(markerPosLatLng, {icon: markerIcon})
           .on('click', evt => {
             this.zoomTo(layer);
           });
@@ -413,11 +518,11 @@ export default {
     }
 
     @media (min-height: 800px) {
-      min-height: 500px;
+      min-height: 600px;
     }
 
     @media (min-height: 900px) {
-      min-height: 700px;
+      min-height: 750px;
     }
   }
 
@@ -439,7 +544,7 @@ export default {
 
     @include breakpoint(medium down) {
       right: 0;
-      max-width: 50%;
+      max-width: 40%;
       max-height: 50%;
     }
   }
@@ -546,6 +651,10 @@ export default {
       @include breakpoint(medium down) {
         display: none;
       }
+    }
+
+    .legend-item {
+      margin-bottom: 1rem;
     }
   }
 

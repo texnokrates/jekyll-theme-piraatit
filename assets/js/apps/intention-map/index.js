@@ -16,6 +16,18 @@ L.Icon.Default.mergeOptions({
 Vue.use(VueResource);
 
 const appFactory = (el, attrs) => {
+  let colors = null;
+
+  if (attrs.colors) {
+    colors = attrs.colors.split(',').reduce((result, mapping) => {
+      const [cat, color] = mapping.split(':');
+      result[cat] = color;
+      return result;
+    }, {});
+  }
+
+  console.log(colors);
+
   // Bootstrap Vue.js.
   new Vue({
     el,
@@ -24,6 +36,7 @@ const appFactory = (el, attrs) => {
         accessToken: attrs.accesstoken,
         datasetUrl: attrs.dataset,
         ideaFormUrl: attrs.ideaform,
+        categoryColors: colors,
       }
     })
   });
