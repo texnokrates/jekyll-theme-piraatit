@@ -1,6 +1,6 @@
 {
   "name": "jekyll-theme-pirati",
-  "version": "6.4.0",
+  "version": "6.5.0",
   "description": "Basic theme for Czech pirate party",
   "main": "index.js",
   "scripts": {
