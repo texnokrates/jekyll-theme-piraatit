@@ -57,5 +57,8 @@
     <script type="text/javascript">Loader.load({% if page.mapycz_api=='mini-api' %}null, {api:"simple"}{% endif %})</script>
     <style>.smap img { max-width: none !important; transform: none;}</style>
 	  {% endif %}
+
+    {% comment %}You can add your own content in _includes/head-custom.html and it will get appended to the page head{% endcomment %}
+    {% include head-custom.html %}
 </head>
 
