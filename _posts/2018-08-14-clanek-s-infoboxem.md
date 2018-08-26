@@ -1,12 +1,20 @@
 ---
-date: 2018-03-14
+date: 2018-08-14
 category: blog
 tags: tag1 tag2
 layout: post
-title: Nadpis článku
+title: Článek s infoboxem
 author: Jmeno Prijmeni
 authorId: jakub.pirat    # uid nekoho z _people (nepoviné)
 image: posts/obrazek.u.tohoto.postu.jpg
+infoboxes:
+  - content: >
+      <h4>Tohle je infobox v pravém sloupci</h4>
+      <p>Nullam lectus justo, vulputate eget mollis sed, tempor sed magna. Etiam commodo
+      dui eget wisi. Cras elementum. Etiam dictum tincidunt diam. Aliquam erat
+      volutpat. Duis sapien nunc, commodo et, interdum suscipit, sollicitudin et,
+      dolor. Aliquam erat volutpat. Etiam ligula pede, sagittis quis, interdum
+      ultricies, scelerisque eu. Cras elementum. Vestibulum fermentum tortor id mi.</p>
 ---
 
 Posty musí být každý ve vlastním souboru pojmenovaném datumem a nejakym nazvem, například _posts/2018-03-14-slavime-pi-day.md. Tento název se pak objeví v adrese, tedy xxx.pirati.cz/aktuality/slavime-pi-day.html.
