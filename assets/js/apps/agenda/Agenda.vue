@@ -60,9 +60,11 @@
         const now = new Date();
         const timeMin = now.toISOString();
         const timeMax = new Date(+now + (1000 * 60 * 60 * 24 * 90)).toISOString(); // 90 days ahead
+        const reqUrl = `https://www.googleapis.com/calendar/v3/calendars/${this.calendarId}/events?key=${encodeURIComponent(this.apiKey)}&maxResults=150&timeMin=${encodeURIComponent(timeMin)}&timeMax=${encodeURIComponent(timeMax)}&sanitizeHtml=true&singleEvents=true&maxAtendees=1`;
+
         let counter = 0;
 
-        this.$http.get(`https://www.googleapis.com/calendar/v3/calendars/${this.calendarId}/events?key=${encodeURIComponent(this.apiKey)}&maxResults=20&timeMin=${encodeURIComponent(timeMin)}&timeMax=${encodeURIComponent(timeMax)}&sanitizeHtml=true&singleEvents=true&maxAtendees=1`).then(resp => {
+        this.$http.get(reqUrl).then(resp => {
           const events = resp.body.items
             .map(e => {
               const start = new Date(e.start.dateTime || e.start.date);
