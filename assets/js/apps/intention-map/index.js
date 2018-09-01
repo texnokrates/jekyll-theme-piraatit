@@ -26,8 +26,6 @@ const appFactory = (el, attrs) => {
     }, {});
   }
 
-  console.log(colors);
-
   // Bootstrap Vue.js.
   new Vue({
     el,

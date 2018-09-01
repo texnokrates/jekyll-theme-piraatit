@@ -237,8 +237,6 @@ export default {
         }
       })
 
-      console.log(features.features);
-
       // Draw the map.
       this.initMap(features);
     },
@@ -295,10 +293,9 @@ export default {
       // Get style for given feature.
       const style = feature => ({
           fillColor: colorForFeature(feature),
-          weight: 3,
+          weight: 2,
           opacity: 1,
-          color: '#fff',
-          dashArray: '3',
+          color: colorForFeature(feature),
           fillOpacity: 0.7
       });
 
