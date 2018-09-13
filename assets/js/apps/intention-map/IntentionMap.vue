@@ -550,7 +550,12 @@ export default {
     bottom: 0;
     left: 2rem;
     width: 33%;
-    max-height: 80%;
+    height: 70%;
+
+    @media (min-height: 800px) {
+      max-height: 80%;
+      height: auto;
+    }
 
     @include breakpoint(medium down) {
       top: auto;
