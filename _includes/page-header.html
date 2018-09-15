@@ -7,7 +7,9 @@
   {% if include.content %}
     <div class="columns large-12">
       <div class="{% if include.contentClass %}{{ include.contentClass }}{% endif %}">
-        {{ include.content }}
+        <div itemprop="description" class="c-content-block c-emphasized-text">
+        	{{ include.content }}
+        </div>
       </div>
     </div>
   {% endif %}
