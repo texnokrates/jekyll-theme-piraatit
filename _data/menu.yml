@@ -32,6 +32,9 @@ main:
       - link: /komunalni-volby/mapa-zameru/
         name: Mapa záměrů
         match: mapa-zameru
+  - link: /pripoj-se/
+    name: Připoj se
+    match: pripoj-se
   - link: /kontakt/
     name: Kontakt
     match: kontakt
