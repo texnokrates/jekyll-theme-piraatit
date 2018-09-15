@@ -7,6 +7,7 @@ titles:
 category:
   - priznivci
   - kandidat-obec
+  - kodo
   - clenove
 description: kandidát do senátu # zobrazuje se v lide
 img: people/ppp.jpg # zakomentuj radek dokud není fotka

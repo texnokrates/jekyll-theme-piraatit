@@ -6,6 +6,7 @@ titles:
   after:
 category:
   - clenove
+  - kodo
   - kontaktni_osoba
 description: mistr světa ve skoku pro něco # zobrazuje se v lide
 img: people/ppp.jpg # zakomentuj radek dokud není fotka
