@@ -42,7 +42,16 @@ layout: blank-article
             {% for candidate in candidates.tail %}
               <p>
                 {% assign candidateRank = forloop.index | plus: 1 | plus: candidates.head.size %}
-                <strong>{{ candidateRank }}. {{ candidate.name }}{% if candidate.age or candidate.profession or candidate.party %}, {% endif %}</strong>
+                <strong> {{ candidateRank }}.
+                    {% if candidate.uid %} 
+                        {% assign candidatePage = site.people | where: "uid", candidate.uid | first %}
+                        <a href={{candidatePage.url}}>
+                            {% include people/fullname.html person=candidatePage %}{% if candidate.age or candidate.profession or candidate.party %}, {% endif %}
+                        </a>
+                    {% else %}
+                        {{ candidate.name }}{% if candidate.age or candidate.profession or candidate.party %}, {% endif %}
+                    {% endif %}
+                </strong>
 
                 {% if candidate.age %}
                     {{ candidate.age }} let{% if candidate.profession or candidate.party %}, {% endif %}
