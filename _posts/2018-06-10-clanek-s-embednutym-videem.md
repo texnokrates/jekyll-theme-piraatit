@@ -2,7 +2,6 @@
 date: 2018-06-10
 category: blog
 tags: tag1 tag2
-layout: post
 title: Článek s vložený videem uvnitř textu
 author: Jmeno Prijmeni
 authorId: jakub.pirat    # uid nekoho z _people (nepoviné)

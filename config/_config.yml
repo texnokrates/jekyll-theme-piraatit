@@ -68,6 +68,11 @@ collections:
 defaults:   # defaults values for collection scope
   -
     scope:
+      path: "_posts"
+    values:
+      layout: "post"
+  -
+    scope:
       path: "_people"
     values:
       layout: "person"
