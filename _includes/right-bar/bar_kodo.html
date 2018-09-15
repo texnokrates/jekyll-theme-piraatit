@@ -1,0 +1,21 @@
+<div class="o-section-block--spaceBot">
+  <ul class="c-widget-accordion" data-accordion="" data-allow-all-closed="true">
+    <li class="c-widget-accordion-item is-active" data-accordion-item="">
+      <a href="#toc" class="c-widget-accordion-link">
+        <span class="c-widget-accordion__title">Koordinátoři dobrovolníků</span>
+        <span class="c-widget-accordion__icon c-widget-accordion__icon" aria-hidden="true">
+          <i class="fa fa-list"></i>
+        </span>
+      </a>
+
+      <div class="c-widget-accordion-content" data-tab-content="" id="toc">
+      {% assign kodos = site.people | where_exp: "item","item.categories contains 'kodo'" | sort:"ordkodo" %}
+      {% for person in kodos %}
+        {% include people/profile-badge.html item=person style='card' viewMode='single' showDescription=false %}
+      {% endfor %}
+      </div>
+
+    </li>
+  </ul>
+</div>
+
