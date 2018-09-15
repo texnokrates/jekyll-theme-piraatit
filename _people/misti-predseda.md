@@ -7,6 +7,8 @@ titles:
 category:
   - clenove
   - pms
+  - kontaktni_osoba
+contactType: Média
 ordpms: 1
 ordclenove: 1
 description: mistr světa ve skoku pro něco # zobrazuje se v lide

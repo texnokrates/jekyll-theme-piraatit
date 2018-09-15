@@ -94,7 +94,6 @@ emptyArray: []
 organization:
   name: Jmeno skupiny používající web - př Pirástá strana
   shortName: Název skupiny
-  contactUid: jakub.pirat
   email: example@pirati.cz
   phone: +420 777 123 456 789
   address: |

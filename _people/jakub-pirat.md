@@ -8,6 +8,7 @@ category:
   - clenove
   - kodo
   - kontaktni_osoba
+contactType: Dobrovolníci
 description: mistr světa ve skoku pro něco # zobrazuje se v lide
 img: people/ppp.jpg # zakomentuj radek dokud není fotka
 ordclenove: 2
