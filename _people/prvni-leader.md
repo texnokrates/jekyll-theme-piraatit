@@ -17,6 +17,7 @@ profiles:
   facebook: https://www.facebook.com/uzivatel.na.fb  # pokud nema, staci smazat tuto radku
   googleplus: https://plus.google.com/+uzivatel.na.googleplus
   twitter: https://twitter.com/uzivatel.na.twitteru
+  flickr:		  https://www.flickr.com/search/?user_id=68741528%40N03&sort=date-taken-desc&view_all=1&text=ond%C5%99ej%20profant
 ---
 
 Jméno Příjmení (*1. ledna 1900) je to a to, a tak dál. Sem patří představení člověka, několik odstavců.
