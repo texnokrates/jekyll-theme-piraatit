@@ -1,0 +1,103 @@
+---
+layout: default
+rbar: 
+    - fb
+    - tw
+    - video
+priorites:
+  left-top:
+    text: Transparentní a profesionální radnice
+    url: https://praha.pirati.cz/program
+    img: priorities/transparentni-radnice.png
+    on-mouse: >
+        "Jedině veřejná kontrola zajistí, že si kmotři nerozdělí Prahu. To prosazujeme už čtyři roky. Město nebude informace tajit, ale zveřejňovat. Zavedeme transparentní účty města. Prosadíme otevřená výběrová řízení, aby městské firmy řídili odborníci, ne političtí trafikanti."
+  right-top:
+    text: Digitální metropole
+    url: https://praha.pirati.cz/program
+    img: priorities/digitalni-metropole.png
+    on-mouse: >
+        "Zavedeme uživatelsky přívětivý úřad. Z jedné internetové stránky půjde vše vyřídit nebo se objednat na kamenný úřad bez front. Co úředník potřebuje, to si sám zjistí. Pomocí internetu umožníme občanům hodnotit služby a dávat podněty úředníkům a politikům."
+  left-bottom:
+    text: Čisté a zdravé město
+    url: https://praha.pirati.cz/program
+    img: priorities/ciste-mesto.png
+    on-mouse: >
+        "Proti vedrům pomohou stromy a voda. Zeleň místo betonu vyčistí vzduch. Vysadíme více stromů v ulicích. Podpoříme zelené střechy a další opatření proti betonové džungli. Pítka a kašny osvěží Prahu. Třídění odpadu musí být pohodlné a musí se vyplatit."
+  right-bottom:
+    text: Služby pro moderní rodinu
+    url: https://praha.pirati.cz/program
+    img: priorities/moderni-rodina.png
+    on-mouse: >
+        "Prosadíme, aby se stavělo více bytů a méně kanceláří. Městské byty nebudou pro prominenty, ale pro ty, kdo je skutečně potřebují. Developeři se budou podílet na nákladech na občanskou vybavenost spolu s městem. Podpoříme moderní a dostupné vzdělávání."
+boxes:
+  left-top:
+    text: Kdo jsme?
+    url: https://praha.pirati.cz/lide/
+    icon: fa fa-users
+  right-top:
+    text: Darujte
+    url: https://dary.pirati.cz/
+    icon: fa fa-gift u-rotate-5 fa-5x u-rotate-345
+  left-bottom:
+    text: Městské části
+    url: mestske-casti
+    icon: fa fa-map-signs
+  right-bottom:
+    text: Volby do senátu
+    url: senat
+    icon: fa fa-user
+---
+
+<div class="c-banner">
+  <div class="row">
+    <div class="c-banner-container small-12 columns">
+      <div class="o-section">
+        <div class="o-section-inner o-section-inner--noLarge u-cf">
+          <div class="c-banner-section c-banner-section">
+<a href="kandidatka">
+<img src="{{ "/assets/img/program/naprahuzmeny2.jpg" | prepend: site.baseurl }}" class="c-card__image" alt="#NAPRAHUZMENY">
+</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="c-banner-container small-12 columns">
+      <div class="o-section">
+        <div class="o-section-inner o-section-inner--noLarge u-cf">
+          <div class="c-banner-section c-banner-primary-section">
+            <!--
+              <iframe 
+               width="540" height="304" 
+               
+               src="http://www.youtube.com/embed?max-results=1&controls=0&showinfo=0&rel=0&listType=user_uploads&list=CeskaPiratskaStrana" frameborder="0" allowfullscreen
+                                                                                                                                           > -->
+             <iframe width="540" height="304"
+src="https://www.youtube.com/embed/vRcx7L0itTg">
+</iframe> 
+              </iframe>
+          </div>
+          <div class="c-banner-section c-banner-secondary-section">
+               {% include homepage/four-buttoms.html boxes=page.priorites %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="c-banner-container small-12 columns">
+      <div class="o-section">
+        <div class="o-section-inner o-section-inner--noLarge u-cf">
+          <div class="c-banner-section c-banner-secondary-section">
+               {% include homepage/four-buttoms.html boxes=page.boxes %}
+          </div>
+          <div class="c-banner-section c-banner-primary-section">
+              {% include homepage/gif-box.html 
+                foto="/assets/img/miscellaneous/kandidatka2018.gif"
+                alt="Řídit město s čistým štítem"
+                url="kandidatka/"
+              %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% include homepage/news-with-rbar.html %}
