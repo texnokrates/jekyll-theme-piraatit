@@ -1,0 +1,28 @@
+---
+layout: page
+img: program/volebni-rozcestnik.png
+rbar: ""
+priorities:
+   - img: program/icons/radnice-01.svg
+     name: Transparentní a profesionální radnice
+     text: Jedině veřejná kontrola zajistí, že si kmotři nerozdělí Prahu. To prosazujeme už čtyři roky. Město nebude informace tajit, ale zveřejňovat. Zavedeme transparentní účty města. Prosadíme otevřená výběrová řízení, aby městské firmy řídili odborníci, ne političtí trafikanti.
+   - img: program/icons/metropole-01.svg
+     name: Digitální metropole
+     text: Zavedeme uživatelsky přívětivý úřad. Z jedné internetové stránky půjde vše vyřídit nebo se objednat na kamenný úřad bez front. Co úředník potřebuje, to si sám zjistí. Pomocí internetu umožníme občanům hodnotit služby a dávat podněty úředníkům a politikům.
+   - img: program/icons/zivotni-prostredi.svg
+     name: Čisté a zdravé město
+     text: Proti vedrům pomohou stromy a voda. Zeleň místo betonu vyčistí vzduch. Vysadíme více stromů v ulicích. Podpoříme zelené střechy a další opatření proti betonové džungli. Pítka a kašny osvěží Prahu. Třídění odpadu musí být pohodlné a musí se vyplatit.
+   - img: program/icons/moderni%20rodina-1.svg
+     name: Služby pro moderní rodinu
+     text: Prosadíme, aby se stavělo více bytů a méně kanceláří. Městské byty nebudou pro prominenty, ale pro ty, kdo je skutečně potřebují. Developeři se budou podílet na nákladech na občanskou vybavenost spolu s městem. Podpoříme moderní a dostupné vzdělávání.
+---
+
+<h1>Prosazujeme</h1>
+{% include program/priorities.html priorities=page.priorities %}
+
+<hr>
+
+<h1>Podrobný program</h1>
+{% assign program = site.program | where: "campaignCategoryUid","praha2018" %}
+{% include program/list.html program=program %}
+
