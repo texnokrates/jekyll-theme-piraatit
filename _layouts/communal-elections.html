@@ -20,7 +20,11 @@ layout: blank-article
 
 <div class="o-section">
   <div class="row">
-    <div class="columns medium-8">
+    {% if programCategories.size > 0 %}    
+      <div class="columns medium-8">
+    {% else %}    
+      <div class="columns medium-12">
+    {% endif %}    
       <div class="o-section-header o-section-header--bordered">
         <h3 class="o-section__heading t-h2-super">Kandidátní listina</h3>
       </div>
@@ -73,6 +77,7 @@ layout: blank-article
         <p><strong>Pozn.:</strong> {{ candidates.note }}</p>
       {% endif %}
     </div>
+    {% if programCategories.size > 0 %}    
     <div class="columns medium-4">
       <div class="o-section-header o-section-header--bordered">
         <h3 class="o-section__heading t-h2-super">Program</h3>
@@ -92,6 +97,7 @@ layout: blank-article
           {% endfor %}
       </div>
     </div>
+    {% endif %}    
   </div>
 </div>
 
