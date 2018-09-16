@@ -11,7 +11,7 @@ category:
 contactType: Média
 ordpms: 1
 ordclenove: 1
-description: mistr světa ve skoku pro něco # zobrazuje se v lide
+description: mistr světa ve skoku pro něco hrozne dlohy poisek který zpusobuje malé kolečko zobrazuje se v lide mistr světa ve skoku pro něco hrazne dlohy poisek který zpusobuje malé kolečko# zobrazuje se v lide mistr světa ve skoku pro něco hrazne dlohy poisek který zpusobuje malé kolečko# zobrazuje se v lide
 #img: people/ppp.jpg # zakomentuj radek dokud není fotka
 mail:
   - mistni.predsedat@pirati.cz
