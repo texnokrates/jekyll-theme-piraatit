@@ -6,7 +6,7 @@ Theme of Czech Pirate Party.
 
 ## Installation & usage
 
-For usage see readme of  https://github.com/pirati-web/example.pirati.cz
+For usage see [USAGE.md](USAGE.md)
 
 ## Updating to 6.x
 
@@ -26,6 +26,9 @@ To upgrade to v6 which features major visual upgrade, following steps are necess
       <h1 class="t-h2-alt">Přidejte se</h1>
     </div>
     ```
+## Updating to 7.x
+
+Tag `_config.yml organization contactUid` is not used. Contacts person in bottom are popele with category `kontaktni_osoba`.
 
 ## Contributing
 
