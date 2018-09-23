@@ -21,8 +21,12 @@
                     </ul>
                 </ul>
                 {% endfor %}
+
+                {% comment %}Allows to add custom content to program rbar{% endcomment %}
+                {% include right-bar/program-extras.html %}
             </div>
         </li>
     </ul>
+
 </div>
 {% endif %}
