@@ -14,7 +14,7 @@
   color: $secondary-color;
   transform: rotate(-45deg);
 
-  @include headerStyle('h3', main);
+  @include headerStyle('h5', main);
 }
 
 .c-corner-ribbon--top-right {
