@@ -110,3 +110,9 @@ $hb-ns: '';
     margin-left: 5px;
   }
 }
+
+.#{$hb-ns}c-header-bar .#{$hb-ns}c-header-bar__title {
+  color: $white;
+  font-weight: bold;
+  display: inline-block;
+}
