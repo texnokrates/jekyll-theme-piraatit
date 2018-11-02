@@ -301,9 +301,12 @@ export default {
 
       // process default markers (Points)
       const pointToLayer = (geoJsonPoint, latlng) => {
-        
-        const markerPosLatLng = L.latLng(geoJsonPoint.geometry.coordinates[1],geoJsonPoint.geometry.coordinates[0]);          
-   	    // add marker
+        const markerPosLatLng = L.latLng(
+          geoJsonPoint.geometry.coordinates[1],
+          geoJsonPoint.geometry.coordinates[0]
+        );
+
+        // add marker
         const markerIcon = geoJsonPoint.properties.category && this.categories[geoJsonPoint.properties.category] ?
           this.categories[geoJsonPoint.properties.category].markerIcon :
           palette.black.markerIcon;
@@ -318,86 +321,62 @@ export default {
         // Add item marker to the cluster.
         markers.addLayer(featureMarker);
         return false;
-        }
-        
+      }
+
       // Called for each feature when building the map.
       const onEachFeature = (feature, layer) => {
-        // if there are Point features, they are handled by pointToLayer function, it's better idea to convert Points to small Polygons (ask marek.forster@pirati.cz for conversion tool)
+        /**
+         * Supported GeoJSON features: Polygon, LineString.
+         * Point features are better handled by pointToLayer function.
+         * It's better idea to convert Points to small Polygons (ask marek.forster@pirati.cz for conversion tool)
+         **/
+
         // Polygons and LineString features are supported, try to get rid of Points (bounds and zoom methods not supported)
-        
-	      if (feature.geometry.type=='Polygon') {
+	      if (feature.geometry.type == 'Polygon') {
 	        // Find pole of inaccessibility (not centroid) for the polygon
 	        // @see: https://github.com/mapbox/polylabel
           const markerPos = polylabel(feature.geometry.coordinates, 1);
           const markerPosLatLng = L.latLng(markerPos[1], markerPos[0]);
 
-     	    // add marker
+          // add marker
           const markerIcon = feature.properties.category && this.categories[feature.properties.category] ?
             this.categories[feature.properties.category].markerIcon :
             palette.black.markerIcon;
 
           const featureMarker = new L
             .marker(markerPosLatLng, {icon: markerIcon})
-            .on('click', evt => {
-              this.zoomTo(layer);
-            });
+            .on('click', evt => this.zoomTo(layer));
 
           // Add item marker to the cluster.
           markers.addLayer(featureMarker);
 
           // Bind click event on the layer.
           layer.on({click: evt => this.zoomTo(evt.target)});
-
-          } else if (feature.geometry.type=='LineString') {
+        } else if (feature.geometry.type == 'LineString') {
           // Find a middle sector of LineString and set position to middle of it
-          const sectorCount=feature.geometry.coordinates.length;
-          const sectorIndex=Math.floor((sectorCount-1)/2);
-          const markerPosLatLng = L.latLng((feature.geometry.coordinates[sectorIndex][1]+feature.geometry.coordinates[sectorIndex+1][1])/2,(feature.geometry.coordinates[sectorIndex][0]+feature.geometry.coordinates[sectorIndex+1][0])/2);
+          const sectorCount = feature.geometry.coordinates.length;
+          const sectorIndex = Math.floor((sectorCount - 1) / 2);
+          const markerPosLatLng = L.latLng(
+            (feature.geometry.coordinates[sectorIndex][1] + feature.geometry.coordinates[sectorIndex + 1][1]) / 2,
+            (feature.geometry.coordinates[sectorIndex][0] + feature.geometry.coordinates[sectorIndex + 1][0]) / 2
+          );
 
-     	    // add marker
+          // add marker
           const markerIcon = feature.properties.category && this.categories[feature.properties.category] ?
             this.categories[feature.properties.category].markerIcon :
             palette.black.markerIcon;
 
           const featureMarker = new L
             .marker(markerPosLatLng, {icon: markerIcon})
-            .on('click', evt => {
-              this.zoomTo(layer);
-            });
+            .on('click', evt => this.zoomTo(layer));
 
           // Add item marker to the cluster.
           markers.addLayer(featureMarker);
 
           // Bind click event on the layer.
           layer.on({click: evt => this.zoomTo(evt.target)});
-          }
-        
-
-        /*        
-        // Point features are better handled by pointToLayer function. it's better idea to convert Points to small Polygons (ask marek.forster@pirati.cz for conversion tool)
-	      if (feature.geometry.type=='Point') {
-          const markerPosLatLng = L.latLng(feature.geometry.coordinates[1],feature.geometry.coordinates[0]);          
-     	    // add marker
-          const markerIcon = feature.properties.category && this.categories[feature.properties.category] ?
-            this.categories[feature.properties.category].markerIcon :
-            palette.black.markerIcon;
-        
-          const featureMarker = new L
-            .marker(markerPosLatLng, {icon: markerIcon})
-            .on('click', evt => {
-              this.currentItem = feature.properties;
-              this.setUrlHash(this.currentItem);
-            });
-        
-          // Add item marker to the cluster.
-          markers.addLayer(featureMarker);
-        
-          // Bind click event on the layer.
-          layer.on({click: evt => this.zoomTo(evt.target)});
-          }
-        */
-        
         }
+      }
 
       this.layer = L.geoJSON(data, {style, onEachFeature, pointToLayer});
       this.layer.addTo(this.map);
