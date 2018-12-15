@@ -72,10 +72,14 @@ bundle
 Repozitář můžeme naklonovat do jakékoliv složky (nemusí být ve `/var/www/`).
 
 Po stažení nové verze může být potřeba:
-`bundle install --path vendor/bundle`
+```
+bundle install --path vendor/bundle
+```
 
 Spustění je pomocí
-`jekyll serve --watch --livereload`, což stránku zkompiluje, spustí a ještě je stránka přístupná skrz localhost: `http://127.0.0.1:4000`
+```bundle exec jekyll serve --watch --livereload
+```
+, což stránku zkompiluje, spustí a ještě je stránka přístupná skrz [localhost](http://127.0.0.1:4000)
 
 V některých případech (př ubuntu a systémová i bundle verze jekyllu) je nuté říct jaký jakyll použít
 `bundle exec vendor/bundle/ruby/2.5.0/gems/jekyll-3.7.3/exe/jekyll server --watch --livereload`
