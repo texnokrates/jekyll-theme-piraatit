@@ -77,7 +77,8 @@ bundle install --path vendor/bundle
 ```
 
 Spustění je pomocí
-```bundle exec jekyll serve --watch --livereload
+```
+bundle exec jekyll serve --watch --livereload
 ```
 , což stránku zkompiluje, spustí a ještě je stránka přístupná skrz [localhost](http://127.0.0.1:4000)
 
