@@ -57,6 +57,7 @@ Instalace na Fedora 25:
 sudo dnf group install "C Development Tools and Libraries"
 sudo dnf install ruby-devel
 sudo dnf install rubygem-jekyll
+sudo dnf install nodejs
 ```
 
 Instalace Ubuntu 16.04:
