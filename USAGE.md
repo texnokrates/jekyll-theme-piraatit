@@ -18,6 +18,7 @@ Nebojte se cokoliv přiohnout, koukejte se do dalšich pirátských webů o feat
   - [Jednoduchá změna pomocí GitHub](#jednoduchá-změna-pomocí-github)
     - [Registrace na Githubu](#registrace-na-githubu)
     - [Drobná změna](#drobná-změna)
+    - [Úprava textového souboru](#úprava-textového-souboru)
     - [Přidání textového souboru](#přidání-textového-souboru)
     - [Přidání fotky](#přidání-fotky)
     - [Schválení změny](#schválení-změny)
@@ -149,6 +150,11 @@ Jako je např. oprava gramatické chyby nebo přidání telefoního čísla.
 Najděte si daný soubor. Vpravo nahoře obsahu toho souboru je symbol tužky. Kliknětě a navrhněte změny. Pokud není naprosto jasné co děláte tak do commit message dole připište zdůvodnění. Dejte navrhnout úpravy a pak schválit merge request. Tj. je třeba kliknout dvakrát.
 
 Existuje ještě elegantní trik jak se dostat k editaci: přímo na samotném webu najít vpravo dole tlačítko navrhnout změnu.
+
+
+### Úprava textového souboru
+
+Většina souborů se samotným textem jsou ve formánu [markdown](https://cs.wikipedia.org/wiki/Markdown) do kterého můžěte psát i html značky.
 
 ### Přidání textového souboru
 
