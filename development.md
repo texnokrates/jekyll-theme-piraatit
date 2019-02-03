@@ -244,3 +244,10 @@ In case you're stuck and helpless, try reaching us out on:
 * [Pirate Party chat](https://chat.pirati.cz/channel/tech-weby): in case you're
   a Pirate Party member with access, this will be your best bet
 * [Issues page](https://github.com/pirati-web/jekyll-theme-pirati/issues): add new issue if you think you've found a bug
+
+## FAQ
+
+```
+Liquid Exception: no implicit conversion of nil into String in /_layouts/default.html
+```
+Check that version in `Gemfile` and `_config.yml` are the same. Check `asset/css/`.
