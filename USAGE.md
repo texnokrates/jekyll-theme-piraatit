@@ -56,9 +56,7 @@ html & css, které pak čte webový prohlížeč.
 Instalace na Fedora 25:
 ```
 sudo dnf group install "C Development Tools and Libraries"
-sudo dnf install ruby-devel
-sudo dnf install rubygem-jekyll
-sudo dnf install nodejs
+sudo dnf install ruby-devel rubygem-jekyll nodejs
 ```
 
 Instalace Ubuntu 16.04:
