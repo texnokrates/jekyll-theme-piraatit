@@ -8,7 +8,7 @@ category:
   - clenove
   - pms
   - kontaktni_osoba
-contactType: Média
+contactType: Kontakt pro média
 ordpms: 1
 ordclenove: 1
 description: mistr světa ve skoku pro něco hrozne dlohy poisek který zpusobuje malé kolečko zobrazuje se v lide mistr světa ve skoku pro něco hrazne dlohy poisek který zpusobuje malé kolečko# zobrazuje se v lide mistr světa ve skoku pro něco hrazne dlohy poisek který zpusobuje malé kolečko# zobrazuje se v lide

@@ -26,6 +26,9 @@ title: Kontaktní informace
                     <h2 class="t-h2-alt">Základní údaje</h2>
                   </div>
                   {% include contacts/summary-table.html %}
+		<hr>
+    		<p>Každý člen strany má email ve tvaru: <tt>jmeno.prijmeni@pirati.cz</tt></p>
+    		<br>
                 </div>
               </div>
             </div>
@@ -39,17 +42,24 @@ title: Kontaktní informace
 <div class="row o-section-block">
   <div class="medium-12 {% if page.contentSize == 'even' %}large-6{% else %}large-8{% endif %} columns">
     <section class="o-section o-section--spaceBot">
+
+      {% assign contactPersons = site.people | where_exp: "item","item.category contains 'kontaktni_osoba'" | sort:"ordpak" %}
+      {% for person in contactPersons %}
       <div class="o-section-header o-section-header--indented">
-        <h2 class="t-h2-alt">Kontaktní osoba</h2>
+          {% if person.contactType %}
+	      <h2 class="t-h2-alt"> {{person.contactType}} </h2>
+          {% else %}
+              <h2 class="t-h2-alt">Kontaktní osoba</h2>
+          {% endif %}
       </div>
       <div class="o-section-inner">
         <div class="o-section-block">
-          {% assign contactPersons = site.people | where_exp: "item","item.category contains 'kontaktni_osoba'" | sort:"ordpak" %}
-          {% for person in contactPersons %}
             {% include people/profile-badge.html item=person imgSize='big' imgStyle='round' class='c-profile-badge--centered' %}
-          {% endfor %}
         </div>
       </div>
+      <br/>
+      {% endfor %}
+	    
     </section>
   </div>
 
@@ -61,7 +71,13 @@ title: Kontaktní informace
       </div>
       <div class="o-section-inner">
         <div class="o-section-block">
-          {% include contacts/residence.html %}
+	  {% if page.residences %}
+	  	{% for residence in page.residences %}
+          		{% include contacts/residence.html residence=residence%}
+	  	{% endfor %}
+	  {% else %}
+          	{% include contacts/residence.html %}
+	  {% endif %}
         </div>
       </div>
     </div>
