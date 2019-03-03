@@ -1,7 +1,13 @@
 <head>
     {% capture title %}{% if page.ogtitle %}{{page.ogtitle}} | {% elsif page.title %}{{ page.title | escape }} | {% endif %}{{ site.title | escape }}{% endcapture %}
     {% capture description %}{% if page.description %}{{ page.description }}{% elsif page.desc %}{{ page.desc }}{% elsif page.excerpt %}Pirátská strana: {{ page.excerpt | strip_html | strip_newlines | truncate: 330 }}{% else %}{{ site.description }}{% endif %}{% endcapture %}
-    {% capture keywords %}{{ site.keywords }}{% if page.keywords %}, {{ page.keywords }}{% endif %}{% if page.tags %}, {{ page.tags }}{% endif %}{% endcapture %}
+    {% capture keywords %}
+            {{ site.keywords }}
+            {% if page.title %}, {{ page.title }}{% endif %}
+            {% if page.name %}, {{ page.name }}{% endif %}
+            {% if page.keywords %}, {{ page.keywords }}{% endif %}
+            {% if page.tags %}, {{ page.tags }}{% endif %}
+    {% endcapture %}
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
