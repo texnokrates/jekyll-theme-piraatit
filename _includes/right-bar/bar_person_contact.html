@@ -1,3 +1,4 @@
+
 {% if page.mail or page.mob or page.profiles.wikipedia or page.profiles.facebook or page.profiles.twitter or page.profiles.github or page.profiles.forum or page.profiles.redmine %}
 <div class="o-section-block">
   <ul class="c-widget-accordion" data-accordion="" data-allow-all-closed="true">
@@ -24,7 +25,7 @@
               <p>
               <i class="fa fa-user-o"></i> {{asistent.name}}<br/>
               {% if asistent.mail %}<i class="fa fa-envelope-o"></i> <a href="mailto:{{asistent.mail}}">{{asistent.mail}}</a><br/>{% endif %}
-              {% if asistent.tel %}<i class="fa fa-phone"></i> {{ main.tel }}<br/>{% endif %}
+              {% if asistent.tel %}<i class="fa fa-phone"></i> {{ asistent.tel }}<br/>{% endif %}
               </p>
             {% endfor %}
           {% endif %}
