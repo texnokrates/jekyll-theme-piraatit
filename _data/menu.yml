@@ -72,3 +72,9 @@ bottom:
         name: Registr smluv
       - link: https://wiki.pirati.cz/fo/otevrene_ucetnictvi
         name: Otevřené účetnictví
+
+contact:
+  - id: jakub.pirat
+    position: Kontakt pro dorovolníky
+  - id: aktivni.priznivec
+    position: Kontakt pro novináře

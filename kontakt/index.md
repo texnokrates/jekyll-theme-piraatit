@@ -2,6 +2,11 @@
 layout: contacts
 contentSize: big
 # contentSize: even
+contactPersons:
+  - id: jakub.pirat
+    position: Kontakt pro dorovolníky
+  - id: aktivni.priznivec
+    position: Kontakt pro novináře
 ---
 
 <div class="o-section-header o-section-header--indented">

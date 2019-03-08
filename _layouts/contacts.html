@@ -43,14 +43,11 @@ title: Kontaktní informace
   <div class="medium-12 {% if page.contentSize == 'even' %}large-6{% else %}large-8{% endif %} columns">
     <section class="o-section o-section--spaceBot">
 
-      {% assign contactPersons = site.people | where_exp: "item","item.category contains 'kontaktni_osoba'" | sort:"ordpak" %}
-      {% for person in contactPersons %}
+{% if page.contactPersons %}
+      {% for contact in page.contactPersons %}
+      {% assign person = site.people | where_exp:"item","item.uid contains contact.id" | first %}
       <div class="o-section-header o-section-header--indented">
-          {% if person.contactType %}
-	      <h2 class="t-h2-alt"> {{person.contactType}} </h2>
-          {% else %}
-              <h2 class="t-h2-alt">Kontaktní osoba</h2>
-          {% endif %}
+          <h2 class="t-h2-alt"> {{contact.position}} </h2>
       </div>
       <div class="o-section-inner">
         <div class="o-section-block">
@@ -59,6 +56,24 @@ title: Kontaktní informace
       </div>
       <br/>
       {% endfor %}
+{% else %}
+      {% assign contactPersons = site.people | where_exp: "item","item.category contains 'kontaktni_osoba'" | sort:"ordpak" %}
+      <div class="o-section-header o-section-header--indented">
+          {% if contactPersons.size > 1 %}
+	          <h2 class="t-h2-alt">Kontaktní osoby</h2>
+          {% else %}
+              <h2 class="t-h2-alt">Kontaktní osoba</h2>
+          {% endif %}
+      </div>
+      {% for person in contactPersons %}
+      <div class="o-section-inner">
+        <div class="o-section-block">
+            {% include people/profile-badge.html item=person imgSize='big' imgStyle='round' class='c-profile-badge--centered' %}
+        </div>
+      </div>
+      <br/>
+      {% endfor %}
+{% endif %}
 	    
     </section>
   </div>
