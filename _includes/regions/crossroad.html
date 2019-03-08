@@ -17,6 +17,32 @@
 		    <span class="fa fa-globe"></span> <a href="{{ place.link }}" class="c-emphasized-anchor" target="_blank" rel="noopener">Web</a>
 	    </div>
 	    {% endif %}
+	    {% if place.fb %}
+	    <div class="pk-election-crossroad__link">
+		    <span class="fa fa-facebook"></span> 
+            <a href="{{ place.fb }}" class="c-emphasized-anchor" target="_blank" rel="noopener">
+                {{ place.fb | remove: "https://www.facebook.com/" }}
+            </a>
+	    </div>
+	    {% endif %}
+        <br/>
+	    {% if place.kontakt %}
+	    <div class="pk-election-crossroad__link">
+            {% assign contactPerson = site.people | where: "uid", place.kontakt | first %}
+		    <span class="fa fa-user"></span> 
+            <a href="{{ contactPerson.url }}" class="c-emphasized-anchor" target="_blank" rel="noopener">
+                {{ contactPerson.name }} 
+            </a>
+	    </div>
+	    {% endif %}
+	    {% if place.mail %}
+	    <div class="pk-election-crossroad__link">
+		    <span class="fa fa-envelope-o"></span> 
+            <a href="mailto:{{ place.mail }}" class="c-emphasized-anchor" target="_blank" rel="noopener">
+                 {{ place.mail }}</a>
+            </a>
+	    </div>
+	    {% endif %}
 	    {% if place.programLink %}
 	    <div class="pk-election-crossroad__link">
 		    <span class="fa fa-book"></span> <a href="{{ place.programLink }}" class="c-emphasized-anchor" target="_blank" rel="noopener">Program</a>
