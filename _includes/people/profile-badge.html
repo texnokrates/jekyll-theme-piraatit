@@ -23,7 +23,7 @@
     </div>
 
     <div class="c-profile-badge__body">
-        <h2 class="c-profile-badge__headline"><a href="{{ url }}" class="{% if include.headlineClass %}{{ include.headlineClass }}{% else %}t-h5-super{% endif %}">{{ label }}</a></h2>
+        <h2 class="c-profile-badge__headline"><a href="{{ url }}" style="text-decoration: none" class="{% if include.headlineClass %}{{ include.headlineClass }}{% else %}t-h5-super{% endif %}">{{ label }}</a></h2>
         {% unless include.showDescription == false %}
         <p class="c-profile-badge__desc">
             {% if include.description %}
