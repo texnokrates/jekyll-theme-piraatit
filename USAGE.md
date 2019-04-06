@@ -21,6 +21,7 @@ Nebojte se cokoliv přiohnout, koukejte se do dalšich pirátských webů o feat
     - [Úprava textového souboru](#úprava-textového-souboru)
     - [Přidání textového souboru](#přidání-textového-souboru)
     - [Přidání fotky](#přidání-fotky)
+    - [Přidání PDF](#přidání-PDF)
     - [Schválení změny](#schválení-změny)
     - [Kontrola](#kontrola)
   - [Složitější změny](#složitější-změny)
@@ -171,6 +172,20 @@ Pokud potřebujete použít stejnou funkcionalitu i na jiném místě ve vaší 
 mrkntěte na použítí
 [tady](https://github.com/pirati-web/jekyll-theme-pirati/blob/master/_includes/people/profile-badge.html#L12)
 a [tady](https://github.com/envygeeks/jekyll-assets).
+
+### Přidání PDF
+
+1) pdf přejmenujte, aby vněm nebyli mezery či háčky a tím pádem nemělo ošklivou url
+2) uložte jej do složky pirati.cz/assets/pdf či nahrajte na patřičné místo v github rozhraní
+3) commitněte změny
+4) ověřte si že je existuje na adrese:
+https://pirati.cz/assets/pdf/nazev-dokumentu.pdf
+5) můžete tiskovu a do ní dejte ten výse zmíniný odkaz!
+
+Pokud vložíte odkaz přímo na github tak čtenář dostane pro něj nesrozumitnelnou a nechutnou hlavičku githubu:
+https://github.com/pirati-web/pirati.cz/blob/gh-pages/assets/pdf/dr-stiznost-fin.pdf
+Pokud vložíte odkaz přímo na naše stránky je náhled mnohem hezčí:
+https://www.pirati.cz/assets/pdf/dr-stiznost-fin.pdf
 
 ### Schválení změny
 
