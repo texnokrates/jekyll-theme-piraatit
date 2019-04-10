@@ -31,6 +31,7 @@ Nebojte se cokoliv přiohnout, koukejte se do dalšich pirátských webů o feat
     - [Více kandidátek](#více-kandidátek)
     - [Kalendář](#kalendář)
   - [Zobrazení mapky návrhů](#zobrazení-mapky-návrhů)
+  - [Převedení na vyšší verzi](#Převedení-na-vyšši-verzi-thematu)
   - [Otestování buildu](#otestování-buildu)
   - [Získání pomoci](#získání-pomoci)
 
@@ -326,6 +327,15 @@ Můžete také využít příkaz `build.sh`, který obsahuje oba výše zmíněn
 ```
 ./build.sh
 ```
+
+## Převedení na vyšši verzi thematu
+
+Nejprve se podívejte jaká [verze](https://github.com/pirati-web/jekyll-theme-pirati/releases) je poslední.
+Pak se podívejte do `Gemfile` a dolů do souboru `_config.yml` tam by měla být vaše aktuální verze. 
+
+Pokud aktuální používaná verze a poslední verze začínaji stejným číslem stačí to číslo zvýšit, lokálně otestovat, že se nic nerozbilo a pushnout.
+
+Pokud se liší v hlavním číšle je třeba udělat další změny podle [návodu](https://github.com/pirati-web/jekyll-theme-pirati/blob/master/README.md)
 
 ## Statistiky přístupů - Piwik/Matomo
 
