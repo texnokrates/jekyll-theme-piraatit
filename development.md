@@ -106,7 +106,7 @@ rbenv install         # Installs Ruby version required by jekyll-theme-pirati
 nvm install           # Installs Node.js runtime and NPM version required by jekyll-theme-pirati
 
 gem install bundler  # Installs bundler
-bundle install       # Installs Ruby gems
+bundle install -v 1.12       # Installs Ruby gems
 npm install          # Installs build and frontend dependecies
 ```
 
