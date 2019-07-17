@@ -23,6 +23,13 @@
             </a>
           </li>
           {% endif %}
+          {% if site.youtube.channel %}
+          <li class="c-header-bar__item c-header-bar__item--smallerSpace">
+            <a href="https://www.youtube.com/channel/{{ site.youtube.channel }}" rel="noopener noreferrer" target="_blank" title="Náš účet na Youtube">
+              <i class="fa fa-youtube" aria-hidden="true"></i>
+            </a>
+          </li>
+          {% endif %}
           {% if site.organization.name %}
           <li class="c-header-bar__item c-header-bar__item--smallerSpace">
             <a href="{{'/feed.xml' | relative_url }}" rel="noopener noreferrer" target="_blank" title="Články tohoto webu v RSS">
