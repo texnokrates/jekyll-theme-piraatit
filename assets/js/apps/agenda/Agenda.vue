@@ -30,6 +30,7 @@
     },
     data() {
       return {
+        calendarId: this.calendarId,
         eventGroups: [],
         toShow: 7,
       };
@@ -40,15 +41,15 @@
       },
 
       loadEventsFromStorage() {
-        if (window.sessionStorage && window.sessionStorage['__pircal']) {
-          return JSON.parse(window.sessionStorage['__pircal']);
+        if (window.sessionStorage && window.sessionStorage['__pircal_' + this.data.calendarId]) {
+          return JSON.parse(window.sessionStorage['__pircal_' + this.data.calendarId]);
         }
       },
 
       // Store events to sessionStorage if possible to save requests.
       storeEventsToStorage() {
         if (window.sessionStorage) {
-          window.sessionStorage['__pircal'] = JSON.stringify(this.eventGroups);
+          window.sessionStorage['__pircal_' + this.data.calendarId] = JSON.stringify(this.eventGroups);
         }
       }
     },
