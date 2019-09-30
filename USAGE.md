@@ -303,6 +303,9 @@ měly by jednotlivé položky mapy mít následující atributy:
 Pomocí atributu `data-ideaform` lze volitelně připojit i link na formulář, kam vám
 veřejnost může zasílat své nápady.
 
+
+Editace mapy záměrů se provádí nahráním souboru přímo na webu geojson.io přes Open -> File. Soubor lze vzít z Gitu kterékoli mutace webu, která ho již má a upravit dle vlastních potřeb.
+
 ## Otestování buildu
 
 Pokud chcete otestovat, jaké stránky se vám při nasazení vygenerují, spusťte
