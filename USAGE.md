@@ -24,6 +24,7 @@ Nebojte se cokoliv přiohnout, koukejte se do dalšich pirátských webů o feat
     - [Přidání PDF](#přidání-PDF)
     - [Schválení změny](#schválení-změny)
     - [Kontrola](#kontrola)
+  - [Vkládaní obrázků](#vkládání-obrázku)
   - [Složitější změny](#složitější-změny)
   - [Vytvoření regionálního webu](#vytvoření-regionálního-webu)
     - [Titulní obrázek](#titulní-obrázek)
@@ -201,6 +202,25 @@ Pokud děláte změny takto přes github, může dojít k chybě, které si hned
 - Třetí a nejhorší je, že nahrajete něco, co byste na pirati.cz vůbec neměli nahrávat. Tomu zabráníte jedině tak, že pečlivě kontrolujete commity a nepustíte dál žadnou změnu, které nerozumíte.
 
 To, že něco pokazíte se může stát každému. Důležité je nebát si říct o pomoc a chybu napravit.
+
+## Vkládání obrázku
+
+Tato sekce se týká webů které již mají obrázky a fotky na mraku, pokud je tam ještě nemáte kontaktujte TO a rádi vám pomužeme s migrací.
+
+Ve vašem domovském adresáři by jste měli vidět složku `Assets` a v ní podsložku, která má stený název jako váš web (to co je před .pirati.cz) pokud ji nevidíte kontoktuje TO. V ideálním případě složku vidí a mohou do ni psát všichni členové místního MO.
+
+Tato složka má stejnou strukturu jako složka assest měla v githubu. Nejdříve jsou složky `img` a `pdf` a přídaně další. Sami tam také můžete vytvořid dalši složku pro další druhy formátů.
+
+Do složky můžete přistoupit přímo a dokonce i [resizovat obrázky](https://wiki.pirati.cz/to/navody/asset-server)
+
+Ve složce `img/posts` web hledá fotky k článkům.  
+
+POZOR na název souboru. Jak nazvete soubor takové bude mít url a jelikož url moc nedává mezery a háčky tak se snažce psát jen anglickou abecetou a pomlčky. Hezké je když název vystihuje co je na fotce a zároveň není příliš dlouhý.
+
+Příklady dobře pojmenovaných souborů:
+- `/img/people/Ivan-Bartos.jpg`
+- `/img/post/zastupitele-brno-mesto.jpg`
+- `/img/post/Lukas_Barton_opreny.png`
 
 ## Složitější změny
 
