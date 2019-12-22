@@ -211,7 +211,7 @@ Ve vašem domovském adresáři by jste měli vidět složku `Assets` a v ní po
 
 Tato složka má stejnou strukturu jako složka assest měla v githubu. Nejdříve jsou složky `img` a `pdf` a přídaně další. Sami tam také můžete vytvořid dalši složku pro další druhy formátů.
 
-Do složky můžete přistoupit přímo a dokonce i automaticky [resizovat obrázky](https://wiki.pirati.cz/to/navody/asset-server) díky tomu můžete vlkádat i obrázky s relativne velkým rozlišením.
+Do složky můžete přistoupit přímo a dokonce i automaticky resizovat obrázky, díky tomu můžete vlkádat i obrázky s relativne velkým rozlišením. Můžete si [odkazem ověřit](https://wiki.pirati.cz/to/navody/asset-server), že jste fotky nahráli správně. Fotka zůstane v `a.pirati.cz/`, i pokud ji z mraku smažete. 
 
 Ve složce `img/posts` web hledá fotky k článkům.  
 
