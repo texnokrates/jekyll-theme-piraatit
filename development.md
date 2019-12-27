@@ -86,24 +86,24 @@ ruby -v # Verify ruby@2.5.1 is installed
 
 ### Installing the app
 
-Once you have both Ruby and Node.js the installed, clone the `jekyll-theme-pirati` repository:
+Once you have both Ruby and Node.js the installed, clone the `jekyll-theme-piraatit` repository:
 
 ```
-git clone https://github.com/pirati-web/jekyll-theme-pirati.git
+git clone https://github.com/texnokrates/jekyll-theme-piraatit.git
 ```
 
 Switch to the cloned repository:
 
 ```
-cd jekyll-theme-pirati
+cd jekyll-theme-piraatit
 ```
 
 Then, install Ruby gems and Node packages using followinf from *within the
 repository directory*:
 
 ```
-rbenv install         # Installs Ruby version required by jekyll-theme-pirati
-nvm install           # Installs Node.js runtime and NPM version required by jekyll-theme-pirati
+rbenv install         # Installs Ruby version required by jekyll-theme-piraatit
+nvm install           # Installs Node.js runtime and NPM version required by jekyll-theme-piraatit
 
 gem install bundle          # Installs bundler
 bundle install              # Installs Ruby gems
@@ -127,7 +127,7 @@ changes in the browser after a refresh, just like normal.
 
 When the theme is released, only the files in `_layouts`, `_includes`, `_sass`
 and `assets` tracked with Git will be bundled. To add a custom directory to your
-theme-gem, please edit the regexp in `jekyll-theme-pirati.gemspec` accordingly.
+theme-gem, please edit the regexp in `jekyll-theme-piraatit.gemspec` accordingly.
 
 ## Using Docker
 
@@ -217,13 +217,13 @@ To try it, you can take advantage of Bundler's
 sure you have [Gulp CLI](https://www.npmjs.com/package/gulp-cli) installed or
 install it with `npm install -g gulp-cli`. Then, follow these steps:
 
-1. In the `jekyll-theme-pirati` folder, run `gulp build && gulp prepareGem`
+1. In the `jekyll-theme-piraatit` folder, run `gulp build && gulp prepareGem`
 2. Update gemfile in your site to use GitHub as a source for the theme:
-    * Comment out your current `jekyll-theme-pirati` gem dependency
-    * Use `gem "jekyll-theme-pirati", github: "pirati-web/jekyll-theme-pirati", branch: "master"` instead
-3. In your site's directory, run: `bundle config local.jekyll-theme-pirati [path to your jekyll-theme-pirati]/.gembuild`
+    * Comment out your current `jekyll-theme-piraatit` gem dependency
+    * Use `gem "jekyll-theme-piraatit", github: "texnokrates/jekyll-theme-piraatit", branch: "master"` instead
+3. In your site's directory, run: `bundle config local.jekyll-theme-piraatit [path to your jekyll-theme-piraatit]/.gembuild`
 
-Now, when you launch your site, it will use your local `jekyll-theme-pirati`
+Now, when you launch your site, it will use your local `jekyll-theme-piraatit`
 code. Whenever you update it, you should run `gulp build && gulp prepareGem`
 again and rebuild the site.
 
@@ -243,7 +243,7 @@ In case you're stuck and helpless, try reaching us out on:
 
 * [Pirate Party chat](https://chat.pirati.cz/channel/tech-weby): in case you're
   a Pirate Party member with access, this will be your best bet
-* [Issues page](https://github.com/pirati-web/jekyll-theme-pirati/issues): add new issue if you think you've found a bug
+* [Issues page](https://github.com/texnokrates/jekyll-theme-piraatit/issues): add new issue if you think you've found a bug
 
 ## FAQ
 

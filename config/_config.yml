@@ -29,7 +29,7 @@ exclude:
   - README.md
   - Gemfile
   - Gemfile.lock
-  - jekyll-theme-pirati.gemspec
+  - jekyll-theme-piraatit.gemspec
   - node_modules
   - package.json
   - package-lock.json
@@ -150,7 +150,7 @@ forum:
   page: https://forum.pirati.cz/
 
 github:
-  url: https://github.com/pirati-web/jekyll-theme-pirati/
+  url: https://github.com/texnokrates/jekyll-theme-piraatit/
   branch: master
 
 

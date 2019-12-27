@@ -49,7 +49,7 @@ Z githubu se repozitář stahuje na naše servery.
 
 Když dojde ke změně dat tak se na naších serverech repozitář zkompiluje. K tomu se používá Jekyll,
 ten vezme soubory z aktulání verze repozitáře, přidá k nim soubory z
-[jekyll-theme-pirati](https://github.com/pirati-web/jekyll-theme-pirati) a vyrobí z nich samotné
+[jekyll-theme-piraatit](https://github.com/texnokrates/jekyll-theme-piraatit) a vyrobí z nich samotné
 html & css, které pak čte webový prohlížeč.
 
 ## Lokální spuštění
@@ -172,7 +172,7 @@ fotky, jsou vždycky čtvercové. Tím zamezíte nechtěným ořezům hlav lidí
 
 Pokud potřebujete použít stejnou funkcionalitu i na jiném místě ve vaší kopii webu,
 mrkntěte na použítí
-[tady](https://github.com/pirati-web/jekyll-theme-pirati/blob/master/_includes/people/profile-badge.html#L12)
+[tady](https://github.com/texnokrates/jekyll-theme-piraatit/blob/master/_includes/people/profile-badge.html#L12)
 a [tady](https://github.com/envygeeks/jekyll-assets).
 
 ### Přidání PDF
@@ -185,7 +185,7 @@ https://pirati.cz/assets/pdf/nazev-dokumentu.pdf
 5) můžete tiskovu a do ní dejte ten výse zmíniný odkaz!
 
 Pokud vložíte odkaz přímo na github tak čtenář dostane pro něj nesrozumitnelnou a nechutnou hlavičku githubu:
-https://github.com/pirati-web/pirati.cz/blob/gh-pages/assets/pdf/dr-stiznost-fin.pdf
+https://github.com/texnokrates/pirati.cz/blob/gh-pages/assets/pdf/dr-stiznost-fin.pdf
 Pokud vložíte odkaz přímo na naše stránky je náhled mnohem hezčí:
 https://www.pirati.cz/assets/pdf/dr-stiznost-fin.pdf
 
@@ -224,9 +224,9 @@ Příklady dobře pojmenovaných souborů:
 
 ## Složitější změny
 
-Tento web používá [jekyll-pirati-theme](https://github.com/pirati-web/jekyll-theme-pirati). Cokoliv z něj jde přepsat. Používejte co nejnovějši verzi. Verze se nastavuje v `Gemfile` a je zmíněna i v `assets` části `_config.yml`.
+Tento web používá [jekyll-theme-piraatit](https://github.com/texnokrates/jekyll-theme-piraatit). Cokoliv z něj jde přepsat. Používejte co nejnovějši verzi. Verze se nastavuje v `Gemfile` a je zmíněna i v `assets` části `_config.yml`.
 
-Pokud chcete zasahovat do JS nebo CSS tak si přečtete [dokumentaci thema](https://github.com/pirati-web/jekyll-theme-pirati/blob/master/development.md)
+Pokud chcete zasahovat do JS nebo CSS tak si přečtete [dokumentaci thema](https://github.com/texnokrates/jekyll-theme-piraatit/blob/master/development.md)
 
 ## Vytvoření regionálního webu
 
@@ -250,7 +250,7 @@ V `_config.yml` vyplně adresu PiCe a obrázek. Následně v `kontakty/index.htm
 
 ### Více kandidátek
 
-To je trošku tricky nastavení, pro inspiraci se podívejte do `jekyll-theme-pirati`.
+To je trošku tricky nastavení, pro inspiraci se podívejte do `jekyll-theme-piraatit`.
 
 ### Kalendář
 
@@ -353,12 +353,12 @@ Můžete také využít příkaz `build.sh`, který obsahuje oba výše zmíněn
 
 ## Převedení na vyšši verzi thematu
 
-Nejprve se podívejte jaká [verze](https://github.com/pirati-web/jekyll-theme-pirati/releases) je poslední.
+Nejprve se podívejte jaká [verze](https://github.com/texnokrates/jekyll-theme-piraatit/releases) je poslední.
 Pak se podívejte do `Gemfile` a dolů do souboru `_config.yml` tam by měla být vaše aktuální verze. 
 
 Pokud aktuální používaná verze a poslední verze začínaji stejným číslem stačí to číslo zvýšit, lokálně otestovat, že se nic nerozbilo a pushnout.
 
-Pokud se liší v hlavním číšle je třeba udělat další změny podle [návodu](https://github.com/pirati-web/jekyll-theme-pirati/blob/master/README.md)
+Pokud se liší v hlavním číšle je třeba udělat další změny podle [návodu](https://github.com/texnokrates/jekyll-theme-piraatit/blob/master/README.md)
 
 ## Statistiky přístupů - Piwik/Matomo
 
@@ -380,7 +380,7 @@ Projděte si [návod na git](http://www.kutac.cz/blog/pocitace-a-internety/git-t
 
 Jekyll má velmi podrobnou [dokumentaci](http://jekyllrb.com/docs/home/). A při vývoji též doporučuji [cheat sheet](http://jekyll.tips/jekyll-cheat-sheet/)
 
-Example web používá [jekyll-pirati-theme](https://github.com/pirati-web/jekyll-theme-pirati). Cokoliv z něj jde přepsat. Používejte co nejnovějši verzi.
+Example web používá [jekyll-theme-piraatit](https://github.com/texnokrates/jekyll-theme-piraatit). Cokoliv z něj jde přepsat. Používejte co nejnovějši verzi.
 
 Technicky přesné dotazy můžete směřovat na TODO-issue-theme nebo [redmine](https://redmine.pirati.cz/projects/to/issues/new)
 

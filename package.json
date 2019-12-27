@@ -1,7 +1,7 @@
 {
-  "name": "jekyll-theme-pirati",
-  "version": "7.6.2",
-  "description": "Basic theme for Czech pirate party",
+  "name": "jekyll-theme-piraatit",
+  "version": "0.6.2-alpha1",
+  "description": "Basic theme for Finnish pirate party",
   "main": "index.js",
   "scripts": {
     "test": "echo 'test'",
@@ -18,10 +18,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pirati-web/jekyll-theme-pirati.git"
+    "url": "git+https://github.com/texnokrates/jekyll-theme-piraatit.git"
   },
   "keywords": [
-    "pirati",
+    "piraattipuolue",
     "jekyll",
     "theme"
   ],
@@ -34,13 +34,17 @@
     {
       "name": "Filip Vařecha",
       "email": "filip.varecha@pirati.cz"
+    },
+    {
+      "name": "Marek Nečada",
+      "email": "marek@necada.org"
     }
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/pirati-web/jekyll-theme-pirati/issues"
+    "url": "https://github.com/texnokrates/jekyll-theme-piraatit/issues"
   },
-  "homepage": "https://github.com/pirati-web/jekyll-theme-pirati#readme",
+  "homepage": "https://github.com/texnokrates/jekyll-theme-piraatit#readme",
   "devDependencies": {
     "autoprefixer": "^8.6.2",
     "babel-core": "^6.26.3",

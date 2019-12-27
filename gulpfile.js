@@ -9,7 +9,7 @@ const
  * Gem build pipeline.
  *
  * This gulpfile contains the build pipeline necessary for building and publishing
- * new jekyll-theme-pirati Gem versions. The process goes like this:
+ * new jekyll-theme-piraatit Gem versions. The process goes like this:
  *
  * 1) First, run the production build of the site. This ensures, Webpack build
  *    artifacts (JS and CSS files) are created in _site/assets/js and properly
@@ -68,7 +68,7 @@ gulp.task('copyGemFiles', function () {
 // Copy over gemspec file to the build directory and update the path to package.json.
 gulp.task('copyGemSpec', function () {
   return gulp
-    .src(['./jekyll-theme-pirati.gemspec'])
+    .src(['./jekyll-theme-piraatit.gemspec'])
     .pipe(replace('./package.json', '../package.json'))
     .pipe(gulp.dest(GEM_BUILD_DIR));
 });
@@ -107,7 +107,7 @@ gulp.task('writeManifest', function () {
 
 // Runs `gem build` command in the build directory.
 gulp.task('buildGem', function () {
-  const shellCommand = `cd ${GEM_BUILD_DIR} && gem build jekyll-theme-pirati.gemspec --config-file ../.gemrc`;
+  const shellCommand = `cd ${GEM_BUILD_DIR} && gem build jekyll-theme-piraatit.gemspec --config-file ../.gemrc`;
   return run(shellCommand, {verbosity: 3}).exec();
 });
 

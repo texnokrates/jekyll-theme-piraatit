@@ -1,6 +1,6 @@
-# jekyll-theme-pirati
+# jekyll-theme-piraatit
 
-Theme of Czech Pirate Party.
+Theme of Finnish Pirate Party, forked from jekyll-theme-pirati by our Czech comrades.
 
 [![Gem Version](https://badge.fury.io/rb/jekyll-theme-pirati.svg)](https://badge.fury.io/rb/jekyll-theme-pirati)
 
@@ -32,7 +32,7 @@ Tag `_config.yml organization contactUid` is not used. Contacts person in bottom
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/pirati-web/jekyll-theme-pirati/. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/texnokrates/jekyll-theme-piraatit/. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## Development
 
